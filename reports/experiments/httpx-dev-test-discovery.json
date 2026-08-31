@@ -1,0 +1,360 @@
+{
+  "case_count": 5,
+  "results": [
+    {
+      "case_id": "httpx-dev-001",
+      "gold_changed_tests": [
+        "tests/client/test_proxies.py"
+      ],
+      "V2_graph_test_discovery": {
+        "metrics": {
+          "changed_test_recall_at_10": 0.0,
+          "changed_test_recall_at_20": 1.0,
+          "changed_test_mrr": 0.058823529411764705
+        },
+        "gold_ranks": {
+          "tests/client/test_proxies.py": 17
+        },
+        "predicted_tests": [
+          "tests/dispatch/utils.py",
+          "tests/client/test_redirects.py",
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py",
+          "tests/test_multipart.py",
+          "tests/client/test_auth.py",
+          "tests/conftest.py",
+          "tests/client/test_cookies.py",
+          "tests/client/test_headers.py",
+          "tests/dispatch/test_proxy_http.py",
+          "tests/dispatch/test_http2.py",
+          "tests/test_asgi.py",
+          "tests/client/test_queryparams.py",
+          "tests/test_timeouts.py",
+          "tests/test_utils.py",
+          "tests/dispatch/test_connections.py",
+          "tests/client/test_proxies.py",
+          "tests/client/test_properties.py",
+          "tests/test_concurrency.py",
+          "tests/test_config.py",
+          "tests/dispatch/test_connection_pools.py",
+          "tests/models/test_requests.py",
+          "tests/models/test_responses.py",
+          "tests/test_decoders.py",
+          "tests/models/test_headers.py",
+          "tests/test_api.py"
+        ]
+      },
+      "V3_graph_test_discovery": {
+        "metrics": {
+          "changed_test_recall_at_10": 0.0,
+          "changed_test_recall_at_20": 1.0,
+          "changed_test_mrr": 0.06666666666666667
+        },
+        "gold_ranks": {
+          "tests/client/test_proxies.py": 15
+        },
+        "predicted_tests": [
+          "tests/dispatch/utils.py",
+          "tests/client/test_auth.py",
+          "tests/client/test_redirects.py",
+          "tests/client/test_async_client.py",
+          "tests/client/test_cookies.py",
+          "tests/client/test_client.py",
+          "tests/dispatch/test_http2.py",
+          "tests/client/test_headers.py",
+          "tests/test_multipart.py",
+          "tests/client/test_queryparams.py",
+          "tests/conftest.py",
+          "tests/dispatch/test_proxy_http.py",
+          "tests/dispatch/test_connections.py",
+          "tests/test_utils.py",
+          "tests/client/test_proxies.py",
+          "tests/dispatch/test_connection_pools.py",
+          "tests/models/test_requests.py",
+          "tests/test_timeouts.py",
+          "tests/test_concurrency.py",
+          "tests/test_config.py",
+          "tests/test_asgi.py",
+          "tests/client/test_properties.py"
+        ]
+      }
+    },
+    {
+      "case_id": "httpx-dev-002",
+      "gold_changed_tests": [
+        "tests/client/test_redirects.py",
+        "tests/test_utils.py"
+      ],
+      "V2_graph_test_discovery": {
+        "metrics": {
+          "changed_test_recall_at_10": 0.5,
+          "changed_test_recall_at_20": 1.0,
+          "changed_test_mrr": 0.3333333333333333
+        },
+        "gold_ranks": {
+          "tests/client/test_redirects.py": 3,
+          "tests/test_utils.py": 19
+        },
+        "predicted_tests": [
+          "tests/client/test_auth.py",
+          "tests/test_asgi.py",
+          "tests/client/test_redirects.py",
+          "tests/models/test_responses.py",
+          "tests/test_status_codes.py",
+          "tests/client/test_client.py",
+          "tests/client/test_headers.py",
+          "tests/test_multipart.py",
+          "tests/client/test_async_client.py",
+          "tests/client/test_event_hooks.py",
+          "tests/client/test_cookies.py",
+          "tests/client/test_queryparams.py",
+          "tests/test_content.py",
+          "tests/models/test_requests.py",
+          "tests/conftest.py",
+          "tests/test_config.py",
+          "tests/models/test_url.py",
+          "tests/test_decoders.py",
+          "tests/test_utils.py",
+          "tests/test_wsgi.py",
+          "tests/client/test_properties.py",
+          "tests/test_exceptions.py",
+          "tests/test_api.py",
+          "tests/test_main.py",
+          "tests/client/test_proxies.py",
+          "tests/test_timeouts.py",
+          "tests/models/test_headers.py",
+          "tests/test_auth.py",
+          "tests/models/test_cookies.py"
+        ]
+      },
+      "V3_graph_test_discovery": {
+        "metrics": {
+          "changed_test_recall_at_10": 0.5,
+          "changed_test_recall_at_20": 1.0,
+          "changed_test_mrr": 1.0
+        },
+        "gold_ranks": {
+          "tests/client/test_redirects.py": 1,
+          "tests/test_utils.py": 14
+        },
+        "predicted_tests": [
+          "tests/client/test_redirects.py",
+          "tests/models/test_responses.py",
+          "tests/test_status_codes.py",
+          "tests/client/test_auth.py",
+          "tests/client/test_client.py",
+          "tests/client/test_headers.py",
+          "tests/test_content.py",
+          "tests/client/test_async_client.py",
+          "tests/models/test_requests.py",
+          "tests/client/test_event_hooks.py",
+          "tests/test_asgi.py",
+          "tests/conftest.py",
+          "tests/client/test_cookies.py",
+          "tests/test_utils.py",
+          "tests/test_wsgi.py",
+          "tests/test_config.py",
+          "tests/client/test_properties.py",
+          "tests/test_exceptions.py",
+          "tests/models/test_url.py",
+          "tests/test_api.py",
+          "tests/test_main.py",
+          "tests/client/test_proxies.py",
+          "tests/test_timeouts.py",
+          "tests/client/test_queryparams.py",
+          "tests/models/test_headers.py",
+          "tests/test_decoders.py",
+          "tests/test_multipart.py",
+          "tests/test_auth.py",
+          "tests/models/test_cookies.py"
+        ]
+      }
+    },
+    {
+      "case_id": "httpx-dev-003",
+      "gold_changed_tests": [
+        "tests/test_auth.py"
+      ],
+      "V2_graph_test_discovery": {
+        "metrics": {
+          "changed_test_recall_at_10": 1.0,
+          "changed_test_recall_at_20": 1.0,
+          "changed_test_mrr": 0.5
+        },
+        "gold_ranks": {
+          "tests/test_auth.py": 2
+        },
+        "predicted_tests": [
+          "tests/client/test_auth.py",
+          "tests/test_auth.py",
+          "tests/client/test_redirects.py",
+          "tests/test_status_codes.py",
+          "tests/models/test_responses.py",
+          "tests/client/test_event_hooks.py",
+          "tests/client/test_headers.py",
+          "tests/conftest.py",
+          "tests/models/test_url.py",
+          "tests/test_config.py",
+          "tests/models/test_requests.py",
+          "tests/test_main.py",
+          "tests/test_utils.py"
+        ]
+      },
+      "V3_graph_test_discovery": {
+        "metrics": {
+          "changed_test_recall_at_10": 1.0,
+          "changed_test_recall_at_20": 1.0,
+          "changed_test_mrr": 0.5
+        },
+        "gold_ranks": {
+          "tests/test_auth.py": 2
+        },
+        "predicted_tests": [
+          "tests/client/test_auth.py",
+          "tests/test_auth.py"
+        ]
+      }
+    },
+    {
+      "case_id": "httpx-dev-004",
+      "gold_changed_tests": [
+        "tests/test_utils.py"
+      ],
+      "V2_graph_test_discovery": {
+        "metrics": {
+          "changed_test_recall_at_10": 1.0,
+          "changed_test_recall_at_20": 1.0,
+          "changed_test_mrr": 1.0
+        },
+        "gold_ranks": {
+          "tests/test_utils.py": 1
+        },
+        "predicted_tests": [
+          "tests/test_utils.py",
+          "tests/client/test_proxies.py",
+          "tests/client/test_auth.py",
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py",
+          "tests/test_content.py",
+          "tests/test_multipart.py",
+          "tests/test_urlparse.py"
+        ]
+      },
+      "V3_graph_test_discovery": {
+        "metrics": {
+          "changed_test_recall_at_10": 1.0,
+          "changed_test_recall_at_20": 1.0,
+          "changed_test_mrr": 0.5
+        },
+        "gold_ranks": {
+          "tests/test_utils.py": 2
+        },
+        "predicted_tests": [
+          "tests/test_urlparse.py",
+          "tests/test_utils.py",
+          "tests/client/test_proxies.py",
+          "tests/client/test_auth.py",
+          "tests/client/test_async_client.py",
+          "tests/client/test_client.py",
+          "tests/test_content.py",
+          "tests/test_multipart.py"
+        ]
+      }
+    },
+    {
+      "case_id": "httpx-dev-005",
+      "gold_changed_tests": [
+        "tests/test_decoders.py"
+      ],
+      "V2_graph_test_discovery": {
+        "metrics": {
+          "changed_test_recall_at_10": 1.0,
+          "changed_test_recall_at_20": 1.0,
+          "changed_test_mrr": 0.5
+        },
+        "gold_ranks": {
+          "tests/test_decoders.py": 2
+        },
+        "predicted_tests": [
+          "tests/models/test_responses.py",
+          "tests/test_decoders.py",
+          "tests/client/test_client.py",
+          "tests/test_asgi.py",
+          "tests/conftest.py",
+          "tests/client/test_headers.py",
+          "tests/client/test_redirects.py",
+          "tests/models/test_headers.py",
+          "tests/test_utils.py",
+          "tests/test_content.py",
+          "tests/test_multipart.py",
+          "tests/client/test_auth.py",
+          "tests/client/test_async_client.py",
+          "tests/test_wsgi.py",
+          "tests/client/test_event_hooks.py",
+          "tests/test_api.py",
+          "tests/test_config.py",
+          "tests/client/test_queryparams.py",
+          "tests/test_auth.py",
+          "tests/client/test_cookies.py",
+          "tests/test_timeouts.py",
+          "tests/client/test_properties.py",
+          "tests/models/test_cookies.py",
+          "tests/test_exceptions.py",
+          "tests/test_main.py",
+          "tests/models/test_url.py",
+          "tests/models/test_requests.py",
+          "tests/models/test_whatwg.py"
+        ]
+      },
+      "V3_graph_test_discovery": {
+        "metrics": {
+          "changed_test_recall_at_10": 1.0,
+          "changed_test_recall_at_20": 1.0,
+          "changed_test_mrr": 0.3333333333333333
+        },
+        "gold_ranks": {
+          "tests/test_decoders.py": 3
+        },
+        "predicted_tests": [
+          "tests/models/test_responses.py",
+          "tests/client/test_client.py",
+          "tests/test_decoders.py",
+          "tests/client/test_redirects.py",
+          "tests/test_asgi.py",
+          "tests/client/test_headers.py",
+          "tests/conftest.py",
+          "tests/models/test_headers.py",
+          "tests/test_utils.py",
+          "tests/client/test_auth.py",
+          "tests/client/test_async_client.py",
+          "tests/test_content.py",
+          "tests/test_multipart.py",
+          "tests/test_wsgi.py",
+          "tests/client/test_event_hooks.py",
+          "tests/test_api.py",
+          "tests/test_auth.py",
+          "tests/client/test_cookies.py",
+          "tests/test_timeouts.py",
+          "tests/client/test_queryparams.py",
+          "tests/client/test_properties.py",
+          "tests/models/test_cookies.py",
+          "tests/test_config.py",
+          "tests/test_exceptions.py",
+          "tests/test_main.py"
+        ]
+      }
+    }
+  ],
+  "macro": {
+    "V2_graph_test_discovery": {
+      "changed_test_recall_at_10": 0.7,
+      "changed_test_recall_at_20": 1.0,
+      "changed_test_mrr": 0.47843137254901963
+    },
+    "V3_graph_test_discovery": {
+      "changed_test_recall_at_10": 0.7,
+      "changed_test_recall_at_20": 1.0,
+      "changed_test_mrr": 0.48
+    }
+  }
+}

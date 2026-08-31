@@ -1,0 +1,409 @@
+{
+  "case_id": "httpx-dev-002",
+  "repository": "httpx",
+  "base_commit": "4f8068a7ade1f4d10403e325ed2354109df1724f",
+  "fix_commit": "4401d55ecf0d95be237098b6c73c45420d54d499",
+  "embedding": "bge",
+  "reranker": "bge",
+  "graph_hops": 1,
+  "runtime_build_seconds": 21.342,
+  "gold": {
+    "changed_files": 4,
+    "changed_symbols": 2,
+    "tests": 2
+  },
+  "results": [
+    {
+      "version": "V0",
+      "method": "BM25 lexical",
+      "file_recall_at_5": 0.5,
+      "file_recall_at_10": 0.75,
+      "symbol_recall_at_5": 0.5,
+      "symbol_recall_at_10": 0.5,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.7087212693585175,
+      "test_file_recall_at_10": 0.5,
+      "latency_ms": 8.708,
+      "top_files": [
+        "httpx/_utils.py",
+        "tests/test_auth.py",
+        "httpx/_client.py",
+        "httpx/_transports/mock.py",
+        "tests/client/test_auth.py",
+        "tests/client/test_headers.py",
+        "tests/models/test_headers.py",
+        "tests/client/test_redirects.py",
+        "httpx/_models.py",
+        "tests/conftest.py"
+      ],
+      "top_symbols": [
+        "httpx/_utils.py::peek_filelike_length",
+        "tests/test_auth.py::test_digest_auth_with_200",
+        "httpx/_client.py::BaseClient._redirect_headers",
+        "httpx/_client.py::UseClientDefault",
+        "httpx/_transports/mock.py::MockTransport.handle_async_request",
+        "tests/test_auth.py::test_digest_auth_with_401",
+        "tests/client/test_auth.py::ResponseBodyAuth",
+        "tests/client/test_headers.py::test_host_with_non_default_port_in_url",
+        "tests/models/test_headers.py::test_sensitive_headers",
+        "httpx/_client.py::BaseClient._redirect_method"
+      ]
+    },
+    {
+      "version": "V1",
+      "method": "BGE-M3 dense",
+      "file_recall_at_5": 0.5,
+      "file_recall_at_10": 0.5,
+      "symbol_recall_at_5": 1.0,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.6366824387328317,
+      "test_file_recall_at_10": 0.5,
+      "latency_ms": 17.587,
+      "top_files": [
+        "httpx/_client.py",
+        "tests/client/test_redirects.py",
+        "tests/models/test_requests.py",
+        "httpx/_status_codes.py",
+        "tests/models/test_headers.py",
+        "tests/client/test_event_hooks.py",
+        "tests/client/test_auth.py",
+        "httpx/_models.py",
+        "httpx/_api.py",
+        "tests/client/test_headers.py"
+      ],
+      "top_symbols": [
+        "httpx/_client.py::BaseClient._redirect_headers",
+        "tests/client/test_redirects.py::redirects",
+        "tests/client/test_redirects.py::test_head_redirect",
+        "tests/models/test_requests.py::test_ignore_transfer_encoding_header_if_content_length_exists",
+        "httpx/_client.py::BaseClient",
+        "httpx/_status_codes.py::codes",
+        "tests/client/test_redirects.py::test_cross_domain_redirect_with_auth_header",
+        "tests/models/test_headers.py::test_sensitive_headers",
+        "tests/models/test_requests.py::test_override_accept_encoding_header",
+        "tests/client/test_event_hooks.py::test_event_hooks_with_redirect"
+      ]
+    },
+    {
+      "version": "V2",
+      "method": "BM25 + BGE-M3 RRF",
+      "file_recall_at_5": 0.5,
+      "file_recall_at_10": 0.75,
+      "symbol_recall_at_5": 0.5,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.715696758318853,
+      "test_file_recall_at_10": 0.5,
+      "latency_ms": 27.903,
+      "top_files": [
+        "httpx/_client.py",
+        "tests/models/test_headers.py",
+        "tests/client/test_redirects.py",
+        "tests/test_auth.py",
+        "tests/client/test_auth.py",
+        "tests/client/test_headers.py",
+        "httpx/_utils.py",
+        "tests/models/test_requests.py",
+        "httpx/_transports/mock.py",
+        "httpx/_status_codes.py"
+      ],
+      "top_symbols": [
+        "httpx/_client.py::BaseClient._redirect_headers",
+        "tests/models/test_headers.py::test_sensitive_headers",
+        "tests/client/test_redirects.py::test_cross_domain_redirect_with_auth_header",
+        "httpx/_client.py::BaseClient._redirect_method",
+        "tests/test_auth.py::test_digest_auth_with_401",
+        "tests/client/test_auth.py::ResponseBodyAuth",
+        "tests/client/test_headers.py::test_host_with_auth_and_port_in_url",
+        "httpx/_client.py::BaseClient",
+        "tests/client/test_redirects.py::test_body_redirect",
+        "tests/client/test_redirects.py::test_cross_domain_redirect_with_auth"
+      ]
+    },
+    {
+      "version": "V3",
+      "method": "Hybrid + BGE reranker",
+      "file_recall_at_5": 0.5,
+      "file_recall_at_10": 0.5,
+      "symbol_recall_at_5": 1.0,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.5585075862632192,
+      "test_file_recall_at_10": 0.5,
+      "latency_ms": 5440.887,
+      "top_files": [
+        "httpx/_client.py",
+        "httpx/_status_codes.py",
+        "httpx/_models.py",
+        "tests/client/test_redirects.py",
+        "tests/client/test_event_hooks.py",
+        "tests/test_auth.py"
+      ],
+      "top_symbols": [
+        "httpx/_client.py::BaseClient",
+        "httpx/_client.py::BaseClient._redirect_headers",
+        "httpx/_status_codes.py::codes",
+        "httpx/_models.py::URL",
+        "httpx/_models.py::Headers",
+        "tests/client/test_redirects.py::redirects",
+        "tests/client/test_redirects.py::test_cross_domain_redirect_with_auth_header",
+        "tests/client/test_event_hooks.py::test_event_hooks_with_redirect",
+        "tests/client/test_event_hooks.py::test_async_event_hooks_with_redirect",
+        "tests/test_auth.py::test_digest_auth_with_200"
+      ]
+    },
+    {
+      "version": "V4",
+      "method": "Hybrid + reranker + graph 1-hop",
+      "file_recall_at_5": 0.25,
+      "file_recall_at_10": 0.5,
+      "symbol_recall_at_5": 1.0,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.5205067333228022,
+      "test_file_recall_at_10": 0.5,
+      "latency_ms": 0.29,
+      "top_files": [
+        "httpx/_client.py",
+        "httpx/_status_codes.py",
+        "httpx/_auth.py",
+        "httpx/_config.py",
+        "httpx/_exceptions.py",
+        "httpx/_models.py",
+        "tests/client/test_redirects.py",
+        "tests/client/test_event_hooks.py",
+        "tests/test_auth.py"
+      ],
+      "top_symbols": [
+        "httpx/_client.py::BaseClient",
+        "httpx/_client.py::BaseClient._redirect_headers",
+        "httpx/_status_codes.py::codes",
+        "httpx/_auth.py::Auth",
+        "httpx/_auth.py::BasicAuth",
+        "httpx/_auth.py::FunctionAuth",
+        "httpx/_client.py::BaseClient._build_auth",
+        "httpx/_client.py::BaseClient._enforce_trailing_slash",
+        "httpx/_client.py::BaseClient._merge_cookies",
+        "httpx/_client.py::BaseClient._merge_headers"
+      ],
+      "graph_candidates": [
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient",
+          "score": 1.8588168621063232,
+          "source": "direct",
+          "rank": 1
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient._redirect_headers",
+          "score": 1.3292067050933838,
+          "source": "direct",
+          "rank": 2
+        },
+        {
+          "file": "httpx/_status_codes.py",
+          "symbol": "codes",
+          "score": 0.8089912136395772,
+          "source": "direct",
+          "rank": 3
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "Auth",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "BasicAuth",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "FunctionAuth",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient._build_auth",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient._enforce_trailing_slash",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient._merge_cookies",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient._merge_headers",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient._merge_queryparams",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient._merge_url",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient._redirect_method",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient._redirect_stream",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient._redirect_url",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_config.py",
+          "symbol": "Proxy",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_config.py",
+          "symbol": "Timeout",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_config.py",
+          "symbol": "Timeout.as_dict",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_exceptions.py",
+          "symbol": "RemoteProtocolError",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_models.py",
+          "symbol": "Cookies",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_models.py",
+          "symbol": "Headers",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_models.py",
+          "symbol": "QueryParams",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_models.py",
+          "symbol": "QueryParams.merge",
+          "score": 0.765,
+          "source": "sym:httpx/_client.py:BaseClient",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_models.py",
+          "symbol": "URL",
+          "score": 0.5600592494010925,
+          "source": "direct",
+          "rank": 4
+        },
+        {
+          "file": "tests/client/test_redirects.py",
+          "symbol": "redirects",
+          "score": 0.4007159719864527,
+          "source": "direct",
+          "rank": 6
+        }
+      ]
+    }
+  ]
+}

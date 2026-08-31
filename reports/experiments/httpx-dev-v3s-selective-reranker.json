@@ -1,0 +1,286 @@
+{
+  "case_count": 5,
+  "design": {
+    "base": "V2 Hybrid",
+    "file_ranking": "V2 locked",
+    "file_limit": 5,
+    "candidate_limit": 12,
+    "reranker": "BAAI/bge-reranker-v2-m3"
+  },
+  "results": [
+    {
+      "case_id": "httpx-dev-001",
+      "candidate_files": [
+        "httpx/concurrency/base.py",
+        "httpx/client.py",
+        "httpx/dispatch/http2.py",
+        "httpx/dispatch/http11.py",
+        "tests/conftest.py"
+      ],
+      "candidate_count": 12,
+      "V2": {
+        "file_metrics": {
+          "file_recall_at_5": 0.4444444444444444,
+          "file_recall_at_10": 0.5555555555555556,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.676242778189252
+        },
+        "symbol_metrics": {
+          "symbol_recall_at_5": 0.07407407407407407,
+          "symbol_recall_at_10": 0.16666666666666666,
+          "symbol_recall_at_20": 0.2222222222222222
+        },
+        "retrieval_latency_ms": 33.022
+      },
+      "V3S": {
+        "file_metrics": {
+          "file_recall_at_5": 0.4444444444444444,
+          "file_recall_at_10": 0.5555555555555556,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.676242778189252
+        },
+        "symbol_metrics": {
+          "symbol_recall_at_5": 0.09259259259259259,
+          "symbol_recall_at_10": 0.16666666666666666,
+          "symbol_recall_at_20": 0.2222222222222222
+        },
+        "reranker_stage_latency_ms": 2527.257,
+        "end_to_end_latency_ms": 2560.28,
+        "top_symbols": [
+          "httpx/dispatch/http11.py::HTTP11Connection",
+          "httpx/dispatch/http2.py::HTTP2Connection",
+          "httpx/client.py::Client",
+          "httpx/dispatch/http11.py::HTTP11Connection._send_request_body",
+          "httpx/dispatch/http11.py::HTTP11Connection.send",
+          "httpx/dispatch/http2.py::HTTP2Connection.send",
+          "httpx/concurrency/base.py::TimeoutFlag",
+          "httpx/client.py::Client.send_single_request",
+          "httpx/dispatch/http2.py::HTTP2Connection.send_request_data",
+          "httpx/dispatch/http11.py::HTTP11Connection._send_request"
+        ]
+      }
+    },
+    {
+      "case_id": "httpx-dev-002",
+      "candidate_files": [
+        "httpx/_client.py",
+        "tests/models/test_headers.py",
+        "tests/client/test_redirects.py",
+        "tests/test_auth.py",
+        "tests/client/test_auth.py"
+      ],
+      "candidate_count": 12,
+      "V2": {
+        "file_metrics": {
+          "file_recall_at_5": 0.5,
+          "file_recall_at_10": 0.75,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.715696758318853
+        },
+        "symbol_metrics": {
+          "symbol_recall_at_5": 0.5,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0
+        },
+        "retrieval_latency_ms": 33.436
+      },
+      "V3S": {
+        "file_metrics": {
+          "file_recall_at_5": 0.5,
+          "file_recall_at_10": 0.75,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.715696758318853
+        },
+        "symbol_metrics": {
+          "symbol_recall_at_5": 1.0,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0
+        },
+        "reranker_stage_latency_ms": 1132.913,
+        "end_to_end_latency_ms": 1166.349,
+        "top_symbols": [
+          "httpx/_client.py::BaseClient",
+          "httpx/_client.py::BaseClient._redirect_headers",
+          "tests/client/test_redirects.py::redirects",
+          "tests/client/test_redirects.py::test_cross_domain_redirect_with_auth_header",
+          "tests/test_auth.py::test_digest_auth_with_200",
+          "tests/test_auth.py::test_digest_auth_with_401",
+          "tests/client/test_redirects.py::test_body_redirect",
+          "tests/client/test_redirects.py::test_cross_domain_redirect_with_auth",
+          "tests/client/test_auth.py::ResponseBodyAuth",
+          "tests/client/test_redirects.py::test_head_redirect"
+        ]
+      }
+    },
+    {
+      "case_id": "httpx-dev-003",
+      "candidate_files": [
+        "httpx/_auth.py",
+        "tests/test_auth.py",
+        "tests/client/test_auth.py",
+        "httpx/_status_codes.py"
+      ],
+      "candidate_count": 12,
+      "V2": {
+        "file_metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 1.0
+        },
+        "symbol_metrics": {
+          "symbol_recall_at_5": 0.5,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0
+        },
+        "retrieval_latency_ms": 34.851
+      },
+      "V3S": {
+        "file_metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 1.0
+        },
+        "symbol_metrics": {
+          "symbol_recall_at_5": 1.0,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0
+        },
+        "reranker_stage_latency_ms": 491.039,
+        "end_to_end_latency_ms": 525.89,
+        "top_symbols": [
+          "httpx/_auth.py::DigestAuth",
+          "httpx/_auth.py::DigestAuth._build_auth_header",
+          "httpx/_auth.py::DigestAuth._parse_challenge",
+          "tests/client/test_auth.py::test_digest_auth_no_specified_qop",
+          "tests/client/test_auth.py::DigestApp",
+          "httpx/_auth.py::DigestAuth._resolve_qop",
+          "tests/test_auth.py::test_digest_auth_with_401_nonce_counting",
+          "tests/test_auth.py::test_digest_auth_with_401",
+          "httpx/_auth.py::DigestAuth.auth_flow",
+          "tests/client/test_auth.py::test_digest_auth_qop_must_be_auth_or_auth_int"
+        ]
+      }
+    },
+    {
+      "case_id": "httpx-dev-004",
+      "candidate_files": [
+        "httpx/_utils.py",
+        "httpx/_urlparse.py",
+        "tests/test_urlparse.py",
+        "httpx/_transports/default.py",
+        "tests/models/test_url.py"
+      ],
+      "candidate_count": 12,
+      "V2": {
+        "file_metrics": {
+          "file_recall_at_5": 0.5,
+          "file_recall_at_10": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.8065735963827293
+        },
+        "symbol_metrics": {
+          "symbol_recall_at_5": 1.0,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0
+        },
+        "retrieval_latency_ms": 39.545
+      },
+      "V3S": {
+        "file_metrics": {
+          "file_recall_at_5": 0.5,
+          "file_recall_at_10": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.8065735963827293
+        },
+        "symbol_metrics": {
+          "symbol_recall_at_5": 1.0,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0
+        },
+        "reranker_stage_latency_ms": 307.11,
+        "end_to_end_latency_ms": 346.655,
+        "top_symbols": [
+          "httpx/_utils.py::get_environment_proxies",
+          "httpx/_utils.py::URLPattern",
+          "httpx/_transports/default.py::AsyncHTTPTransport",
+          "httpx/_transports/default.py::HTTPTransport.__init__",
+          "httpx/_transports/default.py::AsyncHTTPTransport.__init__",
+          "httpx/_urlparse.py::encode_host",
+          "httpx/_utils.py::URLPattern.__init__",
+          "tests/test_urlparse.py::test_urlparse_valid_ipv6",
+          "tests/models/test_url.py::test_url_query_encoding",
+          "tests/test_urlparse.py::test_urlparse_invalid_ipv6"
+        ]
+      }
+    },
+    {
+      "case_id": "httpx-dev-005",
+      "candidate_files": [
+        "tests/models/test_responses.py",
+        "httpx/_decoders.py",
+        "httpx/_models.py"
+      ],
+      "candidate_count": 12,
+      "V2": {
+        "file_metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_mrr": 0.5,
+          "file_ndcg_at_10": 0.6509209298071326
+        },
+        "symbol_metrics": {
+          "symbol_recall_at_5": 0.25,
+          "symbol_recall_at_10": 0.25,
+          "symbol_recall_at_20": 0.75
+        },
+        "retrieval_latency_ms": 31.194
+      },
+      "V3S": {
+        "file_metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_mrr": 0.5,
+          "file_ndcg_at_10": 0.6509209298071326
+        },
+        "symbol_metrics": {
+          "symbol_recall_at_5": 0.25,
+          "symbol_recall_at_10": 0.25,
+          "symbol_recall_at_20": 0.75
+        },
+        "reranker_stage_latency_ms": 1928.923,
+        "end_to_end_latency_ms": 1960.117,
+        "top_symbols": [
+          "httpx/_models.py::Response",
+          "httpx/_decoders.py::ZStandardDecoder",
+          "httpx/_models.py::Response.iter_bytes",
+          "httpx/_models.py::Response.aiter_bytes",
+          "tests/models/test_responses.py::test_response_no_charset_with_iso_8859_1_content",
+          "httpx/_decoders.py::GZipDecoder.decode",
+          "httpx/_decoders.py::DeflateDecoder",
+          "tests/models/test_responses.py::test_response_no_charset_with_cp_1252_content",
+          "tests/models/test_responses.py::test_response_no_charset_with_ascii_content",
+          "tests/models/test_responses.py::test_response_no_charset_with_utf8_content"
+        ]
+      }
+    }
+  ],
+  "macro": {
+    "V2": {
+      "symbol_recall_at_5": 0.4648148148148148,
+      "symbol_recall_at_10": 0.6833333333333333,
+      "symbol_recall_at_20": 0.7944444444444444,
+      "file_recall_at_10": 0.8611111111111112,
+      "retrieval_latency_ms": 34.4096
+    },
+    "V3S": {
+      "symbol_recall_at_5": 0.6685185185185185,
+      "symbol_recall_at_10": 0.6833333333333333,
+      "symbol_recall_at_20": 0.7944444444444444,
+      "file_recall_at_10": 0.8611111111111112,
+      "reranker_stage_latency_ms": 1277.4484,
+      "end_to_end_latency_ms": 1311.8582000000001
+    }
+  }
+}

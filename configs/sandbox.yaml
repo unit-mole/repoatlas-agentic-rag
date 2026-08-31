@@ -1,0 +1,7 @@
+image: repoatlas-sandbox:latest
+network: none
+cpus: 2.0
+memory: 4g
+pids_limit: 128
+timeout_seconds: 180
+read_only_root: true

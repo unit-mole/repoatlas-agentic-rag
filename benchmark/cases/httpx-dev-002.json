@@ -1,0 +1,32 @@
+{
+  "case_id": "httpx-dev-002",
+  "repository": "httpx",
+  "base_commit": "4f8068a7ade1f4d10403e325ed2354109df1724f",
+  "issue_text": "An Authorization header is being stripped during HTTPS redirects even when it should be preserved.",
+  "all_changed_files": [
+    "httpx/_client.py",
+    "httpx/_utils.py",
+    "tests/client/test_redirects.py",
+    "tests/test_utils.py"
+  ],
+  "expected_changed_files": [
+    "httpx/_client.py",
+    "httpx/_utils.py",
+    "tests/client/test_redirects.py",
+    "tests/test_utils.py"
+  ],
+  "excluded_changed_files": [],
+  "expected_changed_symbols": [
+    "httpx/_client.py::BaseClient._redirect_headers",
+    "httpx/_client.py::BaseClient"
+  ],
+  "expected_tests": [
+    "tests/client/test_redirects.py",
+    "tests/test_utils.py"
+  ],
+  "gold_patch": null,
+  "fix_commit": "4401d55ecf0d95be237098b6c73c45420d54d499",
+  "difficulty": "medium",
+  "category": "redirect_security",
+  "split": "dev"
+}

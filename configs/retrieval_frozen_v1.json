@@ -1,0 +1,57 @@
+{
+  "config_version": "repoatlas-retrieval-v1",
+  "status": "frozen_after_dev",
+  "benchmark_policy": {
+    "tuning_split": "DEV",
+    "test_split": "TEST",
+    "allow_test_tuning": false,
+    "gold_patch_runtime_access": false,
+    "future_commit_runtime_access": false
+  },
+  "primary_retrieval": {
+    "version": "V2",
+    "method": "BM25 + BGE-M3 reciprocal-rank fusion",
+    "embedding_model": "BAAI/bge-m3",
+    "lexical_k": 40,
+    "dense_k": 40,
+    "fusion_k": 30
+  },
+  "graph_augmentation": {
+    "version": "V4P",
+    "enabled": true,
+    "mode": "protected_context_augmentation",
+    "max_hops": 1,
+    "seed_limit": 5,
+    "max_added_nodes": 25,
+    "protected_symbol_k": 10,
+    "protected_file_k": 10
+  },
+  "test_discovery": {
+    "enabled": true,
+    "source": "V2",
+    "relationship": "reverse_TESTS",
+    "candidate_limit": 30
+  },
+  "symbol_refinement": {
+    "version": "V3S",
+    "enabled": true,
+    "mode": "optional_deep_investigation",
+    "reranker_model": "BAAI/bge-reranker-v2-m3",
+    "file_limit": 5,
+    "candidate_limit": 12,
+    "preserve_file_ranking": true
+  },
+  "serving_profiles": {
+    "fast": [
+      "V2",
+      "V4P",
+      "TESTS"
+    ],
+    "deep": [
+      "V2",
+      "V4P",
+      "TESTS",
+      "V3S"
+    ]
+  }
+}

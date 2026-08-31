@@ -1,0 +1,36 @@
+{
+  "case_id": "httpx-dev-005",
+  "repository": "httpx",
+  "base_commit": "189fc4bcbe5f314128775dec66a616ac9a31ad48",
+  "issue_text": "Empty zstd-encoded responses should decode cleanly instead of raising a decoder error.",
+  "all_changed_files": [
+    "CHANGELOG.md",
+    "README.md",
+    "httpx/__version__.py",
+    "httpx/_decoders.py",
+    "tests/test_decoders.py"
+  ],
+  "expected_changed_files": [
+    "httpx/_decoders.py",
+    "tests/test_decoders.py"
+  ],
+  "excluded_changed_files": [
+    "CHANGELOG.md",
+    "README.md",
+    "httpx/__version__.py"
+  ],
+  "expected_changed_symbols": [
+    "httpx/_decoders.py::ZStandardDecoder.flush",
+    "httpx/_decoders.py::ZStandardDecoder.__init__",
+    "httpx/_decoders.py::ZStandardDecoder.decode",
+    "httpx/_decoders.py::ZStandardDecoder"
+  ],
+  "expected_tests": [
+    "tests/test_decoders.py"
+  ],
+  "gold_patch": null,
+  "fix_commit": "47f4a96ffaaaa07dca1614409549b5d7a6e7af49",
+  "difficulty": "medium",
+  "category": "response_decoding",
+  "split": "dev"
+}

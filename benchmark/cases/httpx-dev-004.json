@@ -1,0 +1,26 @@
+{
+  "case_id": "httpx-dev-004",
+  "repository": "httpx",
+  "base_commit": "7d7c4f15b8784e4a550d974139acfa64193b32c2",
+  "issue_text": "NO_PROXY matching should correctly support IPv4 addresses, IPv6 addresses, and localhost.",
+  "all_changed_files": [
+    "httpx/_utils.py",
+    "tests/test_utils.py"
+  ],
+  "expected_changed_files": [
+    "httpx/_utils.py",
+    "tests/test_utils.py"
+  ],
+  "excluded_changed_files": [],
+  "expected_changed_symbols": [
+    "httpx/_utils.py::get_environment_proxies"
+  ],
+  "expected_tests": [
+    "tests/test_utils.py"
+  ],
+  "gold_patch": null,
+  "fix_commit": "15d09a3bbc20372cd87e48f17f7c9381c8220a0f",
+  "difficulty": "medium",
+  "category": "proxy_networking",
+  "split": "dev"
+}

@@ -1,0 +1,239 @@
+{
+  "case_count": 5,
+  "design": "V2 protected top-10 + bounded deterministic 1-hop graph augmentation",
+  "results": [
+    {
+      "case_id": "httpx-dev-001",
+      "V2": {
+        "metrics": {
+          "file_recall_at_5": 0.4444444444444444,
+          "file_recall_at_10": 0.5555555555555556,
+          "file_recall_at_20": 0.5555555555555556,
+          "symbol_recall_at_5": 0.07407407407407407,
+          "symbol_recall_at_10": 0.16666666666666666,
+          "symbol_recall_at_20": 0.2222222222222222,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.676242778189252,
+          "test_file_recall_at_10": 0.0
+        },
+        "latency_ms": 36.007
+      },
+      "V4P": {
+        "metrics": {
+          "file_recall_at_5": 0.4444444444444444,
+          "file_recall_at_10": 0.5555555555555556,
+          "file_recall_at_20": 0.6666666666666666,
+          "symbol_recall_at_5": 0.07407407407407407,
+          "symbol_recall_at_10": 0.16666666666666666,
+          "symbol_recall_at_20": 0.2222222222222222,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.676242778189252,
+          "test_file_recall_at_10": 0.0
+        },
+        "graph_stage_latency_ms": 0.469,
+        "end_to_end_latency_ms": 36.476,
+        "protected_prefix_size": 19,
+        "graph_candidates": 20,
+        "graph_added_files": 11,
+        "gold_graph_files": [
+          "httpx/concurrency/base.py",
+          "httpx/dispatch/connection.py",
+          "httpx/dispatch/http2.py",
+          "httpx/dispatch/proxy_http.py"
+        ],
+        "gold_graph_symbols": [
+          "httpx/concurrency/base.py::BaseSocketStream",
+          "httpx/dispatch/connection.py::HTTPConnection",
+          "httpx/dispatch/http2.py::HTTP2Connection.body_iter",
+          "httpx/dispatch/http2.py::HTTP2Connection.end_stream",
+          "httpx/dispatch/http2.py::HTTP2Connection.receive_event",
+          "httpx/dispatch/http2.py::HTTP2Connection.receive_response",
+          "httpx/dispatch/http2.py::HTTP2Connection.send_data",
+          "httpx/dispatch/http2.py::HTTP2Connection.send_headers",
+          "httpx/dispatch/proxy_http.py::HTTPProxy"
+        ]
+      }
+    },
+    {
+      "case_id": "httpx-dev-002",
+      "V2": {
+        "metrics": {
+          "file_recall_at_5": 0.5,
+          "file_recall_at_10": 0.75,
+          "file_recall_at_20": 0.75,
+          "symbol_recall_at_5": 0.5,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.715696758318853,
+          "test_file_recall_at_10": 0.5
+        },
+        "latency_ms": 32.841
+      },
+      "V4P": {
+        "metrics": {
+          "file_recall_at_5": 0.5,
+          "file_recall_at_10": 0.75,
+          "file_recall_at_20": 0.75,
+          "symbol_recall_at_5": 0.5,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.715696758318853,
+          "test_file_recall_at_10": 0.5
+        },
+        "graph_stage_latency_ms": 0.256,
+        "end_to_end_latency_ms": 33.097,
+        "protected_prefix_size": 18,
+        "graph_candidates": 25,
+        "graph_added_files": 6,
+        "gold_graph_files": [
+          "httpx/_client.py"
+        ],
+        "gold_graph_symbols": []
+      }
+    },
+    {
+      "case_id": "httpx-dev-003",
+      "V2": {
+        "metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 0.5,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 1.0,
+          "test_file_recall_at_10": 1.0
+        },
+        "latency_ms": 26.498
+      },
+      "V4P": {
+        "metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 0.5,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 1.0,
+          "test_file_recall_at_10": 1.0
+        },
+        "graph_stage_latency_ms": 0.505,
+        "end_to_end_latency_ms": 27.003,
+        "protected_prefix_size": 26,
+        "graph_candidates": 25,
+        "graph_added_files": 8,
+        "gold_graph_files": [
+          "httpx/_auth.py",
+          "tests/test_auth.py"
+        ],
+        "gold_graph_symbols": []
+      }
+    },
+    {
+      "case_id": "httpx-dev-004",
+      "V2": {
+        "metrics": {
+          "file_recall_at_5": 0.5,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 1.0,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.8065735963827293,
+          "test_file_recall_at_10": 1.0
+        },
+        "latency_ms": 35.537
+      },
+      "V4P": {
+        "metrics": {
+          "file_recall_at_5": 0.5,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 1.0,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.8065735963827293,
+          "test_file_recall_at_10": 1.0
+        },
+        "graph_stage_latency_ms": 0.412,
+        "end_to_end_latency_ms": 35.949,
+        "protected_prefix_size": 18,
+        "graph_candidates": 13,
+        "graph_added_files": 6,
+        "gold_graph_files": [
+          "tests/test_utils.py"
+        ],
+        "gold_graph_symbols": []
+      }
+    },
+    {
+      "case_id": "httpx-dev-005",
+      "V2": {
+        "metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 0.25,
+          "symbol_recall_at_10": 0.25,
+          "symbol_recall_at_20": 0.75,
+          "file_mrr": 0.5,
+          "file_ndcg_at_10": 0.6509209298071326,
+          "test_file_recall_at_10": 1.0
+        },
+        "latency_ms": 20.766
+      },
+      "V4P": {
+        "metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 0.25,
+          "symbol_recall_at_10": 0.25,
+          "symbol_recall_at_20": 0.75,
+          "file_mrr": 0.5,
+          "file_ndcg_at_10": 0.6509209298071326,
+          "test_file_recall_at_10": 1.0
+        },
+        "graph_stage_latency_ms": 1.867,
+        "end_to_end_latency_ms": 22.633,
+        "protected_prefix_size": 30,
+        "graph_candidates": 25,
+        "graph_added_files": 6,
+        "gold_graph_files": [
+          "httpx/_decoders.py"
+        ],
+        "gold_graph_symbols": []
+      }
+    }
+  ],
+  "macro": {
+    "V2": {
+      "file_recall_at_5": 0.6888888888888889,
+      "file_recall_at_10": 0.8611111111111112,
+      "file_recall_at_20": 0.8611111111111112,
+      "symbol_recall_at_5": 0.4648148148148148,
+      "symbol_recall_at_10": 0.6833333333333333,
+      "symbol_recall_at_20": 0.7944444444444444,
+      "file_mrr": 0.9,
+      "file_ndcg_at_10": 0.7698868125395933,
+      "test_file_recall_at_10": 0.7
+    },
+    "V4P": {
+      "file_recall_at_5": 0.6888888888888889,
+      "file_recall_at_10": 0.8611111111111112,
+      "file_recall_at_20": 0.8833333333333333,
+      "symbol_recall_at_5": 0.4648148148148148,
+      "symbol_recall_at_10": 0.6833333333333333,
+      "symbol_recall_at_20": 0.7944444444444444,
+      "file_mrr": 0.9,
+      "file_ndcg_at_10": 0.7698868125395933,
+      "test_file_recall_at_10": 0.7
+    }
+  }
+}

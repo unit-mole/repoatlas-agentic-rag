@@ -1,0 +1,17 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports: ["6333:6333", "6334:6334"]
+    volumes: ["./qdrant_storage:/qdrant/storage"]
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: repoatlas
+      POSTGRES_PASSWORD: repoatlas
+      POSTGRES_DB: repoatlas
+    ports: ["5432:5432"]
+    volumes: ["./postgres_data:/var/lib/postgresql/data"]
+  phoenix:
+    image: arizephoenix/phoenix:latest
+    ports: ["6006:6006", "4317:4317"]
+    volumes: ["./phoenix_data:/root/.phoenix"]

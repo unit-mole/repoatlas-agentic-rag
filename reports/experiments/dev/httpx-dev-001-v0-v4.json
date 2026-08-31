@@ -1,0 +1,406 @@
+{
+  "case_id": "httpx-dev-001",
+  "repository": "httpx",
+  "base_commit": "c033ed1b6513759de0c473962f1f597af4be04b3",
+  "fix_commit": "eb7c6b0342cc998a9a305c97f8d95b886a533f14",
+  "embedding": "bge",
+  "reranker": "bge",
+  "graph_hops": 1,
+  "runtime_build_seconds": 24.985,
+  "gold": {
+    "changed_files": 9,
+    "changed_symbols": 54,
+    "tests": 1
+  },
+  "results": [
+    {
+      "version": "V0",
+      "method": "BM25 lexical",
+      "file_recall_at_5": 0.4444444444444444,
+      "file_recall_at_10": 0.5555555555555556,
+      "symbol_recall_at_5": 0.05555555555555555,
+      "symbol_recall_at_10": 0.07407407407407407,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.6462551795369942,
+      "test_file_recall_at_10": 0.0,
+      "latency_ms": 8.388,
+      "top_files": [
+        "httpx/concurrency/base.py",
+        "httpx/dispatch/http11.py",
+        "httpx/api.py",
+        "httpx/client.py",
+        "httpx/dispatch/http2.py",
+        "tests/conftest.py",
+        "httpx/concurrency/asyncio.py",
+        "httpx/concurrency/trio.py",
+        "httpx/dispatch/proxy_http.py",
+        "tests/test_concurrency.py"
+      ],
+      "top_symbols": [
+        "httpx/concurrency/base.py::TimeoutFlag",
+        "httpx/dispatch/http11.py::HTTP11Connection._send_request_body",
+        "httpx/api.py::request",
+        "httpx/client.py::Client.send_single_request",
+        "httpx/dispatch/http2.py::HTTP2Connection.send_request_data",
+        "tests/conftest.py::TestServer.install_signal_handlers",
+        "httpx/dispatch/http2.py::HTTP2Connection.initiate_connection",
+        "httpx/client.py::Client",
+        "httpx/concurrency/asyncio.py::SocketStream.write",
+        "httpx/api.py::head"
+      ]
+    },
+    {
+      "version": "V1",
+      "method": "BGE-M3 dense",
+      "file_recall_at_5": 0.3333333333333333,
+      "file_recall_at_10": 0.4444444444444444,
+      "symbol_recall_at_5": 0.037037037037037035,
+      "symbol_recall_at_10": 0.07407407407407407,
+      "file_mrr": 0.5,
+      "file_ndcg_at_10": 0.4404729498955641,
+      "test_file_recall_at_10": 0.0,
+      "latency_ms": 30.195,
+      "top_files": [
+        "httpx/exceptions.py",
+        "httpx/dispatch/http11.py",
+        "httpx/dispatch/http2.py",
+        "tests/test_config.py",
+        "httpx/concurrency/base.py",
+        "httpx/client.py",
+        "tests/conftest.py",
+        "tests/test_timeouts.py",
+        "tests/dispatch/utils.py",
+        "httpx/concurrency/trio.py"
+      ],
+      "top_symbols": [
+        "httpx/exceptions.py::RequestTimeout",
+        "httpx/dispatch/http11.py::HTTP11Connection.send",
+        "httpx/exceptions.py::ConnectTimeout",
+        "httpx/dispatch/http2.py::HTTP2Connection.send",
+        "tests/test_config.py::test_timeout_from_none",
+        "httpx/exceptions.py::WriteTimeout",
+        "httpx/concurrency/base.py::TimeoutFlag",
+        "httpx/dispatch/http11.py::HTTP11Connection._send_request",
+        "httpx/concurrency/base.py::TimeoutFlag.set_write_timeouts",
+        "httpx/dispatch/http2.py::HTTP2Connection.send_request_data"
+      ]
+    },
+    {
+      "version": "V2",
+      "method": "BM25 + BGE-M3 RRF",
+      "file_recall_at_5": 0.4444444444444444,
+      "file_recall_at_10": 0.5555555555555556,
+      "symbol_recall_at_5": 0.07407407407407407,
+      "symbol_recall_at_10": 0.16666666666666666,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.676242778189252,
+      "test_file_recall_at_10": 0.0,
+      "latency_ms": 30.671,
+      "top_files": [
+        "httpx/concurrency/base.py",
+        "httpx/client.py",
+        "httpx/dispatch/http2.py",
+        "httpx/dispatch/http11.py",
+        "tests/conftest.py",
+        "httpx/concurrency/asyncio.py",
+        "httpx/concurrency/trio.py",
+        "httpx/dispatch/connection.py",
+        "httpx/exceptions.py",
+        "httpx/api.py"
+      ],
+      "top_symbols": [
+        "httpx/concurrency/base.py::TimeoutFlag",
+        "httpx/client.py::Client.send_single_request",
+        "httpx/dispatch/http2.py::HTTP2Connection.send_request_data",
+        "httpx/dispatch/http11.py::HTTP11Connection._send_request_body",
+        "httpx/dispatch/http2.py::HTTP2Connection",
+        "httpx/dispatch/http11.py::HTTP11Connection._send_request",
+        "httpx/dispatch/http11.py::HTTP11Connection.send",
+        "httpx/dispatch/http2.py::HTTP2Connection.send",
+        "httpx/dispatch/http11.py::HTTP11Connection",
+        "httpx/client.py::Client"
+      ]
+    },
+    {
+      "version": "V3",
+      "method": "Hybrid + BGE reranker",
+      "file_recall_at_5": 0.2222222222222222,
+      "file_recall_at_10": 0.4444444444444444,
+      "symbol_recall_at_5": 0.037037037037037035,
+      "symbol_recall_at_10": 0.09259259259259259,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.5412163092689026,
+      "test_file_recall_at_10": 0.0,
+      "latency_ms": 6337.998,
+      "top_files": [
+        "httpx/dispatch/http11.py",
+        "httpx/dispatch/http2.py",
+        "httpx/concurrency/asyncio.py",
+        "httpx/api.py",
+        "httpx/concurrency/trio.py",
+        "httpx/client.py",
+        "tests/conftest.py",
+        "httpx/concurrency/base.py"
+      ],
+      "top_symbols": [
+        "httpx/dispatch/http11.py::HTTP11Connection",
+        "httpx/dispatch/http2.py::HTTP2Connection",
+        "httpx/concurrency/asyncio.py::SocketStream",
+        "httpx/api.py::request",
+        "httpx/concurrency/trio.py::SocketStream.write",
+        "httpx/client.py::Client",
+        "httpx/dispatch/http11.py::HTTP11Connection._send_request_body",
+        "httpx/dispatch/http11.py::HTTP11Connection.send",
+        "httpx/concurrency/asyncio.py::SocketStream.write",
+        "tests/conftest.py::TestServer"
+      ]
+    },
+    {
+      "version": "V4",
+      "method": "Hybrid + reranker + graph 1-hop",
+      "file_recall_at_5": 0.2222222222222222,
+      "file_recall_at_10": 0.5555555555555556,
+      "symbol_recall_at_5": 0.037037037037037035,
+      "symbol_recall_at_10": 0.05555555555555555,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.6119720699899832,
+      "test_file_recall_at_10": 0.0,
+      "latency_ms": 0.315,
+      "top_files": [
+        "httpx/dispatch/http11.py",
+        "httpx/dispatch/http2.py",
+        "httpx/concurrency/asyncio.py",
+        "httpx/api.py",
+        "httpx/concurrency/trio.py",
+        "httpx/concurrency/base.py",
+        "httpx/config.py",
+        "httpx/dispatch/connection.py",
+        "httpx/dispatch/proxy_http.py",
+        "httpx/exceptions.py"
+      ],
+      "top_symbols": [
+        "httpx/dispatch/http11.py::HTTP11Connection",
+        "httpx/dispatch/http2.py::HTTP2Connection",
+        "httpx/concurrency/asyncio.py::SocketStream",
+        "httpx/api.py::request",
+        "httpx/concurrency/trio.py::SocketStream.write",
+        "httpx/concurrency/base.py::TimeoutFlag",
+        "httpx/concurrency/base.py::TimeoutFlag.set_read_timeouts",
+        "httpx/concurrency/base.py::TimeoutFlag.set_write_timeouts",
+        "httpx/config.py::Timeout",
+        "httpx/dispatch/connection.py::HTTPConnection"
+      ],
+      "graph_candidates": [
+        {
+          "file": "httpx/dispatch/http11.py",
+          "symbol": "HTTP11Connection",
+          "score": 1.8259020447731018,
+          "source": "direct",
+          "rank": 1
+        },
+        {
+          "file": "httpx/dispatch/http2.py",
+          "symbol": "HTTP2Connection",
+          "score": 1.2684924006462097,
+          "source": "direct",
+          "rank": 2
+        },
+        {
+          "file": "httpx/concurrency/asyncio.py",
+          "symbol": "SocketStream",
+          "score": 1.05100413163503,
+          "source": "direct",
+          "rank": 3
+        },
+        {
+          "file": "httpx/api.py",
+          "symbol": "request",
+          "score": 0.9028575420379639,
+          "source": "direct",
+          "rank": 4
+        },
+        {
+          "file": "httpx/concurrency/trio.py",
+          "symbol": "SocketStream.write",
+          "score": 0.8251779794692993,
+          "source": "direct",
+          "rank": 5
+        },
+        {
+          "file": "httpx/concurrency/base.py",
+          "symbol": "TimeoutFlag",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/concurrency/base.py",
+          "symbol": "TimeoutFlag.set_read_timeouts",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/concurrency/base.py",
+          "symbol": "TimeoutFlag.set_write_timeouts",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/config.py",
+          "symbol": "Timeout",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/dispatch/connection.py",
+          "symbol": "HTTPConnection",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/dispatch/http11.py",
+          "symbol": "HTTP11Connection._receive_event",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/dispatch/http11.py",
+          "symbol": "HTTP11Connection._receive_response",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/dispatch/http11.py",
+          "symbol": "HTTP11Connection._receive_response_data",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/dispatch/http11.py",
+          "symbol": "HTTP11Connection._send_event",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/dispatch/http11.py",
+          "symbol": "HTTP11Connection._send_request",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/dispatch/http11.py",
+          "symbol": "HTTP11Connection._send_request_body",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/dispatch/proxy_http.py",
+          "symbol": "HTTPProxy",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/exceptions.py",
+          "symbol": "ConnectionClosed",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/exceptions.py",
+          "symbol": "ProtocolError",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/models.py",
+          "symbol": "Request",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/models.py",
+          "symbol": "Response",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "tests/dispatch/utils.py",
+          "symbol": "MockHTTP2Server.receive_data",
+          "score": 0.765,
+          "source": "sym:httpx/dispatch/http11.py:HTTP11Connection",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/client.py",
+          "symbol": "Client",
+          "score": 0.6897077957789103,
+          "source": "direct",
+          "rank": 6
+        },
+        {
+          "file": "httpx/dispatch/http11.py",
+          "symbol": "HTTP11Connection.send",
+          "score": 0.511854887008667,
+          "source": "direct",
+          "rank": 8
+        },
+        {
+          "file": "httpx/concurrency/asyncio.py",
+          "symbol": "SocketStream.write",
+          "score": 0.48165015048450893,
+          "source": "direct",
+          "rank": 9
+        }
+      ]
+    }
+  ]
+}

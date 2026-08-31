@@ -1,0 +1,59 @@
+{
+  "cases": [
+    {
+      "case_id": "httpx-dev-001",
+      "base_commit": "c033ed1b6513759de0c473962f1f597af4be04b3",
+      "retrieval_gold_files": 9,
+      "gold_symbols": 54,
+      "changed_tests": 1,
+      "parsed_symbols": 885,
+      "chunks": 885,
+      "graph_nodes": 939,
+      "graph_edges": 9923
+    },
+    {
+      "case_id": "httpx-dev-002",
+      "base_commit": "4f8068a7ade1f4d10403e325ed2354109df1724f",
+      "retrieval_gold_files": 4,
+      "gold_symbols": 2,
+      "changed_tests": 2,
+      "parsed_symbols": 1163,
+      "chunks": 1163,
+      "graph_nodes": 1204,
+      "graph_edges": 14887
+    },
+    {
+      "case_id": "httpx-dev-003",
+      "base_commit": "ca51b4532a4495c38c8abf1a393dbd80099deae3",
+      "retrieval_gold_files": 2,
+      "gold_symbols": 2,
+      "changed_tests": 1,
+      "parsed_symbols": 1240,
+      "chunks": 1240,
+      "graph_nodes": 1281,
+      "graph_edges": 16005
+    },
+    {
+      "case_id": "httpx-dev-004",
+      "base_commit": "7d7c4f15b8784e4a550d974139acfa64193b32c2",
+      "retrieval_gold_files": 2,
+      "gold_symbols": 1,
+      "changed_tests": 1,
+      "parsed_symbols": 1221,
+      "chunks": 1221,
+      "graph_nodes": 1263,
+      "graph_edges": 15786
+    },
+    {
+      "case_id": "httpx-dev-005",
+      "base_commit": "189fc4bcbe5f314128775dec66a616ac9a31ad48",
+      "retrieval_gold_files": 2,
+      "gold_symbols": 4,
+      "changed_tests": 1,
+      "parsed_symbols": 1238,
+      "chunks": 1238,
+      "graph_nodes": 1280,
+      "graph_edges": 16451
+    }
+  ]
+}

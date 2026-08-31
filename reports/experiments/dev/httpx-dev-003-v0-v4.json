@@ -1,0 +1,404 @@
+{
+  "case_id": "httpx-dev-003",
+  "repository": "httpx",
+  "base_commit": "ca51b4532a4495c38c8abf1a393dbd80099deae3",
+  "fix_commit": "99cba6ac642b12f0331d069ae324402c54c4c600",
+  "embedding": "bge",
+  "reranker": "bge",
+  "graph_hops": 1,
+  "runtime_build_seconds": 24.615,
+  "gold": {
+    "changed_files": 2,
+    "changed_symbols": 2,
+    "tests": 1
+  },
+  "results": [
+    {
+      "version": "V0",
+      "method": "BM25 lexical",
+      "file_recall_at_5": 1.0,
+      "file_recall_at_10": 1.0,
+      "symbol_recall_at_5": 0.5,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 1.0,
+      "test_file_recall_at_10": 1.0,
+      "latency_ms": 8.488,
+      "top_files": [
+        "httpx/_auth.py",
+        "tests/test_auth.py",
+        "httpx/_urlparse.py",
+        "httpx/_status_codes.py",
+        "tests/client/test_headers.py",
+        "tests/test_utils.py",
+        "tests/client/test_auth.py",
+        "httpx/_multipart.py",
+        "httpx/_client.py",
+        "httpx/_utils.py"
+      ],
+      "top_symbols": [
+        "httpx/_auth.py::DigestAuth._resolve_qop",
+        "httpx/_auth.py::DigestAuth._parse_challenge",
+        "httpx/_auth.py::DigestAuth",
+        "tests/test_auth.py::test_digest_auth_with_401",
+        "httpx/_urlparse.py::quote",
+        "httpx/_auth.py::DigestAuth._build_auth_header",
+        "httpx/_auth.py::Auth",
+        "tests/test_auth.py::test_digest_auth_with_401_nonce_counting",
+        "httpx/_status_codes.py::codes",
+        "tests/client/test_headers.py::test_header_repeated_items"
+      ]
+    },
+    {
+      "version": "V1",
+      "method": "BGE-M3 dense",
+      "file_recall_at_5": 1.0,
+      "file_recall_at_10": 1.0,
+      "symbol_recall_at_5": 0.5,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 0.5,
+      "file_ndcg_at_10": 0.6934264036172708,
+      "test_file_recall_at_10": 1.0,
+      "latency_ms": 30.244,
+      "top_files": [
+        "tests/client/test_auth.py",
+        "httpx/_auth.py",
+        "tests/test_auth.py",
+        "tests/models/test_responses.py",
+        "httpx/_models.py",
+        "tests/client/test_properties.py",
+        "httpx/_status_codes.py",
+        "httpx/_transports/default.py",
+        "httpx/_client.py",
+        "tests/models/test_requests.py"
+      ],
+      "top_symbols": [
+        "tests/client/test_auth.py::test_digest_auth_no_specified_qop",
+        "httpx/_auth.py::DigestAuth._resolve_qop",
+        "tests/client/test_auth.py::test_digest_auth_qop_must_be_auth_or_auth_int",
+        "httpx/_auth.py::DigestAuth",
+        "tests/client/test_auth.py::test_digest_auth_qop_auth_int_not_implemented",
+        "httpx/_auth.py::DigestAuth.auth_flow",
+        "httpx/_auth.py::DigestAuth._parse_challenge",
+        "tests/client/test_auth.py::test_digest_auth_qop_including_spaces_and_auth_returns_auth",
+        "tests/client/test_auth.py::DigestApp",
+        "httpx/_auth.py::DigestAuth._build_auth_header"
+      ]
+    },
+    {
+      "version": "V2",
+      "method": "BM25 + BGE-M3 RRF",
+      "file_recall_at_5": 1.0,
+      "file_recall_at_10": 1.0,
+      "symbol_recall_at_5": 0.5,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 1.0,
+      "test_file_recall_at_10": 1.0,
+      "latency_ms": 24.582,
+      "top_files": [
+        "httpx/_auth.py",
+        "tests/test_auth.py",
+        "tests/client/test_auth.py",
+        "httpx/_status_codes.py",
+        "tests/models/test_responses.py",
+        "httpx/_urlparse.py",
+        "tests/client/test_headers.py",
+        "tests/test_utils.py",
+        "httpx/_multipart.py",
+        "httpx/_client.py"
+      ],
+      "top_symbols": [
+        "httpx/_auth.py::DigestAuth._resolve_qop",
+        "httpx/_auth.py::DigestAuth",
+        "httpx/_auth.py::DigestAuth._parse_challenge",
+        "tests/test_auth.py::test_digest_auth_with_401",
+        "tests/client/test_auth.py::test_digest_auth_no_specified_qop",
+        "httpx/_auth.py::DigestAuth._build_auth_header",
+        "tests/client/test_auth.py::DigestApp",
+        "tests/test_auth.py::test_digest_auth_with_401_nonce_counting",
+        "tests/client/test_auth.py::test_digest_auth_qop_must_be_auth_or_auth_int",
+        "httpx/_auth.py::DigestAuth.auth_flow"
+      ]
+    },
+    {
+      "version": "V3",
+      "method": "Hybrid + BGE reranker",
+      "file_recall_at_5": 1.0,
+      "file_recall_at_10": 1.0,
+      "symbol_recall_at_5": 1.0,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.9197207891481876,
+      "test_file_recall_at_10": 1.0,
+      "latency_ms": 1147.336,
+      "top_files": [
+        "httpx/_auth.py",
+        "tests/client/test_auth.py",
+        "tests/test_auth.py"
+      ],
+      "top_symbols": [
+        "httpx/_auth.py::DigestAuth",
+        "httpx/_auth.py::DigestAuth._build_auth_header",
+        "httpx/_auth.py::DigestAuth._parse_challenge",
+        "tests/client/test_auth.py::test_digest_auth_no_specified_qop",
+        "tests/client/test_auth.py::DigestApp",
+        "tests/client/test_auth.py::DigestApp.challenge_send",
+        "httpx/_auth.py::DigestAuth._resolve_qop",
+        "tests/test_auth.py::test_digest_auth_with_401_nonce_counting",
+        "tests/client/test_auth.py::test_digest_auth",
+        "tests/client/test_auth.py::DigestApp.__init__"
+      ]
+    },
+    {
+      "version": "V4",
+      "method": "Hybrid + reranker + graph 1-hop",
+      "file_recall_at_5": 0.5,
+      "file_recall_at_10": 1.0,
+      "symbol_recall_at_5": 1.0,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.8175295903539445,
+      "test_file_recall_at_10": 1.0,
+      "latency_ms": 0.266,
+      "top_files": [
+        "httpx/_auth.py",
+        "tests/client/test_auth.py",
+        "httpx/_exceptions.py",
+        "httpx/_models.py",
+        "httpx/_urls.py",
+        "httpx/_utils.py",
+        "tests/test_auth.py"
+      ],
+      "top_symbols": [
+        "httpx/_auth.py::DigestAuth",
+        "httpx/_auth.py::DigestAuth._build_auth_header",
+        "httpx/_auth.py::DigestAuth._parse_challenge",
+        "tests/client/test_auth.py::test_digest_auth_no_specified_qop",
+        "httpx/_auth.py::DigestAuth._build_auth_header.digest",
+        "httpx/_auth.py::DigestAuth._get_client_nonce",
+        "httpx/_auth.py::DigestAuth._get_header_value",
+        "httpx/_auth.py::DigestAuth._resolve_qop",
+        "httpx/_auth.py::_DigestAuthChallenge",
+        "httpx/_exceptions.py::ProtocolError"
+      ],
+      "graph_candidates": [
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "DigestAuth",
+          "score": 1.9103177189826965,
+          "source": "direct",
+          "rank": 1
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "DigestAuth._build_auth_header",
+          "score": 1.2528866529464722,
+          "source": "direct",
+          "rank": 2
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "DigestAuth._parse_challenge",
+          "score": 0.9485793908437092,
+          "source": "direct",
+          "rank": 3
+        },
+        {
+          "file": "tests/client/test_auth.py",
+          "symbol": "test_digest_auth_no_specified_qop",
+          "score": 0.8044263124465942,
+          "source": "direct",
+          "rank": 4
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "DigestAuth._build_auth_header.digest",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "DigestAuth._get_client_nonce",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "DigestAuth._get_header_value",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "DigestAuth._resolve_qop",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "_DigestAuthChallenge",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_exceptions.py",
+          "symbol": "ProtocolError",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_models.py",
+          "symbol": "Cookies",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_models.py",
+          "symbol": "Cookies.set_cookie_header",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_urls.py",
+          "symbol": "URL.join",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_utils.py",
+          "symbol": "to_bytes",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_utils.py",
+          "symbol": "to_str",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_utils.py",
+          "symbol": "unquote",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "tests/client/test_auth.py",
+          "symbol": "test_async_digest_auth_raises_protocol_error_on_malformed_header",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "tests/client/test_auth.py",
+          "symbol": "test_digest_auth",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "tests/client/test_auth.py",
+          "symbol": "test_digest_auth_200_response_including_digest_auth_header",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "tests/client/test_auth.py",
+          "symbol": "test_digest_auth_401_response_without_digest_auth_header",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "tests/client/test_auth.py",
+          "symbol": "test_digest_auth_incorrect_credentials",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "tests/client/test_auth.py",
+          "symbol": "test_digest_auth_qop_auth_int_not_implemented",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "tests/client/test_auth.py",
+          "symbol": "test_digest_auth_qop_including_spaces_and_auth_returns_auth",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "tests/client/test_auth.py",
+          "symbol": "test_digest_auth_qop_must_be_auth_or_auth_int",
+          "score": 0.765,
+          "source": "sym:httpx/_auth.py:DigestAuth",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "tests/client/test_auth.py",
+          "symbol": "DigestApp",
+          "score": 0.6976391792297363,
+          "source": "direct",
+          "rank": 5
+        }
+      ]
+    }
+  ]
+}

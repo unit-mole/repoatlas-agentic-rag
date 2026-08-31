@@ -1,0 +1,4 @@
+host: 127.0.0.1
+port: 8080
+public_read_only: true
+max_snippet_chars: 4000

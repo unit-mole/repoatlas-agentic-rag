@@ -1,0 +1,5 @@
+max_retrieval_cycles: 3
+max_tool_calls: 20
+max_patch_attempts: 2
+max_test_retries: 2
+minimum_evidence: 3

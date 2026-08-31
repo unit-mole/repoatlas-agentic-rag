@@ -1,0 +1,399 @@
+{
+  "case_id": "httpx-dev-005",
+  "repository": "httpx",
+  "base_commit": "189fc4bcbe5f314128775dec66a616ac9a31ad48",
+  "fix_commit": "47f4a96ffaaaa07dca1614409549b5d7a6e7af49",
+  "embedding": "bge",
+  "reranker": "bge",
+  "graph_hops": 1,
+  "runtime_build_seconds": 21.469,
+  "gold": {
+    "changed_files": 2,
+    "changed_symbols": 4,
+    "tests": 1
+  },
+  "results": [
+    {
+      "version": "V0",
+      "method": "BM25 lexical",
+      "file_recall_at_5": 0.5,
+      "file_recall_at_10": 0.5,
+      "symbol_recall_at_5": 0.0,
+      "symbol_recall_at_10": 0.0,
+      "file_mrr": 0.3333333333333333,
+      "file_ndcg_at_10": 0.3065735963827292,
+      "test_file_recall_at_10": 0.0,
+      "latency_ms": 10.864,
+      "top_files": [
+        "httpx/_models.py",
+        "tests/models/test_url.py",
+        "httpx/_decoders.py",
+        "tests/models/test_responses.py",
+        "tests/conftest.py",
+        "httpx/_exceptions.py",
+        "httpx/_urlparse.py",
+        "httpx/_urls.py",
+        "tests/client/test_auth.py",
+        "httpx/_client.py"
+      ],
+      "top_symbols": [
+        "httpx/_models.py::Response.iter_bytes",
+        "httpx/_models.py::Response.aiter_bytes",
+        "tests/models/test_url.py::test_query_with_mixed_percent_encoding",
+        "httpx/_decoders.py::TextDecoder",
+        "httpx/_models.py::Response.iter_text",
+        "httpx/_models.py::Response.aiter_text",
+        "httpx/_decoders.py::TextDecoder.decode",
+        "tests/models/test_responses.py::test_response_no_charset_with_ascii_content",
+        "tests/models/test_responses.py::test_response_no_charset_with_utf8_content",
+        "httpx/_models.py::Response"
+      ]
+    },
+    {
+      "version": "V1",
+      "method": "BGE-M3 dense",
+      "file_recall_at_5": 1.0,
+      "file_recall_at_10": 1.0,
+      "symbol_recall_at_5": 0.5,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 1.0,
+      "test_file_recall_at_10": 1.0,
+      "latency_ms": 21.437,
+      "top_files": [
+        "tests/test_decoders.py",
+        "httpx/_decoders.py",
+        "tests/models/test_responses.py",
+        "httpx/_models.py",
+        "tests/client/test_client.py"
+      ],
+      "top_symbols": [
+        "tests/test_decoders.py::test_zstd_decoding_error",
+        "httpx/_decoders.py::ZStandardDecoder.flush",
+        "httpx/_decoders.py::ZStandardDecoder",
+        "tests/models/test_responses.py::test_response_no_charset_with_utf8_content",
+        "tests/test_decoders.py::test_decoders_empty_cases",
+        "httpx/_decoders.py::ZStandardDecoder.decode",
+        "tests/models/test_responses.py::test_response_no_charset_with_ascii_content",
+        "tests/models/test_responses.py::test_response_no_charset_with_iso_8859_1_content",
+        "httpx/_decoders.py::GZipDecoder.flush",
+        "httpx/_decoders.py::ZStandardDecoder.__init__"
+      ]
+    },
+    {
+      "version": "V2",
+      "method": "BM25 + BGE-M3 RRF",
+      "file_recall_at_5": 1.0,
+      "file_recall_at_10": 1.0,
+      "symbol_recall_at_5": 0.25,
+      "symbol_recall_at_10": 0.25,
+      "file_mrr": 0.5,
+      "file_ndcg_at_10": 0.6509209298071326,
+      "test_file_recall_at_10": 1.0,
+      "latency_ms": 30.265,
+      "top_files": [
+        "tests/models/test_responses.py",
+        "httpx/_decoders.py",
+        "httpx/_models.py",
+        "tests/test_decoders.py",
+        "tests/models/test_url.py",
+        "tests/conftest.py"
+      ],
+      "top_symbols": [
+        "tests/models/test_responses.py::test_response_no_charset_with_utf8_content",
+        "tests/models/test_responses.py::test_response_no_charset_with_ascii_content",
+        "tests/models/test_responses.py::test_response_no_charset_with_iso_8859_1_content",
+        "httpx/_decoders.py::ZStandardDecoder",
+        "httpx/_models.py::Response",
+        "httpx/_models.py::Response.iter_bytes",
+        "tests/models/test_responses.py::test_response_no_charset_with_cp_1252_content",
+        "httpx/_models.py::Response.aiter_bytes",
+        "httpx/_models.py::Response.iter_text",
+        "httpx/_models.py::Response.aiter_text"
+      ]
+    },
+    {
+      "version": "V3",
+      "method": "Hybrid + BGE reranker",
+      "file_recall_at_5": 1.0,
+      "file_recall_at_10": 1.0,
+      "symbol_recall_at_5": 0.75,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 0.5,
+      "file_ndcg_at_10": 0.6934264036172708,
+      "test_file_recall_at_10": 1.0,
+      "latency_ms": 4738.892,
+      "top_files": [
+        "httpx/_models.py",
+        "httpx/_decoders.py",
+        "tests/test_decoders.py",
+        "tests/models/test_responses.py"
+      ],
+      "top_symbols": [
+        "httpx/_models.py::Response",
+        "httpx/_decoders.py::ZStandardDecoder",
+        "httpx/_decoders.py::ZStandardDecoder.decode",
+        "tests/test_decoders.py::test_zstd_decoding_error",
+        "httpx/_decoders.py::ZStandardDecoder.flush",
+        "httpx/_models.py::Response.iter_bytes",
+        "httpx/_models.py::Response.aiter_bytes",
+        "tests/models/test_responses.py::test_response_no_charset_with_iso_8859_1_content",
+        "httpx/_decoders.py::ZStandardDecoder.__init__",
+        "httpx/_decoders.py::GZipDecoder.decode"
+      ]
+    },
+    {
+      "version": "V4",
+      "method": "Hybrid + reranker + graph 1-hop",
+      "file_recall_at_5": 1.0,
+      "file_recall_at_10": 1.0,
+      "symbol_recall_at_5": 0.5,
+      "symbol_recall_at_10": 0.5,
+      "file_mrr": 0.5,
+      "file_ndcg_at_10": 0.6509209298071326,
+      "test_file_recall_at_10": 1.0,
+      "latency_ms": 0.7,
+      "top_files": [
+        "httpx/_models.py",
+        "httpx/_decoders.py",
+        "httpx/_content.py",
+        "tests/test_decoders.py",
+        "httpx/_api.py",
+        "httpx/_auth.py",
+        "httpx/_client.py",
+        "tests/models/test_responses.py"
+      ],
+      "top_symbols": [
+        "httpx/_models.py::Response",
+        "httpx/_decoders.py::ZStandardDecoder",
+        "httpx/_decoders.py::ZStandardDecoder.decode",
+        "httpx/_content.py::UnattachedStream",
+        "httpx/_content.py::encode_response",
+        "httpx/_decoders.py::ByteChunker",
+        "httpx/_decoders.py::IdentityDecoder",
+        "tests/test_decoders.py::test_zstd_decoding_error",
+        "httpx/_api.py::delete",
+        "httpx/_api.py::get"
+      ],
+      "graph_candidates": [
+        {
+          "file": "httpx/_models.py",
+          "symbol": "Response",
+          "score": 1.8730347752571106,
+          "source": "direct",
+          "rank": 1
+        },
+        {
+          "file": "httpx/_decoders.py",
+          "symbol": "ZStandardDecoder",
+          "score": 1.0070308446884155,
+          "source": "direct",
+          "rank": 2
+        },
+        {
+          "file": "httpx/_decoders.py",
+          "symbol": "ZStandardDecoder.decode",
+          "score": 0.7757555445035298,
+          "source": "direct",
+          "rank": 3
+        },
+        {
+          "file": "httpx/_content.py",
+          "symbol": "UnattachedStream",
+          "score": 0.765,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_content.py",
+          "symbol": "encode_response",
+          "score": 0.765,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_decoders.py",
+          "symbol": "ByteChunker",
+          "score": 0.765,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_decoders.py",
+          "symbol": "IdentityDecoder",
+          "score": 0.765,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "tests/test_decoders.py",
+          "symbol": "test_zstd_decoding_error",
+          "score": 0.42210276424884796,
+          "source": "direct",
+          "rank": 4
+        },
+        {
+          "file": "httpx/_api.py",
+          "symbol": "delete",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_api.py",
+          "symbol": "get",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_api.py",
+          "symbol": "head",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_api.py",
+          "symbol": "options",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_api.py",
+          "symbol": "patch",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_api.py",
+          "symbol": "post",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_api.py",
+          "symbol": "put",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_api.py",
+          "symbol": "request",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_api.py",
+          "symbol": "stream",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "Auth",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "BasicAuth",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "DigestAuth",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "FunctionAuth",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_auth.py",
+          "symbol": "NetRCAuth",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "AsyncClient",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BaseClient",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "BoundAsyncStream",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_models.py:Response",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        }
+      ]
+    }
+  ]
+}

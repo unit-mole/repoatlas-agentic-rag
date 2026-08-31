@@ -1,0 +1,9 @@
+enabled: true
+max_hops: 2
+max_added_nodes: 25
+relationship_weights:
+  CALLS: 1.0
+  IMPORTS: 0.7
+  TESTS: 1.1
+  INHERITS: 0.9
+  REFERENCES: 0.6

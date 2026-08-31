@@ -1,0 +1,5 @@
+lexical_top_k: 40
+dense_top_k: 40
+fusion_top_k: 30
+rerank_top_k: 12
+rrf_k: 60

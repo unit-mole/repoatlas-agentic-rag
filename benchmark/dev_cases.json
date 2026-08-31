@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "httpx-dev-001",
+    "fix_commit": "eb7c6b0342cc998a9a305c97f8d95b886a533f14",
+    "issue_text": "Setting timeout=None should disable timeouts consistently across request handling instead of falling back to the default timeout behavior.",
+    "difficulty": "hard",
+    "category": "timeout_configuration"
+  },
+  {
+    "case_id": "httpx-dev-002",
+    "fix_commit": "4401d55ecf0d95be237098b6c73c45420d54d499",
+    "issue_text": "An Authorization header is being stripped during HTTPS redirects even when it should be preserved.",
+    "difficulty": "medium",
+    "category": "redirect_security"
+  },
+  {
+    "case_id": "httpx-dev-003",
+    "fix_commit": "99cba6ac642b12f0331d069ae324402c54c4c600",
+    "issue_text": "Digest authentication should correctly support RFC 2069 challenges that do not provide qop.",
+    "difficulty": "medium",
+    "category": "authentication"
+  },
+  {
+    "case_id": "httpx-dev-004",
+    "fix_commit": "15d09a3bbc20372cd87e48f17f7c9381c8220a0f",
+    "issue_text": "NO_PROXY matching should correctly support IPv4 addresses, IPv6 addresses, and localhost.",
+    "difficulty": "medium",
+    "category": "proxy_networking"
+  },
+  {
+    "case_id": "httpx-dev-005",
+    "fix_commit": "47f4a96ffaaaa07dca1614409549b5d7a6e7af49",
+    "issue_text": "Empty zstd-encoded responses should decode cleanly instead of raising a decoder error.",
+    "difficulty": "medium",
+    "category": "response_decoding"
+  }
+]

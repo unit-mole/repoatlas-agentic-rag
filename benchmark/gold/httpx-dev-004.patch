@@ -1,0 +1,66 @@
+diff --git a/httpx/_utils.py b/httpx/_utils.py
+index c55d33a..2568fdc 100644
+--- a/httpx/_utils.py
++++ b/httpx/_utils.py
+@@ -1,5 +1,6 @@
+ import codecs
+ import email.message
++import ipaddress
+ import mimetypes
+ import os
+ import re
+@@ -259,7 +260,16 @@ def get_environment_proxies() -> typing.Dict[str, typing.Optional[str]]:
+             # NO_PROXY=google.com is marked as "all://*google.com,
+             #   which disables "www.google.com" and "google.com".
+             #   (But not "wwwgoogle.com")
+-            mounts[f"all://*{hostname}"] = None
++            # NO_PROXY can include domains, IPv6, IPv4 addresses and "localhost"
++            #   NO_PROXY=example.com,::1,localhost,192.168.0.0/16
++            if is_ipv4_hostname(hostname):
++                mounts[f"all://{hostname}"] = None
++            elif is_ipv6_hostname(hostname):
++                mounts[f"all://[{hostname}]"] = None
++            elif hostname.lower() == "localhost":
++                mounts[f"all://{hostname}"] = None
++            else:
++                mounts[f"all://*{hostname}"] = None
+ 
+     return mounts
+ 
+@@ -449,3 +459,19 @@ class URLPattern:
+ 
+     def __eq__(self, other: typing.Any) -> bool:
+         return isinstance(other, URLPattern) and self.pattern == other.pattern
++
++
++def is_ipv4_hostname(hostname: str) -> bool:
++    try:
++        ipaddress.IPv4Address(hostname.split("/")[0])
++    except:
++        return False
++    return True
++
++
++def is_ipv6_hostname(hostname: str) -> bool:
++    try:
++        ipaddress.IPv6Address(hostname.split("/")[0])
++    except:
++        return False
++    return True
+diff --git a/tests/test_utils.py b/tests/test_utils.py
+index 3eaf245..ab0fcbe 100644
+--- a/tests/test_utils.py
++++ b/tests/test_utils.py
+@@ -185,6 +185,12 @@ def test_get_ssl_cert_file():
+         ),
+         ({"all_proxy": "http://127.0.0.1"}, {"all://": "http://127.0.0.1"}),
+         ({"TRAVIS_APT_PROXY": "http://127.0.0.1"}, {}),
++        ({"no_proxy": "127.0.0.1"}, {"all://127.0.0.1": None}),
++        ({"no_proxy": "192.168.0.0/16"}, {"all://192.168.0.0/16": None}),
++        ({"no_proxy": "::1"}, {"all://[::1]": None}),
++        ({"no_proxy": "localhost"}, {"all://localhost": None}),
++        ({"no_proxy": "github.com"}, {"all://*github.com": None}),
++        ({"no_proxy": ".github.com"}, {"all://*.github.com": None}),
+     ],
+ )
+ def test_get_environment_proxies(environment, proxies):

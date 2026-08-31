@@ -1,0 +1,30 @@
+{
+  "case_id": "httpx-dev-003",
+  "repository": "httpx",
+  "base_commit": "ca51b4532a4495c38c8abf1a393dbd80099deae3",
+  "issue_text": "Digest authentication should correctly support RFC 2069 challenges that do not provide qop.",
+  "all_changed_files": [
+    "CHANGELOG.md",
+    "httpx/_auth.py",
+    "tests/test_auth.py"
+  ],
+  "expected_changed_files": [
+    "httpx/_auth.py",
+    "tests/test_auth.py"
+  ],
+  "excluded_changed_files": [
+    "CHANGELOG.md"
+  ],
+  "expected_changed_symbols": [
+    "httpx/_auth.py::DigestAuth._build_auth_header",
+    "httpx/_auth.py::DigestAuth"
+  ],
+  "expected_tests": [
+    "tests/test_auth.py"
+  ],
+  "gold_patch": null,
+  "fix_commit": "99cba6ac642b12f0331d069ae324402c54c4c600",
+  "difficulty": "medium",
+  "category": "authentication",
+  "split": "dev"
+}

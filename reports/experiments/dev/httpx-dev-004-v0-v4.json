@@ -1,0 +1,405 @@
+{
+  "case_id": "httpx-dev-004",
+  "repository": "httpx",
+  "base_commit": "7d7c4f15b8784e4a550d974139acfa64193b32c2",
+  "fix_commit": "15d09a3bbc20372cd87e48f17f7c9381c8220a0f",
+  "embedding": "bge",
+  "reranker": "bge",
+  "graph_hops": 1,
+  "runtime_build_seconds": 24.302,
+  "gold": {
+    "changed_files": 2,
+    "changed_symbols": 1,
+    "tests": 1
+  },
+  "results": [
+    {
+      "version": "V0",
+      "method": "BM25 lexical",
+      "file_recall_at_5": 0.5,
+      "file_recall_at_10": 1.0,
+      "symbol_recall_at_5": 1.0,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.8315546295836225,
+      "test_file_recall_at_10": 1.0,
+      "latency_ms": 8.598,
+      "top_files": [
+        "httpx/_utils.py",
+        "httpx/_urlparse.py",
+        "tests/models/test_url.py",
+        "tests/client/test_proxies.py",
+        "tests/conftest.py",
+        "tests/test_utils.py",
+        "tests/models/test_responses.py",
+        "tests/models/test_headers.py",
+        "tests/test_urlparse.py",
+        "httpx/_urls.py"
+      ],
+      "top_symbols": [
+        "httpx/_utils.py::get_environment_proxies",
+        "httpx/_urlparse.py::encode_host",
+        "tests/models/test_url.py::test_url_query_encoding",
+        "httpx/_utils.py::URLPattern",
+        "tests/client/test_proxies.py::test_socks_proxy",
+        "tests/conftest.py::localhost_cert",
+        "tests/test_utils.py::test_get_ssl_cert_file",
+        "tests/models/test_responses.py::test_response_no_charset_with_ascii_content",
+        "tests/models/test_headers.py::test_multiple_headers",
+        "tests/models/test_responses.py::test_response_no_charset_with_utf8_content"
+      ]
+    },
+    {
+      "version": "V1",
+      "method": "BGE-M3 dense",
+      "file_recall_at_5": 0.5,
+      "file_recall_at_10": 0.5,
+      "symbol_recall_at_5": 1.0,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.6131471927654584,
+      "test_file_recall_at_10": 0.0,
+      "latency_ms": 26.565,
+      "top_files": [
+        "httpx/_utils.py",
+        "httpx/_transports/default.py",
+        "tests/client/test_proxies.py",
+        "httpx/_client.py",
+        "tests/test_urlparse.py",
+        "httpx/_urlparse.py",
+        "tests/test_exceptions.py",
+        "tests/models/test_url.py",
+        "tests/test_config.py",
+        "httpx/_api.py"
+      ],
+      "top_symbols": [
+        "httpx/_utils.py::get_environment_proxies",
+        "httpx/_transports/default.py::AsyncHTTPTransport.__init__",
+        "httpx/_transports/default.py::HTTPTransport.__init__",
+        "httpx/_transports/default.py::AsyncHTTPTransport",
+        "tests/client/test_proxies.py::test_sync_proxy_close",
+        "httpx/_utils.py::URLPattern.matches",
+        "tests/client/test_proxies.py::test_proxies_parameter",
+        "httpx/_client.py::AsyncClient.__init__",
+        "httpx/_client.py::Client.__init__",
+        "tests/client/test_proxies.py::test_async_proxy_close"
+      ]
+    },
+    {
+      "version": "V2",
+      "method": "BM25 + BGE-M3 RRF",
+      "file_recall_at_5": 0.5,
+      "file_recall_at_10": 1.0,
+      "symbol_recall_at_5": 1.0,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 1.0,
+      "file_ndcg_at_10": 0.8065735963827293,
+      "test_file_recall_at_10": 1.0,
+      "latency_ms": 25.907,
+      "top_files": [
+        "httpx/_utils.py",
+        "httpx/_urlparse.py",
+        "tests/test_urlparse.py",
+        "httpx/_transports/default.py",
+        "tests/models/test_url.py",
+        "tests/client/test_proxies.py",
+        "tests/conftest.py",
+        "tests/test_utils.py",
+        "tests/models/test_responses.py",
+        "httpx/_client.py"
+      ],
+      "top_symbols": [
+        "httpx/_utils.py::get_environment_proxies",
+        "httpx/_urlparse.py::encode_host",
+        "httpx/_utils.py::URLPattern",
+        "tests/test_urlparse.py::test_urlparse_invalid_ipv6",
+        "tests/test_urlparse.py::test_urlparse_invalid_ipv4",
+        "httpx/_utils.py::URLPattern.__init__",
+        "httpx/_transports/default.py::AsyncHTTPTransport.__init__",
+        "tests/models/test_url.py::test_url_query_encoding",
+        "httpx/_transports/default.py::HTTPTransport.__init__",
+        "httpx/_transports/default.py::AsyncHTTPTransport"
+      ]
+    },
+    {
+      "version": "V3",
+      "method": "Hybrid + BGE reranker",
+      "file_recall_at_5": 0.5,
+      "file_recall_at_10": 0.5,
+      "symbol_recall_at_5": 1.0,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 0.5,
+      "file_ndcg_at_10": 0.38685280723454163,
+      "test_file_recall_at_10": 0.0,
+      "latency_ms": 895.75,
+      "top_files": [
+        "httpx/_urlparse.py",
+        "httpx/_utils.py",
+        "httpx/_transports/default.py",
+        "httpx/_client.py",
+        "tests/client/test_proxies.py"
+      ],
+      "top_symbols": [
+        "httpx/_urlparse.py::urlparse",
+        "httpx/_utils.py::get_environment_proxies",
+        "httpx/_utils.py::URLPattern",
+        "httpx/_transports/default.py::AsyncHTTPTransport",
+        "httpx/_transports/default.py::HTTPTransport.__init__",
+        "httpx/_client.py::Client.__init__",
+        "httpx/_transports/default.py::AsyncHTTPTransport.__init__",
+        "httpx/_urlparse.py::encode_host",
+        "httpx/_client.py::AsyncClient.__init__",
+        "httpx/_utils.py::URLPattern.__init__"
+      ]
+    },
+    {
+      "version": "V4",
+      "method": "Hybrid + reranker + graph 1-hop",
+      "file_recall_at_5": 0.5,
+      "file_recall_at_10": 0.5,
+      "symbol_recall_at_5": 0.0,
+      "symbol_recall_at_10": 1.0,
+      "file_mrr": 0.3333333333333333,
+      "file_ndcg_at_10": 0.3065735963827292,
+      "test_file_recall_at_10": 0.0,
+      "latency_ms": 0.27,
+      "top_files": [
+        "httpx/_urlparse.py",
+        "tests/test_urlparse.py",
+        "httpx/_utils.py",
+        "httpx/_exceptions.py",
+        "httpx/_urls.py",
+        "httpx/_transports/default.py",
+        "httpx/_client.py",
+        "tests/client/test_proxies.py"
+      ],
+      "top_symbols": [
+        "httpx/_urlparse.py::urlparse",
+        "tests/test_urlparse.py::test_urlparse",
+        "tests/test_urlparse.py::test_urlparse_escaped_idna_host",
+        "tests/test_urlparse.py::test_urlparse_escaped_path",
+        "tests/test_urlparse.py::test_urlparse_excessively_long_component",
+        "tests/test_urlparse.py::test_urlparse_excessively_long_url",
+        "tests/test_urlparse.py::test_urlparse_invalid_idna_host",
+        "tests/test_urlparse.py::test_urlparse_invalid_ipv4",
+        "httpx/_utils.py::get_environment_proxies",
+        "httpx/_exceptions.py::InvalidURL"
+      ],
+      "graph_candidates": [
+        {
+          "file": "httpx/_urlparse.py",
+          "symbol": "urlparse",
+          "score": 1.4057107269763947,
+          "source": "direct",
+          "rank": 1
+        },
+        {
+          "file": "tests/test_urlparse.py",
+          "symbol": "test_urlparse",
+          "score": 0.9,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "TESTS",
+          "hop": 1,
+          "confidence": 0.9
+        },
+        {
+          "file": "tests/test_urlparse.py",
+          "symbol": "test_urlparse_escaped_idna_host",
+          "score": 0.9,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "TESTS",
+          "hop": 1,
+          "confidence": 0.9
+        },
+        {
+          "file": "tests/test_urlparse.py",
+          "symbol": "test_urlparse_escaped_path",
+          "score": 0.9,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "TESTS",
+          "hop": 1,
+          "confidence": 0.9
+        },
+        {
+          "file": "tests/test_urlparse.py",
+          "symbol": "test_urlparse_excessively_long_component",
+          "score": 0.9,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "TESTS",
+          "hop": 1,
+          "confidence": 0.9
+        },
+        {
+          "file": "tests/test_urlparse.py",
+          "symbol": "test_urlparse_excessively_long_url",
+          "score": 0.9,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "TESTS",
+          "hop": 1,
+          "confidence": 0.9
+        },
+        {
+          "file": "tests/test_urlparse.py",
+          "symbol": "test_urlparse_invalid_idna_host",
+          "score": 0.9,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "TESTS",
+          "hop": 1,
+          "confidence": 0.9
+        },
+        {
+          "file": "tests/test_urlparse.py",
+          "symbol": "test_urlparse_invalid_ipv4",
+          "score": 0.9,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "TESTS",
+          "hop": 1,
+          "confidence": 0.9
+        },
+        {
+          "file": "httpx/_utils.py",
+          "symbol": "get_environment_proxies",
+          "score": 0.8180205821990967,
+          "source": "direct",
+          "rank": 2
+        },
+        {
+          "file": "httpx/_exceptions.py",
+          "symbol": "InvalidURL",
+          "score": 0.765,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_urlparse.py",
+          "symbol": "ParseResult",
+          "score": 0.765,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_urlparse.py",
+          "symbol": "encode_host",
+          "score": 0.765,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_urlparse.py",
+          "symbol": "normalize_path",
+          "score": 0.765,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_urlparse.py",
+          "symbol": "normalize_port",
+          "score": 0.765,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_urlparse.py",
+          "symbol": "quote",
+          "score": 0.765,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_urlparse.py",
+          "symbol": "validate_path",
+          "score": 0.765,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_urls.py",
+          "symbol": "URL",
+          "score": 0.765,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "CALLS",
+          "hop": 1,
+          "confidence": 0.85
+        },
+        {
+          "file": "httpx/_utils.py",
+          "symbol": "URLPattern",
+          "score": 0.6392555137475331,
+          "source": "direct",
+          "rank": 3
+        },
+        {
+          "file": "httpx/_transports/default.py",
+          "symbol": "AsyncHTTPTransport",
+          "score": 0.46703606843948364,
+          "source": "direct",
+          "rank": 4
+        },
+        {
+          "file": "httpx/_transports/default.py",
+          "symbol": "HTTPTransport.__init__",
+          "score": 0.4057871371507645,
+          "source": "direct",
+          "rank": 5
+        },
+        {
+          "file": "httpx/_client.py",
+          "symbol": "Client.__init__",
+          "score": 0.36462838451067603,
+          "source": "direct",
+          "rank": 6
+        },
+        {
+          "file": "httpx/_urlparse.py",
+          "symbol": "ParseResult.authority",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_urls.py",
+          "symbol": "URL.fragment",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_urls.py",
+          "symbol": "URL.host",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        },
+        {
+          "file": "httpx/_urls.py",
+          "symbol": "URL.password",
+          "score": 0.35750000000000004,
+          "source": "sym:httpx/_urlparse.py:urlparse",
+          "relationship": "REFERENCES",
+          "hop": 1,
+          "confidence": 0.55
+        }
+      ]
+    }
+  ]
+}

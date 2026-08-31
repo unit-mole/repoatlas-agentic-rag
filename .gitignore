@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets / local environment
+.env
+.env.*
+!.env.example
+
+# Model / cache downloads
+.cache/
+huggingface/
+models/
+
+# Generated benchmark repositories / indexes
+data/snapshots/
+data/processed/
+data/indexes/
+
+# Local databases / vector storage
+*.db
+*.sqlite
+*.sqlite3
+qdrant_storage/
+postgres_data/
+
+# Generated logs
+*.log
+
+# Temporary files
+/tmp/
+tmp/
+
+# Packaging/build artifacts
+*.egg-info/
+build/
+dist/
+
+# Local pre-fix/source backup files
+*.before_*
+
+# Runtime observability/workspaces
+phoenix_data/
+workspaces/

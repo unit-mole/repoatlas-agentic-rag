@@ -1,0 +1,13 @@
+reasoning:
+  provider: local
+  primary_model: Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8
+  fallback_model: Qwen/Qwen3-8B
+  temperature: 0.2
+  max_tokens: 4096
+embeddings:
+  model: BAAI/bge-m3
+  dimensions: 1024
+  batch_size: 16
+reranker:
+  model: BAAI/bge-reranker-v2-m3
+  batch_size: 8
