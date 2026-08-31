@@ -128,14 +128,14 @@ def main() -> None:
     cases_dir = Path(args.cases_dir)
     repo = Path(args.repo)
 
-    case_paths = sorted(cases_dir.glob("httpx-dev-*.json"))
+    case_paths = sorted(cases_dir.glob("httpx-test-*.json"))
 
     if not case_paths:
-        raise RuntimeError("No HTTPX DEV cases found.")
+        raise RuntimeError("No HTTPX TEST cases found.")
 
     results: list[dict[str, object]] = []
 
-    print(f"Preparing {len(case_paths)} HTTPX DEV cases...")
+    print(f"Preparing {len(case_paths)} HTTPX TEST cases...")
 
     for case_path in case_paths:
         case = _load_case(case_path)
@@ -221,7 +221,7 @@ def main() -> None:
             }
         )
 
-    output = Path("reports/experiments/httpx-dev-preparation.json")
+    output = Path("reports/experiments/httpx-test-preparation.json")
 
     output.parent.mkdir(
         parents=True,
@@ -241,7 +241,7 @@ def main() -> None:
 
     print()
     print("=" * 76)
-    print("HTTPX DEV PREPARATION SUMMARY")
+    print("HTTPX TEST PREPARATION SUMMARY")
     print("=" * 76)
 
     header = (
@@ -271,7 +271,7 @@ def main() -> None:
         )
 
     print()
-    print("MULTI-CASE DEV PREPARATION: PASS")
+    print("MULTI-CASE TEST PREPARATION: PASS")
 
     print(
         "Report:",
