@@ -1,0 +1,50 @@
+{
+  "selection_version": "repoatlas-httpx-test-v1",
+  "selection_status": "predeclared_before_test_evaluation",
+  "repository": "encode/httpx",
+  "frozen_retrieval_config": "configs/retrieval_frozen_v1.json",
+  "frozen_retrieval_sha256": "57e20457c7728d3886f6914f63d4f4aef711cd85b262e24606ca09199a2a14b6",
+  "dev_freeze_tag": "retrieval-dev-freeze-v1",
+  "cases": [
+    {
+      "case_id": "httpx-test-001",
+      "fix_commit": "9fd6f0ca6616d0310a3ee0b0c6ef509a97995797",
+      "base_commit": "8e36f2bc685dfbe43cd7503bc1c422a6ed6e05a5",
+      "difficulty": "medium",
+      "category": "content_serialization",
+      "issue_text": "JSON request bodies should use a compact representation without unnecessary whitespace."
+    },
+    {
+      "case_id": "httpx-test-002",
+      "fix_commit": "49d74a2e7f773f88a84dd4af900d7a8543636ae2",
+      "base_commit": "2e01aa0075327c5c30632207e8b7a1961dda5303",
+      "difficulty": "medium",
+      "category": "header_validation",
+      "issue_text": "Passing None as an HTTP header value should fail with a clear and actionable error."
+    },
+    {
+      "case_id": "httpx-test-003",
+      "fix_commit": "a7092af2fda78d92daaad7627e4cf0cf5e94b019",
+      "base_commit": "be56b747350008b7b0456242691919f9086c0f32",
+      "difficulty": "medium",
+      "category": "url_query_encoding",
+      "issue_text": "Query parameter values should be quoted correctly when constructing URLs."
+    },
+    {
+      "case_id": "httpx-test-004",
+      "fix_commit": "cd03f62b7215fd3706aa6f581dd54b52190d6470",
+      "base_commit": "f3eb3c90fdd19d2e4c5239e19a3588d072ff53fb",
+      "difficulty": "medium",
+      "category": "content_validation",
+      "issue_text": "Request content handling should reject unsupported input data types consistently."
+    },
+    {
+      "case_id": "httpx-test-005",
+      "fix_commit": "060e50b479255a630615f76cb86d82beda0e1816",
+      "base_commit": "c9f9cb96d2c4dd074ed12e5fff451e6a5e89da89",
+      "difficulty": "medium",
+      "category": "configuration_validation",
+      "issue_text": "Version configuration should raise a clear error when required version arguments are missing."
+    }
+  ]
+}
