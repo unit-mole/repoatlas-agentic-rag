@@ -1,0 +1,49 @@
+{
+  "case_id": "httpx-test-001",
+  "repository": "encode/httpx",
+  "base_commit": "8e36f2bc685dfbe43cd7503bc1c422a6ed6e05a5",
+  "issue_text": "JSON request bodies should use a compact representation without unnecessary whitespace.",
+  "all_changed_files": [
+    "httpx/_content.py",
+    "tests/client/test_auth.py",
+    "tests/models/test_requests.py",
+    "tests/models/test_responses.py",
+    "tests/models/test_whatwg.py",
+    "tests/test_content.py",
+    "tests/test_main.py"
+  ],
+  "expected_changed_files": [
+    "httpx/_content.py",
+    "tests/client/test_auth.py",
+    "tests/models/test_requests.py",
+    "tests/models/test_responses.py",
+    "tests/models/test_whatwg.py",
+    "tests/test_content.py",
+    "tests/test_main.py"
+  ],
+  "excluded_changed_files": [],
+  "expected_changed_symbols": [
+    "httpx/_content.py::encode_json",
+    "tests/client/test_auth.py::test_async_auth_reads_response_body",
+    "tests/client/test_auth.py::test_sync_auth_reads_response_body",
+    "tests/models/test_requests.py::test_json_encoded_data",
+    "tests/models/test_requests.py::test_headers",
+    "tests/models/test_requests.py::test_request_picklable",
+    "tests/models/test_responses.py::test_response_json",
+    "tests/test_content.py::test_json_content",
+    "tests/test_main.py::test_post"
+  ],
+  "expected_tests": [
+    "tests/client/test_auth.py",
+    "tests/models/test_requests.py",
+    "tests/models/test_responses.py",
+    "tests/models/test_whatwg.py",
+    "tests/test_content.py",
+    "tests/test_main.py"
+  ],
+  "gold_patch": null,
+  "fix_commit": "9fd6f0ca6616d0310a3ee0b0c6ef509a97995797",
+  "difficulty": "medium",
+  "category": "content_serialization",
+  "split": "test"
+}

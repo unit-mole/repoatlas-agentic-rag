@@ -1,0 +1,31 @@
+{
+  "case_id": "httpx-test-003",
+  "repository": "encode/httpx",
+  "base_commit": "be56b747350008b7b0456242691919f9086c0f32",
+  "issue_text": "Query parameter values should be quoted correctly when constructing URLs.",
+  "all_changed_files": [
+    "httpx/_urlparse.py",
+    "tests/models/test_url.py"
+  ],
+  "expected_changed_files": [
+    "httpx/_urlparse.py",
+    "tests/models/test_url.py"
+  ],
+  "excluded_changed_files": [],
+  "expected_changed_symbols": [
+    "httpx/_urlparse.py::percent_encoded",
+    "httpx/_urlparse.py::percent_encode",
+    "httpx/_urlparse.py::is_safe",
+    "tests/models/test_url.py::test_param_requires_encoding",
+    "tests/models/test_url.py::test_param_does_not_require_encoding",
+    "tests/models/test_url.py::test_param_with_existing_escape_requires_encoding"
+  ],
+  "expected_tests": [
+    "tests/models/test_url.py"
+  ],
+  "gold_patch": null,
+  "fix_commit": "a7092af2fda78d92daaad7627e4cf0cf5e94b019",
+  "difficulty": "medium",
+  "category": "url_query_encoding",
+  "split": "test"
+}

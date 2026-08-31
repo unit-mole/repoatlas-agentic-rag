@@ -1,0 +1,30 @@
+diff --git a/httpx/_config.py b/httpx/_config.py
+index 7b786a9..00da031 100644
+--- a/httpx/_config.py
++++ b/httpx/_config.py
+@@ -366,10 +366,12 @@ class Proxy:
+ class Version:
+     def __init__(self, *versions: str) -> None:
+         self._versions = sorted(set(versions))
++        if not versions:
++            raise ValueError("Missing HTTP version.")
+         if any([version not in ["HTTP/1.1", "HTTP/2"] for version in versions]):
+             raise ValueError("Supported versions are 'HTTP/1.1' and 'HTTP/2'")
+ 
+-    def __contains__(self, version: str) -> bool:
++    def __contains__(self, version: str, /) -> bool:
+         return version in self._versions
+ 
+     def __repr__(self) -> str:
+diff --git a/tests/test_config.py b/tests/test_config.py
+index d24c54b..9f32134 100644
+--- a/tests/test_config.py
++++ b/tests/test_config.py
+@@ -231,5 +231,7 @@ def test_version():
+ 
+ 
+ def test_invalid_version():
++    with pytest.raises(ValueError):
++        httpx.Version()
+     with pytest.raises(ValueError):
+         httpx.Version("HTTP/3")

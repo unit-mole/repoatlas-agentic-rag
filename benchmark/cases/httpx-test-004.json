@@ -1,0 +1,27 @@
+{
+  "case_id": "httpx-test-004",
+  "repository": "encode/httpx",
+  "base_commit": "f3eb3c90fdd19d2e4c5239e19a3588d072ff53fb",
+  "issue_text": "Request content handling should reject unsupported input data types consistently.",
+  "all_changed_files": [
+    "httpx/_content.py",
+    "tests/test_content.py"
+  ],
+  "expected_changed_files": [
+    "httpx/_content.py",
+    "tests/test_content.py"
+  ],
+  "excluded_changed_files": [],
+  "expected_changed_symbols": [
+    "httpx/_content.py::encode_urlencoded_data",
+    "tests/test_content.py::test_urlencoded_boolean"
+  ],
+  "expected_tests": [
+    "tests/test_content.py"
+  ],
+  "gold_patch": null,
+  "fix_commit": "cd03f62b7215fd3706aa6f581dd54b52190d6470",
+  "difficulty": "medium",
+  "category": "content_validation",
+  "split": "test"
+}

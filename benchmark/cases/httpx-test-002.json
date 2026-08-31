@@ -1,0 +1,26 @@
+{
+  "case_id": "httpx-test-002",
+  "repository": "encode/httpx",
+  "base_commit": "2e01aa0075327c5c30632207e8b7a1961dda5303",
+  "issue_text": "Passing None as an HTTP header value should fail with a clear and actionable error.",
+  "all_changed_files": [
+    "httpx/_utils.py",
+    "tests/client/test_headers.py"
+  ],
+  "expected_changed_files": [
+    "httpx/_utils.py",
+    "tests/client/test_headers.py"
+  ],
+  "excluded_changed_files": [],
+  "expected_changed_symbols": [
+    "httpx/_utils.py::normalize_header_value"
+  ],
+  "expected_tests": [
+    "tests/client/test_headers.py"
+  ],
+  "gold_patch": null,
+  "fix_commit": "49d74a2e7f773f88a84dd4af900d7a8543636ae2",
+  "difficulty": "medium",
+  "category": "header_validation",
+  "split": "test"
+}

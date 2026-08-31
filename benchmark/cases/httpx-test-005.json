@@ -1,0 +1,29 @@
+{
+  "case_id": "httpx-test-005",
+  "repository": "encode/httpx",
+  "base_commit": "c9f9cb96d2c4dd074ed12e5fff451e6a5e89da89",
+  "issue_text": "Version configuration should raise a clear error when required version arguments are missing.",
+  "all_changed_files": [
+    "httpx/_config.py",
+    "tests/test_config.py"
+  ],
+  "expected_changed_files": [
+    "httpx/_config.py",
+    "tests/test_config.py"
+  ],
+  "excluded_changed_files": [],
+  "expected_changed_symbols": [
+    "httpx/_config.py::Version.__contains__",
+    "httpx/_config.py::Version",
+    "httpx/_config.py::Version.__init__",
+    "tests/test_config.py::test_invalid_version"
+  ],
+  "expected_tests": [
+    "tests/test_config.py"
+  ],
+  "gold_patch": null,
+  "fix_commit": "060e50b479255a630615f76cb86d82beda0e1816",
+  "difficulty": "medium",
+  "category": "configuration_validation",
+  "split": "test"
+}
