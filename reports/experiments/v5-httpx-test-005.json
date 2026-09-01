@@ -1,0 +1,1055 @@
+{
+  "task_id": "04b5cadc-4ae2-496e-b3c4-d7ec140b40db",
+  "agent_version": "V5",
+  "mode": "frozen_retrieval_local_llm",
+  "task": "Version configuration should raise a clear error when required version arguments are missing.",
+  "repository": "/home/atripathi/projects/repoatlas/data/snapshots/httpx-test-005",
+  "base_commit": "c9f9cb96d2c4dd074ed12e5fff451e6a5e89da89",
+  "retrieval": {
+    "primary": "V2_BM25_BGE_M3_RRF",
+    "graph": "V4P_PROTECTED_CONTEXT",
+    "test_discovery": "V2_REVERSE_TESTS",
+    "v3s_default": false,
+    "direct_hits": 30,
+    "protected_prefix_size": 18,
+    "graph_candidates": 25,
+    "related_tests": 20
+  },
+  "likely_affected_files": [
+    "httpx/_config.py",
+    "tests/test_config.py",
+    "tests/models/test_responses.py",
+    "httpx/_transports/default.py",
+    "httpx/_status_codes.py",
+    "httpx/_client.py",
+    "httpx/_exceptions.py",
+    "httpx/_main.py",
+    "tests/client/test_async_client.py",
+    "tests/client/test_client.py",
+    "tests/client/test_auth.py",
+    "tests/client/test_cookies.py",
+    "tests/client/test_event_hooks.py",
+    "tests/client/test_headers.py",
+    "tests/test_api.py"
+  ],
+  "likely_primary_symbols": [
+    "httpx/_config.py::Version",
+    "httpx/_config.py::Version.__init__",
+    "tests/test_config.py::test_version",
+    "httpx/_config.py::Version.__contains__",
+    "tests/models/test_responses.py::test_raise_for_status",
+    "tests/test_config.py::test_invalid_version",
+    "httpx/_transports/default.py::HTTPTransport.__init__",
+    "httpx/_transports/default.py::AsyncHTTPTransport.__init__",
+    "httpx/_status_codes.py::codes",
+    "httpx/_config.py::Version.__repr__",
+    "httpx/_client.py::Client._init_transport",
+    "httpx/_client.py::Client.__init__",
+    "httpx/_client.py::AsyncClient.__init__",
+    "httpx/_transports/default.py::HTTPTransport",
+    "httpx/_exceptions.py::HTTPStatusError",
+    "httpx/_main.py::format_response_headers",
+    "tests/client/test_async_client.py::test_http2_parameter_deprecated",
+    "tests/client/test_client.py::test_http2_parameter_deprecated",
+    "tests/client/test_auth.py::test_netrc_auth_nopassword",
+    "tests/client/test_auth.py::test_netrc_auth_nopassword_parse_error"
+  ],
+  "related_tests": [
+    "tests/client/test_async_client.py",
+    "tests/client/test_client.py",
+    "tests/client/test_auth.py",
+    "tests/client/test_event_hooks.py",
+    "tests/test_asgi.py",
+    "tests/client/test_headers.py",
+    "tests/test_main.py",
+    "tests/client/test_cookies.py",
+    "tests/test_api.py",
+    "tests/test_config.py"
+  ],
+  "evidence": {
+    "direct": [
+      {
+        "id": "D1",
+        "file": "httpx/_config.py",
+        "symbol": "Version",
+        "fusion_score": 0.032522,
+        "evidence": "['[SYM: Version]', '[SRC: httpx/_config.py:L366-L377]']"
+      },
+      {
+        "id": "D2",
+        "file": "httpx/_config.py",
+        "symbol": "Version.__init__",
+        "fusion_score": 0.032522,
+        "evidence": "['[SYM: Version.__init__]', '[SRC: httpx/_config.py:L367-L370]']"
+      },
+      {
+        "id": "D3",
+        "file": "tests/test_config.py",
+        "symbol": "test_version",
+        "fusion_score": 0.030077,
+        "evidence": "['[SYM: test_version]', '[SRC: tests/test_config.py:L226-L230]']"
+      },
+      {
+        "id": "D4",
+        "file": "httpx/_config.py",
+        "symbol": "Version.__contains__",
+        "fusion_score": 0.029274,
+        "evidence": "['[SYM: Version.__contains__]', '[SRC: httpx/_config.py:L372-L373]']"
+      },
+      {
+        "id": "D5",
+        "file": "tests/models/test_responses.py",
+        "symbol": "test_raise_for_status",
+        "fusion_score": 0.028778,
+        "evidence": "['[SYM: test_raise_for_status]', '[SRC: tests/models/test_responses.py:L91-L146]']"
+      },
+      {
+        "id": "D6",
+        "file": "tests/test_config.py",
+        "symbol": "test_invalid_version",
+        "fusion_score": 0.027921,
+        "evidence": "['[SYM: test_invalid_version]', '[SRC: tests/test_config.py:L233-L235]']"
+      },
+      {
+        "id": "D7",
+        "file": "httpx/_transports/default.py",
+        "symbol": "HTTPTransport.__init__",
+        "fusion_score": 0.027799,
+        "evidence": "['[SYM: HTTPTransport.__init__]', '[SRC: httpx/_transports/default.py:L129-L205]']"
+      },
+      {
+        "id": "D8",
+        "file": "httpx/_transports/default.py",
+        "symbol": "AsyncHTTPTransport.__init__",
+        "fusion_score": 0.027397,
+        "evidence": "['[SYM: AsyncHTTPTransport.__init__]', '[SRC: httpx/_transports/default.py:L269-L344]']"
+      },
+      {
+        "id": "D9",
+        "file": "httpx/_status_codes.py",
+        "symbol": "codes",
+        "fusion_score": 0.027347,
+        "evidence": "['[SYM: codes]', '[SRC: httpx/_status_codes.py:L4-L153]']"
+      },
+      {
+        "id": "D10",
+        "file": "httpx/_config.py",
+        "symbol": "Version.__repr__",
+        "fusion_score": 0.026974,
+        "evidence": "['[SYM: Version.__repr__]', '[SRC: httpx/_config.py:L375-L377]']"
+      },
+      {
+        "id": "D11",
+        "file": "httpx/_client.py",
+        "symbol": "Client._init_transport",
+        "fusion_score": 0.026743,
+        "evidence": "['[SYM: Client._init_transport]', '[SRC: httpx/_client.py:L725-L747]']"
+      },
+      {
+        "id": "D12",
+        "file": "httpx/_client.py",
+        "symbol": "Client.__init__",
+        "fusion_score": 0.026491,
+        "evidence": "['[SYM: Client.__init__]', '[SRC: httpx/_client.py:L626-L723]']"
+      }
+    ],
+    "graph": [
+      {
+        "id": "G1",
+        "file": "tests/client/test_auth.py",
+        "symbol": "test_netrc_auth_nopassword",
+        "score": 0.9,
+        "source": "sym:httpx/_config.py:Version",
+        "relationship": "TESTS",
+        "hop": 1,
+        "confidence": 0.9
+      },
+      {
+        "id": "G2",
+        "file": "tests/client/test_auth.py",
+        "symbol": "test_netrc_auth_nopassword_parse_error",
+        "score": 0.9,
+        "source": "sym:httpx/_config.py:Version",
+        "relationship": "TESTS",
+        "hop": 1,
+        "confidence": 0.9
+      },
+      {
+        "id": "G3",
+        "file": "tests/client/test_client.py",
+        "symbol": "test_raw_client_header",
+        "score": 0.9,
+        "source": "sym:httpx/_config.py:Version",
+        "relationship": "TESTS",
+        "hop": 1,
+        "confidence": 0.9
+      },
+      {
+        "id": "G4",
+        "file": "tests/client/test_cookies.py",
+        "symbol": "test_set_cookie_with_cookiejar",
+        "score": 0.9,
+        "source": "sym:httpx/_config.py:Version",
+        "relationship": "TESTS",
+        "hop": 1,
+        "confidence": 0.9
+      },
+      {
+        "id": "G5",
+        "file": "tests/client/test_cookies.py",
+        "symbol": "test_setting_client_cookies_to_cookiejar",
+        "score": 0.9,
+        "source": "sym:httpx/_config.py:Version",
+        "relationship": "TESTS",
+        "hop": 1,
+        "confidence": 0.9
+      },
+      {
+        "id": "G6",
+        "file": "tests/client/test_event_hooks.py",
+        "symbol": "test_async_event_hooks",
+        "score": 0.9,
+        "source": "sym:httpx/_config.py:Version",
+        "relationship": "TESTS",
+        "hop": 1,
+        "confidence": 0.9
+      },
+      {
+        "id": "G7",
+        "file": "tests/client/test_event_hooks.py",
+        "symbol": "test_async_event_hooks_with_redirect",
+        "score": 0.9,
+        "source": "sym:httpx/_config.py:Version",
+        "relationship": "TESTS",
+        "hop": 1,
+        "confidence": 0.9
+      },
+      {
+        "id": "G8",
+        "file": "tests/client/test_event_hooks.py",
+        "symbol": "test_event_hooks",
+        "score": 0.9,
+        "source": "sym:httpx/_config.py:Version",
+        "relationship": "TESTS",
+        "hop": 1,
+        "confidence": 0.9
+      },
+      {
+        "id": "G9",
+        "file": "tests/client/test_event_hooks.py",
+        "symbol": "test_event_hooks_with_redirect",
+        "score": 0.9,
+        "source": "sym:httpx/_config.py:Version",
+        "relationship": "TESTS",
+        "hop": 1,
+        "confidence": 0.9
+      },
+      {
+        "id": "G10",
+        "file": "tests/client/test_headers.py",
+        "symbol": "test_client_header",
+        "score": 0.9,
+        "source": "sym:httpx/_config.py:Version",
+        "relationship": "TESTS",
+        "hop": 1,
+        "confidence": 0.9
+      }
+    ],
+    "tests": [
+      {
+        "id": "T1",
+        "file": "tests/client/test_async_client.py",
+        "best_source_rank": 1,
+        "supporting_sources": 11,
+        "supporting_edges": 86,
+        "evidence": [
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_get",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_server_extensions",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_http2_parameter_deprecated",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "test_context_managed_transport",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "test_context_managed_transport.Transport",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T2",
+        "file": "tests/client/test_client.py",
+        "best_source_rank": 1,
+        "supporting_sources": 10,
+        "supporting_edges": 72,
+        "evidence": [
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_get",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_server_extensions",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_raw_client_header",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_http2_parameter_deprecated",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "test_context_managed_transport",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T3",
+        "file": "tests/client/test_auth.py",
+        "best_source_rank": 1,
+        "supporting_sources": 8,
+        "supporting_edges": 112,
+        "evidence": [
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_netrc_auth_nopassword",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_netrc_auth_nopassword_parse_error",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "App",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "App.__init__",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "DigestApp",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T4",
+        "file": "tests/client/test_event_hooks.py",
+        "best_source_rank": 1,
+        "supporting_sources": 5,
+        "supporting_edges": 19,
+        "evidence": [
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_event_hooks",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_async_event_hooks",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_event_hooks_with_redirect",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_async_event_hooks_with_redirect",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 15,
+            "source_file": "httpx/_exceptions.py",
+            "source_symbol": "HTTPStatusError",
+            "test_symbol": "test_event_hooks_raising_exception",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T5",
+        "file": "tests/test_asgi.py",
+        "best_source_rank": 1,
+        "supporting_sources": 3,
+        "supporting_edges": 21,
+        "evidence": [
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_asgi_headers",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 27,
+            "source_file": "httpx/_client.py",
+            "source_symbol": "Client",
+            "test_symbol": "test_asgi",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 27,
+            "source_file": "httpx/_client.py",
+            "source_symbol": "Client",
+            "test_symbol": "test_asgi_urlencoded_path",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 27,
+            "source_file": "httpx/_client.py",
+            "source_symbol": "Client",
+            "test_symbol": "test_asgi_raw_path",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 27,
+            "source_file": "httpx/_client.py",
+            "source_symbol": "Client",
+            "test_symbol": "test_asgi_raw_path_should_not_include_querystring_portion",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T6",
+        "file": "tests/client/test_headers.py",
+        "best_source_rank": 1,
+        "supporting_sources": 3,
+        "supporting_edges": 15,
+        "evidence": [
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_client_header",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_header_merge_conflicting_headers",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_header_update",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_host_with_auth_and_port_in_url",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_host_with_non_default_port_in_url",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T7",
+        "file": "tests/test_main.py",
+        "best_source_rank": 1,
+        "supporting_sources": 3,
+        "supporting_edges": 14,
+        "evidence": [
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_verbose",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_auth",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "test_help",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "test_get",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "test_json",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T8",
+        "file": "tests/client/test_cookies.py",
+        "best_source_rank": 1,
+        "supporting_sources": 3,
+        "supporting_edges": 11,
+        "evidence": [
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_set_cookie_with_cookiejar",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_setting_client_cookies_to_cookiejar",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "test_set_cookie_with_cookiejar",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "test_setting_client_cookies_to_cookiejar",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 27,
+            "source_file": "httpx/_client.py",
+            "source_symbol": "Client",
+            "test_symbol": "test_set_cookie",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T9",
+        "file": "tests/test_api.py",
+        "best_source_rank": 1,
+        "supporting_sources": 1,
+        "supporting_edges": 2,
+        "evidence": [
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_get",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_stream",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T10",
+        "file": "tests/test_config.py",
+        "best_source_rank": 1,
+        "supporting_sources": 1,
+        "supporting_edges": 2,
+        "evidence": [
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_version",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_invalid_version",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T11",
+        "file": "tests/test_exported_members.py",
+        "best_source_rank": 1,
+        "supporting_sources": 1,
+        "supporting_edges": 1,
+        "evidence": [
+          {
+            "source_rank": 1,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version",
+            "test_symbol": "test_all_imports_are_exported",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T12",
+        "file": "tests/test_multipart.py",
+        "best_source_rank": 2,
+        "supporting_sources": 6,
+        "supporting_edges": 22,
+        "evidence": [
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "test_multipart_encode_non_seekable_filelike",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "test_multipart_encode_non_seekable_filelike.IteratorIO",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "test_multipart_encode_non_seekable_filelike.IteratorIO.__init__",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 7,
+            "source_file": "httpx/_transports/default.py",
+            "source_symbol": "HTTPTransport.__init__",
+            "test_symbol": "test_multipart_encode_non_seekable_filelike",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 7,
+            "source_file": "httpx/_transports/default.py",
+            "source_symbol": "HTTPTransport.__init__",
+            "test_symbol": "test_multipart_encode_non_seekable_filelike.IteratorIO",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T13",
+        "file": "tests/test_content.py",
+        "best_source_rank": 2,
+        "supporting_sources": 5,
+        "supporting_edges": 15,
+        "evidence": [
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "test_async_bytesio_content",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "test_async_bytesio_content.AsyncBytesIO",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 2,
+            "source_file": "httpx/_config.py",
+            "source_symbol": "Version.__init__",
+            "test_symbol": "test_async_bytesio_content.AsyncBytesIO.__init__",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 7,
+            "source_file": "httpx/_transports/default.py",
+            "source_symbol": "HTTPTransport.__init__",
+            "test_symbol": "test_async_bytesio_content",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 7,
+            "source_file": "httpx/_transports/default.py",
+            "source_symbol": "HTTPTransport.__init__",
+            "test_symbol": "test_async_bytesio_content.AsyncBytesIO",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T14",
+        "file": "tests/models/test_responses.py",
+        "best_source_rank": 9,
+        "supporting_sources": 5,
+        "supporting_edges": 6,
+        "evidence": [
+          {
+            "source_rank": 9,
+            "source_file": "httpx/_status_codes.py",
+            "source_symbol": "codes",
+            "test_symbol": "test_raise_for_status",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 15,
+            "source_file": "httpx/_exceptions.py",
+            "source_symbol": "HTTPStatusError",
+            "test_symbol": "test_raise_for_status",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 24,
+            "source_file": "httpx/_urls.py",
+            "source_symbol": "QueryParams.update",
+            "test_symbol": "test_iter_raw_increments_updates_counter",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 24,
+            "source_file": "httpx/_urls.py",
+            "source_symbol": "QueryParams.update",
+            "test_symbol": "test_aiter_raw_increments_updates_counter",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 26,
+            "source_file": "httpx/_models.py",
+            "source_symbol": "Response.raise_for_status",
+            "test_symbol": "test_raise_for_status",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T15",
+        "file": "tests/client/test_redirects.py",
+        "best_source_rank": 9,
+        "supporting_sources": 4,
+        "supporting_edges": 53,
+        "evidence": [
+          {
+            "source_rank": 9,
+            "source_file": "httpx/_status_codes.py",
+            "source_symbol": "codes",
+            "test_symbol": "redirects",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 9,
+            "source_file": "httpx/_status_codes.py",
+            "source_symbol": "codes",
+            "test_symbol": "test_redirect_301",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 9,
+            "source_file": "httpx/_status_codes.py",
+            "source_symbol": "codes",
+            "test_symbol": "test_redirect_302",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 9,
+            "source_file": "httpx/_status_codes.py",
+            "source_symbol": "codes",
+            "test_symbol": "test_redirect_303",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 9,
+            "source_file": "httpx/_status_codes.py",
+            "source_symbol": "codes",
+            "test_symbol": "test_next_request",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T16",
+        "file": "tests/test_status_codes.py",
+        "best_source_rank": 9,
+        "supporting_sources": 1,
+        "supporting_edges": 6,
+        "evidence": [
+          {
+            "source_rank": 9,
+            "source_file": "httpx/_status_codes.py",
+            "source_symbol": "codes",
+            "test_symbol": "test_status_code_value_lookup",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 9,
+            "source_file": "httpx/_status_codes.py",
+            "source_symbol": "codes",
+            "test_symbol": "test_status_code_as_int",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 9,
+            "source_file": "httpx/_status_codes.py",
+            "source_symbol": "codes",
+            "test_symbol": "test_status_code_phrase_lookup",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 9,
+            "source_file": "httpx/_status_codes.py",
+            "source_symbol": "codes",
+            "test_symbol": "test_lowercase_status_code",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 9,
+            "source_file": "httpx/_status_codes.py",
+            "source_symbol": "codes",
+            "test_symbol": "test_reason_phrase_for_status_code",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T17",
+        "file": "tests/client/test_proxies.py",
+        "best_source_rank": 14,
+        "supporting_sources": 3,
+        "supporting_edges": 21,
+        "evidence": [
+          {
+            "source_rank": 14,
+            "source_file": "httpx/_transports/default.py",
+            "source_symbol": "HTTPTransport",
+            "test_symbol": "test_proxy_with_mounts",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 14,
+            "source_file": "httpx/_transports/default.py",
+            "source_symbol": "HTTPTransport",
+            "test_symbol": "test_proxies_parameter",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 14,
+            "source_file": "httpx/_transports/default.py",
+            "source_symbol": "HTTPTransport",
+            "test_symbol": "test_socks_proxy_deprecated",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 14,
+            "source_file": "httpx/_transports/default.py",
+            "source_symbol": "HTTPTransport",
+            "test_symbol": "test_socks_proxy",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 14,
+            "source_file": "httpx/_transports/default.py",
+            "source_symbol": "HTTPTransport",
+            "test_symbol": "test_transport_for_request",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T18",
+        "file": "tests/models/test_cookies.py",
+        "best_source_rank": 22,
+        "supporting_sources": 2,
+        "supporting_edges": 6,
+        "evidence": [
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "test_cookies_update",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "test_cookies_with_domain",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "test_cookies_with_domain_and_path",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "test_multiple_set_cookie",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "test_cookies_repr",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T19",
+        "file": "tests/conftest.py",
+        "best_source_rank": 22,
+        "supporting_sources": 2,
+        "supporting_edges": 3,
+        "evidence": [
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "TestServer",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 22,
+            "source_file": "httpx/__init__.py",
+            "source_symbol": "main",
+            "test_symbol": "TestServer.install_signal_handlers",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 24,
+            "source_file": "httpx/_urls.py",
+            "source_symbol": "QueryParams.update",
+            "test_symbol": "clean_environ",
+            "confidence": 0.9
+          }
+        ]
+      },
+      {
+        "id": "T20",
+        "file": "tests/test_utils.py",
+        "best_source_rank": 24,
+        "supporting_sources": 2,
+        "supporting_edges": 4,
+        "evidence": [
+          {
+            "source_rank": 24,
+            "source_file": "httpx/_urls.py",
+            "source_symbol": "QueryParams.update",
+            "test_symbol": "test_get_environment_proxies",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 27,
+            "source_file": "httpx/_client.py",
+            "source_symbol": "Client",
+            "test_symbol": "test_logging_request",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 27,
+            "source_file": "httpx/_client.py",
+            "source_symbol": "Client",
+            "test_symbol": "test_logging_redirect_chain",
+            "confidence": 0.9
+          },
+          {
+            "source_rank": 27,
+            "source_file": "httpx/_client.py",
+            "source_symbol": "Client",
+            "test_symbol": "test_logging_ssl",
+            "confidence": 0.9
+          }
+        ]
+      }
+    ]
+  },
+  "llm": {
+    "provider": "TransformersCoderProvider",
+    "role": "evidence synthesis only"
+  },
+  "investigation_report": "# Issue Understanding\nThe task is to ensure that when required version arguments are missing, the software raises a clear error. This is particularly relevant for the `Version` class in the `httpx/_config.py` module, as it is likely involved in handling version-related configurations.\n\n# Likely Change Locations\n- `httpx/_config.py` - The `Version` class and its `__init__` method are likely the primary locations where version arguments are processed.\n- `tests/test_config.py` - This file contains test cases for the `Version` class, including `test_version` and `test_invalid_version`, which may help identify how version arguments are validated.\n\n# Repository Evidence\n- **`Version` class** in `httpx/_config.py` is defined and includes an `__init__` method [D1], [D2].\n- **`test_version`** and **`test_invalid_version`** in `tests/test_config.py` are test cases that likely validate the behavior of the `Version` class when version arguments are missing or invalid [D3], [D6].\n- **`Version.__init__`** is referenced in multiple test cases, suggesting it is the main method for initializing the class [T3], [T10].\n\n# Suggested Verification\n- Inspect the `Version.__init__` method in `httpx/_config.py` to determine if it validates required version arguments and raises an error when they are missing.\n- Review the test cases `test_version` and `test_invalid_version` in `tests/test_config.py` to understand the expected behavior and validation logic.\n\n# Risks / Uncertainty\n- The exact implementation of `Version.__init__` is not provided, so the behavior of the class when required arguments are missing is not fully known.\n- The test cases may not explicitly cover the error-raising behavior for missing arguments, so further investigation is needed.\n\n# Recommended Next Action\n- Examine the `Version.__init__` method in `httpx/_config.py` to determine if it validates required version arguments and raises an error when they are missing.\n- Review the test cases `test_version` and `test_invalid_version` in `tests/test_config.py` to understand the expected behavior and validation logic."
+}
