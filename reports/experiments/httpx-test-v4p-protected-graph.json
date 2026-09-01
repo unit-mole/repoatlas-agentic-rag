@@ -1,0 +1,217 @@
+{
+  "case_count": 5,
+  "design": "V2 protected top-10 + bounded deterministic 1-hop graph augmentation",
+  "results": [
+    {
+      "case_id": "httpx-test-001",
+      "V2": {
+        "metrics": {
+          "file_recall_at_5": 0.14285714285714285,
+          "file_recall_at_10": 0.2857142857142857,
+          "file_recall_at_20": 0.7142857142857143,
+          "symbol_recall_at_5": 0.0,
+          "symbol_recall_at_10": 0.0,
+          "symbol_recall_at_20": 0.0,
+          "file_mrr": 0.25,
+          "file_ndcg_at_10": 0.21000823726012655,
+          "test_file_recall_at_10": 0.6666666666666666
+        },
+        "latency_ms": 51.557
+      },
+      "V4P": {
+        "metrics": {
+          "file_recall_at_5": 0.14285714285714285,
+          "file_recall_at_10": 0.2857142857142857,
+          "file_recall_at_20": 0.7142857142857143,
+          "symbol_recall_at_5": 0.0,
+          "symbol_recall_at_10": 0.0,
+          "symbol_recall_at_20": 0.0,
+          "file_mrr": 0.25,
+          "file_ndcg_at_10": 0.21000823726012655,
+          "test_file_recall_at_10": 0.6666666666666666
+        },
+        "graph_stage_latency_ms": 0.232,
+        "end_to_end_latency_ms": 51.789,
+        "protected_prefix_size": 16,
+        "graph_candidates": 25,
+        "graph_added_files": 6,
+        "gold_graph_files": [],
+        "gold_graph_symbols": []
+      }
+    },
+    {
+      "case_id": "httpx-test-002",
+      "V2": {
+        "metrics": {
+          "file_recall_at_5": 0.5,
+          "file_recall_at_10": 0.5,
+          "file_recall_at_20": 0.5,
+          "symbol_recall_at_5": 1.0,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.6131471927654584,
+          "test_file_recall_at_10": 0.0
+        },
+        "latency_ms": 32.818
+      },
+      "V4P": {
+        "metrics": {
+          "file_recall_at_5": 0.5,
+          "file_recall_at_10": 0.5,
+          "file_recall_at_20": 0.5,
+          "symbol_recall_at_5": 1.0,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 0.6131471927654584,
+          "test_file_recall_at_10": 0.0
+        },
+        "graph_stage_latency_ms": 0.402,
+        "end_to_end_latency_ms": 33.22,
+        "protected_prefix_size": 19,
+        "graph_candidates": 25,
+        "graph_added_files": 8,
+        "gold_graph_files": [],
+        "gold_graph_symbols": []
+      }
+    },
+    {
+      "case_id": "httpx-test-003",
+      "V2": {
+        "metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 0.0,
+          "symbol_recall_at_10": 0.0,
+          "symbol_recall_at_20": 0.0,
+          "file_mrr": 0.3333333333333333,
+          "file_ndcg_at_10": 0.5706417189553201,
+          "test_file_recall_at_10": 1.0
+        },
+        "latency_ms": 27.566
+      },
+      "V4P": {
+        "metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 0.0,
+          "symbol_recall_at_10": 0.0,
+          "symbol_recall_at_20": 0.0,
+          "file_mrr": 0.3333333333333333,
+          "file_ndcg_at_10": 0.5706417189553201,
+          "test_file_recall_at_10": 1.0
+        },
+        "graph_stage_latency_ms": 0.388,
+        "end_to_end_latency_ms": 27.954,
+        "protected_prefix_size": 30,
+        "graph_candidates": 25,
+        "graph_added_files": 7,
+        "gold_graph_files": [
+          "tests/models/test_url.py"
+        ],
+        "gold_graph_symbols": []
+      }
+    },
+    {
+      "case_id": "httpx-test-004",
+      "V2": {
+        "metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 0.0,
+          "symbol_recall_at_10": 0.0,
+          "symbol_recall_at_20": 0.0,
+          "file_mrr": 0.3333333333333333,
+          "file_ndcg_at_10": 0.5706417189553201,
+          "test_file_recall_at_10": 1.0
+        },
+        "latency_ms": 16.845
+      },
+      "V4P": {
+        "metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 0.0,
+          "symbol_recall_at_10": 0.0,
+          "symbol_recall_at_20": 0.0,
+          "file_mrr": 0.3333333333333333,
+          "file_ndcg_at_10": 0.5706417189553201,
+          "test_file_recall_at_10": 1.0
+        },
+        "graph_stage_latency_ms": 0.177,
+        "end_to_end_latency_ms": 17.023,
+        "protected_prefix_size": 15,
+        "graph_candidates": 25,
+        "graph_added_files": 9,
+        "gold_graph_files": [],
+        "gold_graph_symbols": []
+      }
+    },
+    {
+      "case_id": "httpx-test-005",
+      "V2": {
+        "metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 0.75,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 1.0,
+          "test_file_recall_at_10": 1.0
+        },
+        "latency_ms": 47.392
+      },
+      "V4P": {
+        "metrics": {
+          "file_recall_at_5": 1.0,
+          "file_recall_at_10": 1.0,
+          "file_recall_at_20": 1.0,
+          "symbol_recall_at_5": 0.75,
+          "symbol_recall_at_10": 1.0,
+          "symbol_recall_at_20": 1.0,
+          "file_mrr": 1.0,
+          "file_ndcg_at_10": 1.0,
+          "test_file_recall_at_10": 1.0
+        },
+        "graph_stage_latency_ms": 0.273,
+        "end_to_end_latency_ms": 47.665,
+        "protected_prefix_size": 18,
+        "graph_candidates": 25,
+        "graph_added_files": 12,
+        "gold_graph_files": [],
+        "gold_graph_symbols": []
+      }
+    }
+  ],
+  "macro": {
+    "V2": {
+      "file_recall_at_5": 0.7285714285714285,
+      "file_recall_at_10": 0.7571428571428571,
+      "file_recall_at_20": 0.8428571428571429,
+      "symbol_recall_at_5": 0.35,
+      "symbol_recall_at_10": 0.4,
+      "symbol_recall_at_20": 0.4,
+      "file_mrr": 0.5833333333333334,
+      "file_ndcg_at_10": 0.592887773587245,
+      "test_file_recall_at_10": 0.7333333333333333
+    },
+    "V4P": {
+      "file_recall_at_5": 0.7285714285714285,
+      "file_recall_at_10": 0.7571428571428571,
+      "file_recall_at_20": 0.8428571428571429,
+      "symbol_recall_at_5": 0.35,
+      "symbol_recall_at_10": 0.4,
+      "symbol_recall_at_20": 0.4,
+      "file_mrr": 0.5833333333333334,
+      "file_ndcg_at_10": 0.592887773587245,
+      "test_file_recall_at_10": 0.7333333333333333
+    }
+  }
+}
