@@ -1,0 +1,50 @@
+[
+  {
+    "module": "scripts.create_fixture_repo",
+    "returncode": 0,
+    "stdout": "data/fixture_repo\n",
+    "stderr": ""
+  },
+  {
+    "module": "scripts.build_benchmark",
+    "returncode": 0,
+    "stdout": "data/evaluation/dev/fixture-cache-001.json\n",
+    "stderr": ""
+  },
+  {
+    "module": "scripts.validate_benchmark",
+    "returncode": 0,
+    "stdout": "{'cases': 1, 'errors': [], 'ok': True}\n",
+    "stderr": ""
+  },
+  {
+    "module": "scripts.evaluate_retrieval",
+    "returncode": 0,
+    "stdout": "[\n  {\n    \"version\": \"V0\",\n    \"file_r10\": 1.0,\n    \"symbol_r10\": 1.0,\n    \"mrr\": 1.0,\n    \"ndcg10\": 1.0\n  },\n  {\n    \"version\": \"V1\",\n    \"file_r10\": 1.0,\n    \"symbol_r10\": 1.0,\n    \"mrr\": 1.0,\n    \"ndcg10\": 1.0\n  },\n  {\n    \"version\": \"V2\",\n    \"file_r10\": 1.0,\n    \"symbol_r10\": 1.0,\n    \"mrr\": 1.0,\n    \"ndcg10\": 1.0\n  },\n  {\n    \"version\": \"V3\",\n    \"file_r10\": 1.0,\n    \"symbol_r10\": 1.0,\n    \"mrr\": 1.0,\n    \"ndcg10\": 1.0\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "module": "scripts.evaluate_graph",
+    "returncode": 0,
+    "stdout": "[\n  {\n    \"graph_hops\": 0,\n    \"affected_files\": [\n      \"src/demo/auth.py\",\n      \"src/demo/cache.py\",\n      \"tests/test_auth.py\"\n    ],\n    \"related_tests\": [\n      \"test_refresh_uses_cache\"\n    ],\n    \"graph_edges_added\": 0\n  },\n  {\n    \"graph_hops\": 1,\n    \"affected_files\": [\n      \"src/demo/auth.py\",\n      \"src/demo/cache.py\",\n      \"tests/test_auth.py\"\n    ],\n    \"related_tests\": [\n      \"test_refresh_uses_cache\"\n    ],\n    \"graph_edges_added\": 17\n  },\n  {\n    \"graph_hops\": 2,\n    \"affected_files\": [\n      \"src/demo/auth.py\",\n      \"src/demo/cache.py\",\n      \"tests/test_auth.py\"\n    ],\n    \"related_tests\": [\n      \"test_refresh_uses_cache\"\n    ],\n    \"graph_edges_added\": 18\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "module": "scripts.evaluate_agent",
+    "returncode": 0,
+    "stdout": "{'completed': True, 'steps': 6, 'tool_calls': 4, 'loop': False}\n",
+    "stderr": ""
+  },
+  {
+    "module": "scripts.safe_patch_fixture",
+    "returncode": 0,
+    "stdout": "{\n  \"applied\": {\n    \"ok\": true,\n    \"stdout\": \"\",\n    \"stderr\": \"\"\n  },\n  \"tests\": {\n    \"ok\": true,\n    \"returncode\": 0,\n    \"stdout\": \".                                                                        [100%]\\n1 passed in 0.01s\\n\",\n    \"stderr\": \"\",\n    \"mode\": \"local-build-validation\"\n  },\n  \"diff\": \"diff --git a/src/demo/cache.py b/src/demo/cache.py\\nindex 1c18660..10da22b 100644\\n--- a/src/demo/cache.py\\n+++ b/src/demo/cache.py\\n@@ -1,4 +1,4 @@\\n class Cache:\\n-    def __init__(self, timeout=30): self.timeout=timeout; self.values={}\\n+    def __init__(self, timeout=60): self.timeout=timeout; self.values={}\\n     def get(self,key): return self.values.get(key)\\n     def set(self,key,value): self.values[key]=value\\n\",\n  \"verification\": {\n    \"passed\": true,\n    \"checks\": {\n      \"non_empty\": true,\n      \"no_obvious_test_suppression\": true,\n      \"tests_pass\": true\n    },\n    \"notes\": []\n  },\n  \"original_unchanged\": true,\n  \"workspace\": \"workspaces/fixture-safe-patch\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "module": "scripts.compile_ablation",
+    "returncode": 0,
+    "stdout": "[\n  {\n    \"Architecture\": \"V0\",\n    \"File R@10\": 1.0,\n    \"Symbol R@10\": 1.0,\n    \"MRR\": 1.0,\n    \"Test R@10\": \"fixture-only\",\n    \"Task Success\": \"n/a\",\n    \"Latency\": \"not-recorded-in-fixture-script\"\n  },\n  {\n    \"Architecture\": \"V1\",\n    \"File R@10\": 1.0,\n    \"Symbol R@10\": 1.0,\n    \"MRR\": 1.0,\n    \"Test R@10\": \"fixture-only\",\n    \"Task Success\": \"n/a\",\n    \"Latency\": \"not-recorded-in-fixture-script\"\n  },\n  {\n    \"Architecture\": \"V2\",\n    \"File R@10\": 1.0,\n    \"Symbol R@10\": 1.0,\n    \"MRR\": 1.0,\n    \"Test R@10\": \"fixture-only\",\n    \"Task Success\": \"n/a\",\n    \"Latency\": \"not-recorded-in-fixture-script\"\n  },\n  {\n    \"Architecture\": \"V3\",\n    \"File R@10\": 1.0,\n    \"Symbol R@10\": 1.0,\n    \"MRR\": 1.0,\n    \"Test R@10\": \"fixture-only\",\n    \"Task Success\": \"n/a\",\n    \"Latency\": \"not-recorded-in-fixture-script\"\n  },\n  {\n    \"Architecture\": \"V4\",\n    \"File R@10\": \"fixture-only\",\n    \"Symbol R@10\": \"fixture-only\",\n    \"MRR\": \"fixture-only\",\n    \"Test R@10\": 1.0,\n    \"Task Success\": \"n/a\",\n    \"Latency\": \"not-recorded\"\n  },\n  {\n    \"Architecture\": \"V5\",\n    \"File R@10\": \"fixture-only\",\n    \"Symbol R@10\": \"fixture-only\",\n    \"MRR\": \"fixture-only\",\n    \"Test R@10\": \"fixture-only\",\n    \"Task Success\": true,\n    \"Latency\": \"not-recorded\"\n  },\n  {\n    \"Architecture\": \"V6\",\n    \"File R@10\": \"fixture-only\",\n    \"Symbol R@10\": \"fixture-only\",\n    \"MRR\": \"fixture-only\",\n    \"Test R@10\": \"fixture-only\",\n    \"Task Success\": true,\n    \"Latency\": \"not-recorded\"\n  }\n]\n",
+    "stderr": ""
+  }
+]

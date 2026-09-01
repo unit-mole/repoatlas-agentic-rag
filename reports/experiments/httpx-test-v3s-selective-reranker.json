@@ -30,7 +30,7 @@
           "symbol_recall_at_10": 0.0,
           "symbol_recall_at_20": 0.0
         },
-        "retrieval_latency_ms": 49.118
+        "retrieval_latency_ms": 42.459
       },
       "V3S": {
         "file_metrics": {
@@ -44,8 +44,8 @@
           "symbol_recall_at_10": 0.1111111111111111,
           "symbol_recall_at_20": 0.1111111111111111
         },
-        "reranker_stage_latency_ms": 2171.274,
-        "end_to_end_latency_ms": 2220.392,
+        "reranker_stage_latency_ms": 2218.535,
+        "end_to_end_latency_ms": 2260.994,
         "top_symbols": [
           "httpx/_client.py::Client",
           "tests/client/test_redirects.py::test_body_redirect",
@@ -82,7 +82,7 @@
           "symbol_recall_at_10": 1.0,
           "symbol_recall_at_20": 1.0
         },
-        "retrieval_latency_ms": 23.697
+        "retrieval_latency_ms": 35.641
       },
       "V3S": {
         "file_metrics": {
@@ -96,8 +96,8 @@
           "symbol_recall_at_10": 1.0,
           "symbol_recall_at_20": 1.0
         },
-        "reranker_stage_latency_ms": 562.04,
-        "end_to_end_latency_ms": 585.737,
+        "reranker_stage_latency_ms": 579.122,
+        "end_to_end_latency_ms": 614.763,
         "top_symbols": [
           "httpx/_models.py::Headers",
           "httpx/_models.py::Cookies",
@@ -133,7 +133,7 @@
           "symbol_recall_at_10": 0.0,
           "symbol_recall_at_20": 0.0
         },
-        "retrieval_latency_ms": 34.444
+        "retrieval_latency_ms": 26.312
       },
       "V3S": {
         "file_metrics": {
@@ -147,8 +147,8 @@
           "symbol_recall_at_10": 0.0,
           "symbol_recall_at_20": 0.0
         },
-        "reranker_stage_latency_ms": 1219.112,
-        "end_to_end_latency_ms": 1253.556,
+        "reranker_stage_latency_ms": 1226.312,
+        "end_to_end_latency_ms": 1252.624,
         "top_symbols": [
           "httpx/_urls.py::URL",
           "httpx/_urls.py::URL.__init__",
@@ -185,7 +185,7 @@
           "symbol_recall_at_10": 0.0,
           "symbol_recall_at_20": 0.0
         },
-        "retrieval_latency_ms": 35.297
+        "retrieval_latency_ms": 22.238
       },
       "V3S": {
         "file_metrics": {
@@ -199,8 +199,8 @@
           "symbol_recall_at_10": 0.0,
           "symbol_recall_at_20": 0.0
         },
-        "reranker_stage_latency_ms": 206.956,
-        "end_to_end_latency_ms": 242.253,
+        "reranker_stage_latency_ms": 207.689,
+        "end_to_end_latency_ms": 229.927,
         "top_symbols": [
           "tests/test_content.py::test_bytes_content",
           "tests/test_content.py::test_iterator_content",
@@ -237,7 +237,7 @@
           "symbol_recall_at_10": 1.0,
           "symbol_recall_at_20": 1.0
         },
-        "retrieval_latency_ms": 23.891
+        "retrieval_latency_ms": 28.004
       },
       "V3S": {
         "file_metrics": {
@@ -251,8 +251,8 @@
           "symbol_recall_at_10": 1.0,
           "symbol_recall_at_20": 1.0
         },
-        "reranker_stage_latency_ms": 531.497,
-        "end_to_end_latency_ms": 555.388,
+        "reranker_stage_latency_ms": 522.059,
+        "end_to_end_latency_ms": 550.062,
         "top_symbols": [
           "httpx/_transports/default.py::HTTPTransport.__init__",
           "httpx/_transports/default.py::AsyncHTTPTransport.__init__",
@@ -274,15 +274,15 @@
       "symbol_recall_at_10": 0.4,
       "symbol_recall_at_20": 0.4,
       "file_recall_at_10": 0.7571428571428571,
-      "retrieval_latency_ms": 33.2894
+      "retrieval_latency_ms": 30.9308
     },
     "V3S": {
       "symbol_recall_at_5": 0.2722222222222222,
       "symbol_recall_at_10": 0.4222222222222222,
       "symbol_recall_at_20": 0.4222222222222222,
       "file_recall_at_10": 0.7571428571428571,
-      "reranker_stage_latency_ms": 938.1758,
-      "end_to_end_latency_ms": 971.4652
+      "reranker_stage_latency_ms": 950.7434,
+      "end_to_end_latency_ms": 981.6740000000001
     }
   }
 }
