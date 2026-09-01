@@ -145,3 +145,81 @@ The full source/evidence belongs on GitHub. Public interactive deployment should
 ## License
 
 RepoAtlas code is MIT licensed. Third-party repositories/models retain their own licenses; see `DATA_SOURCES.md` and `docs/RESEARCH_VERIFICATION.md`.
+
+<!-- repoatlas-verified-results -->
+
+## Verified Frozen-TEST Results
+
+RepoAtlas was evaluated on five frozen historical HTTPX
+issue-to-fix cases using pre-fix repository snapshots. Future fixes
+were evaluator-only and were not available to retrieval or agent
+runtime.
+
+### Primary retrieval — V2 Hybrid
+
+BM25 + BGE-M3 with Reciprocal Rank Fusion remained the frozen
+primary retrieval architecture.
+
+| Metric | TEST result |
+|---|---:|
+| File Recall@5 | 0.729 |
+| File Recall@10 | 0.757 |
+| File Recall@20 | 0.843 |
+| Symbol Recall@5 | 0.350 |
+| Symbol Recall@10 | 0.400 |
+| Symbol Recall@20 | 0.400 |
+| File MRR | 0.583 |
+| File nDCG@10 | 0.593 |
+
+### Graph ablation
+
+Protected graph expansion (V4P) preserved the frozen V2 retrieval
+metrics but produced no aggregate improvement on this five-case TEST
+set. The graph component is therefore reported honestly as useful
+repository structure rather than as an unsupported retrieval gain.
+
+### Selective reranker ablation
+
+V3S increased Symbol Recall@10 from **0.400 to 0.422**, but reduced
+Symbol Recall@5 from **0.350 to 0.272** and increased mean end-to-end
+latency from approximately **30.9 ms to 981.7 ms**.
+
+This justified keeping V2 as the primary runtime retrieval strategy.
+
+### Test discovery
+
+Frozen TEST changed-test discovery with V2 achieved:
+
+- Recall@10: **0.667**
+- Recall@20: **0.933**
+- MRR: **0.360**
+
+### V5 investigation
+
+The evidence-grounded investigation agent successfully localized the
+relevant implementation and test locations for the validated HTTPX
+configuration task.
+
+### V6 safe coding agent
+
+For the validated HTTPX V6 task, RepoAtlas:
+
+- generated a bounded two-file source/test modification;
+- changed `httpx/_config.py` and `tests/test_config.py`;
+- matched the historical changed-file set;
+- passed **33 focused tests**;
+- passed Ruff and Bandit verification;
+- executed inside a network-disabled hardened Docker sandbox;
+- preserved the frozen original repository unchanged.
+
+### Development failure analysis
+
+Earlier V6 iterations exposed three engineering failure modes:
+free-form diff corruption, brittle exact-text edit matching, and
+historical test-environment dependency mismatch. These were resolved
+through structured evidence-based edits, fail-closed application, and
+controlled sandbox dependency provisioning.
+
+Raw experiment evidence and checksums are available under
+`reports/experiments/` and `reports/final/`.
+
