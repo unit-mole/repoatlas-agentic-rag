@@ -1,0 +1,1830 @@
+source,field,value
+reports/experiments/full_run_manifest.json,[0].module,scripts.create_fixture_repo
+reports/experiments/full_run_manifest.json,[0].returncode,0
+reports/experiments/full_run_manifest.json,[0].stdout,"data/fixture_repo
+"
+reports/experiments/full_run_manifest.json,[0].stderr,
+reports/experiments/full_run_manifest.json,[1].module,scripts.build_benchmark
+reports/experiments/full_run_manifest.json,[1].returncode,0
+reports/experiments/full_run_manifest.json,[1].stdout,"data/evaluation/dev/fixture-cache-001.json
+"
+reports/experiments/full_run_manifest.json,[1].stderr,
+reports/experiments/full_run_manifest.json,[2].module,scripts.validate_benchmark
+reports/experiments/full_run_manifest.json,[2].returncode,0
+reports/experiments/full_run_manifest.json,[2].stdout,"{'cases': 1, 'errors': [], 'ok': True}
+"
+reports/experiments/full_run_manifest.json,[2].stderr,
+reports/experiments/full_run_manifest.json,[3].module,scripts.evaluate_retrieval
+reports/experiments/full_run_manifest.json,[3].returncode,0
+reports/experiments/full_run_manifest.json,[3].stdout,"[
+  {
+    ""version"": ""V0"",
+    ""file_r10"": 1.0,
+    ""symbol_r10"": 1.0,
+    ""mrr"": 1.0,
+    ""ndcg10"": 1.0
+  },
+  {
+    ""version"": ""V1"",
+    ""file_r10"": 1.0,
+    ""symbol_r10"": 1.0,
+    ""mrr"": 1.0,
+    ""ndcg10"": 1.0
+  },
+  {
+    ""version"": ""V2"",
+    ""file_r10"": 1.0,
+    ""symbol_r10"": 1.0,
+    ""mrr"": 1.0,
+    ""ndcg10"": 1.0
+  },
+  {
+    ""version"": ""V3"",
+    ""file_r10"": 1.0,
+    ""symbol_r10"": 1.0,
+    ""mrr"": 1.0,
+    ""ndcg10"": 1.0
+  }
+]
+"
+reports/experiments/full_run_manifest.json,[3].stderr,
+reports/experiments/full_run_manifest.json,[4].module,scripts.evaluate_graph
+reports/experiments/full_run_manifest.json,[4].returncode,0
+reports/experiments/full_run_manifest.json,[4].stdout,"[
+  {
+    ""graph_hops"": 0,
+    ""affected_files"": [
+      ""src/demo/auth.py"",
+      ""src/demo/cache.py"",
+      ""tests/test_auth.py""
+    ],
+    ""related_tests"": [
+      ""test_refresh_uses_cache""
+    ],
+    ""graph_edges_added"": 0
+  },
+  {
+    ""graph_hops"": 1,
+    ""affected_files"": [
+      ""src/demo/auth.py"",
+      ""src/demo/cache.py"",
+      ""tests/test_auth.py""
+    ],
+    ""related_tests"": [
+      ""test_refresh_uses_cache""
+    ],
+    ""graph_edges_added"": 17
+  },
+  {
+    ""graph_hops"": 2,
+    ""affected_files"": [
+      ""src/demo/auth.py"",
+      ""src/demo/cache.py"",
+      ""tests/test_auth.py""
+    ],
+    ""related_tests"": [
+      ""test_refresh_uses_cache""
+    ],
+    ""graph_edges_added"": 18
+  }
+]
+"
+reports/experiments/full_run_manifest.json,[4].stderr,
+reports/experiments/full_run_manifest.json,[5].module,scripts.evaluate_agent
+reports/experiments/full_run_manifest.json,[5].returncode,0
+reports/experiments/full_run_manifest.json,[5].stdout,"{'completed': True, 'steps': 6, 'tool_calls': 4, 'loop': False}
+"
+reports/experiments/full_run_manifest.json,[5].stderr,
+reports/experiments/full_run_manifest.json,[6].module,scripts.safe_patch_fixture
+reports/experiments/full_run_manifest.json,[6].returncode,0
+reports/experiments/full_run_manifest.json,[6].stdout,"{
+  ""applied"": {
+    ""ok"": true,
+    ""stdout"": """",
+    ""stderr"": """"
+  },
+  ""tests"": {
+    ""ok"": true,
+    ""returncode"": 0,
+    ""stdout"": "".                                                                        [100%]\n1 passed in 0.01s\n"",
+    ""stderr"": """",
+    ""mode"": ""local-build-validation""
+  },
+  ""diff"": ""diff --git a/src/demo/cache.py b/src/demo/cache.py\nindex 1c18660..10da22b 100644\n--- a/src/demo/cache.py\n+++ b/src/demo/cache.py\n@@ -1,4 +1,4 @@\n class Cache:\n-    def __init__(self, timeout=30): self.timeout=timeout; self.values={}\n+    def __init__(self, timeout=60): self.timeout=timeout; self.values={}\n     def get(self,key): return self.values.get(key)\n     def set(self,key,value): self.values[key]=value\n"",
+  ""verification"": {
+    ""passed"": true,
+    ""checks"": {
+      ""non_empty"": true,
+      ""no_obvious_test_suppression"": true,
+      ""tests_pass"": true
+    },
+    ""notes"": []
+  },
+  ""original_unchanged"": true,
+  ""workspace"": ""workspaces/fixture-safe-patch""
+}
+"
+reports/experiments/full_run_manifest.json,[6].stderr,
+reports/experiments/full_run_manifest.json,[7].module,scripts.compile_ablation
+reports/experiments/full_run_manifest.json,[7].returncode,0
+reports/experiments/full_run_manifest.json,[7].stdout,"[
+  {
+    ""Architecture"": ""V0"",
+    ""File R@10"": 1.0,
+    ""Symbol R@10"": 1.0,
+    ""MRR"": 1.0,
+    ""Test R@10"": ""fixture-only"",
+    ""Task Success"": ""n/a"",
+    ""Latency"": ""not-recorded-in-fixture-script""
+  },
+  {
+    ""Architecture"": ""V1"",
+    ""File R@10"": 1.0,
+    ""Symbol R@10"": 1.0,
+    ""MRR"": 1.0,
+    ""Test R@10"": ""fixture-only"",
+    ""Task Success"": ""n/a"",
+    ""Latency"": ""not-recorded-in-fixture-script""
+  },
+  {
+    ""Architecture"": ""V2"",
+    ""File R@10"": 1.0,
+    ""Symbol R@10"": 1.0,
+    ""MRR"": 1.0,
+    ""Test R@10"": ""fixture-only"",
+    ""Task Success"": ""n/a"",
+    ""Latency"": ""not-recorded-in-fixture-script""
+  },
+  {
+    ""Architecture"": ""V3"",
+    ""File R@10"": 1.0,
+    ""Symbol R@10"": 1.0,
+    ""MRR"": 1.0,
+    ""Test R@10"": ""fixture-only"",
+    ""Task Success"": ""n/a"",
+    ""Latency"": ""not-recorded-in-fixture-script""
+  },
+  {
+    ""Architecture"": ""V4"",
+    ""File R@10"": ""fixture-only"",
+    ""Symbol R@10"": ""fixture-only"",
+    ""MRR"": ""fixture-only"",
+    ""Test R@10"": 1.0,
+    ""Task Success"": ""n/a"",
+    ""Latency"": ""not-recorded""
+  },
+  {
+    ""Architecture"": ""V5"",
+    ""File R@10"": ""fixture-only"",
+    ""Symbol R@10"": ""fixture-only"",
+    ""MRR"": ""fixture-only"",
+    ""Test R@10"": ""fixture-only"",
+    ""Task Success"": true,
+    ""Latency"": ""not-recorded""
+  },
+  {
+    ""Architecture"": ""V6"",
+    ""File R@10"": ""fixture-only"",
+    ""Symbol R@10"": ""fixture-only"",
+    ""MRR"": ""fixture-only"",
+    ""Test R@10"": ""fixture-only"",
+    ""Task Success"": true,
+    ""Latency"": ""not-recorded""
+  }
+]
+"
+reports/experiments/full_run_manifest.json,[7].stderr,
+reports/experiments/httpx-test-preparation.json,cases[0].case_id,httpx-test-001
+reports/experiments/httpx-test-preparation.json,cases[0].base_commit,8e36f2bc685dfbe43cd7503bc1c422a6ed6e05a5
+reports/experiments/httpx-test-preparation.json,cases[0].retrieval_gold_files,7
+reports/experiments/httpx-test-preparation.json,cases[0].gold_symbols,9
+reports/experiments/httpx-test-preparation.json,cases[0].changed_tests,6
+reports/experiments/httpx-test-preparation.json,cases[0].parsed_symbols,1239
+reports/experiments/httpx-test-preparation.json,cases[0].chunks,1239
+reports/experiments/httpx-test-preparation.json,cases[0].graph_nodes,1281
+reports/experiments/httpx-test-preparation.json,cases[0].graph_edges,16463
+reports/experiments/httpx-test-preparation.json,cases[1].case_id,httpx-test-002
+reports/experiments/httpx-test-preparation.json,cases[1].base_commit,2e01aa0075327c5c30632207e8b7a1961dda5303
+reports/experiments/httpx-test-preparation.json,cases[1].retrieval_gold_files,2
+reports/experiments/httpx-test-preparation.json,cases[1].gold_symbols,1
+reports/experiments/httpx-test-preparation.json,cases[1].changed_tests,1
+reports/experiments/httpx-test-preparation.json,cases[1].parsed_symbols,1262
+reports/experiments/httpx-test-preparation.json,cases[1].chunks,1262
+reports/experiments/httpx-test-preparation.json,cases[1].graph_nodes,1304
+reports/experiments/httpx-test-preparation.json,cases[1].graph_edges,16667
+reports/experiments/httpx-test-preparation.json,cases[2].case_id,httpx-test-003
+reports/experiments/httpx-test-preparation.json,cases[2].base_commit,be56b747350008b7b0456242691919f9086c0f32
+reports/experiments/httpx-test-preparation.json,cases[2].retrieval_gold_files,2
+reports/experiments/httpx-test-preparation.json,cases[2].gold_symbols,6
+reports/experiments/httpx-test-preparation.json,cases[2].changed_tests,1
+reports/experiments/httpx-test-preparation.json,cases[2].parsed_symbols,1257
+reports/experiments/httpx-test-preparation.json,cases[2].chunks,1257
+reports/experiments/httpx-test-preparation.json,cases[2].graph_nodes,1298
+reports/experiments/httpx-test-preparation.json,cases[2].graph_edges,16574
+reports/experiments/httpx-test-preparation.json,cases[3].case_id,httpx-test-004
+reports/experiments/httpx-test-preparation.json,cases[3].base_commit,f3eb3c90fdd19d2e4c5239e19a3588d072ff53fb
+reports/experiments/httpx-test-preparation.json,cases[3].retrieval_gold_files,2
+reports/experiments/httpx-test-preparation.json,cases[3].gold_symbols,2
+reports/experiments/httpx-test-preparation.json,cases[3].changed_tests,1
+reports/experiments/httpx-test-preparation.json,cases[3].parsed_symbols,1250
+reports/experiments/httpx-test-preparation.json,cases[3].chunks,1250
+reports/experiments/httpx-test-preparation.json,cases[3].graph_nodes,1291
+reports/experiments/httpx-test-preparation.json,cases[3].graph_edges,16448
+reports/experiments/httpx-test-preparation.json,cases[4].case_id,httpx-test-005
+reports/experiments/httpx-test-preparation.json,cases[4].base_commit,c9f9cb96d2c4dd074ed12e5fff451e6a5e89da89
+reports/experiments/httpx-test-preparation.json,cases[4].retrieval_gold_files,2
+reports/experiments/httpx-test-preparation.json,cases[4].gold_symbols,4
+reports/experiments/httpx-test-preparation.json,cases[4].changed_tests,1
+reports/experiments/httpx-test-preparation.json,cases[4].parsed_symbols,1253
+reports/experiments/httpx-test-preparation.json,cases[4].chunks,1253
+reports/experiments/httpx-test-preparation.json,cases[4].graph_nodes,1294
+reports/experiments/httpx-test-preparation.json,cases[4].graph_edges,16253
+reports/experiments/httpx-test-test-discovery.json,case_count,5
+reports/experiments/httpx-test-test-discovery.json,results[0].case_id,httpx-test-001
+reports/experiments/httpx-test-test-discovery.json,results[0].gold_changed_tests[0],tests/client/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[0].gold_changed_tests[1],tests/models/test_requests.py
+reports/experiments/httpx-test-test-discovery.json,results[0].gold_changed_tests[2],tests/models/test_responses.py
+reports/experiments/httpx-test-test-discovery.json,results[0].gold_changed_tests[3],tests/models/test_whatwg.py
+reports/experiments/httpx-test-test-discovery.json,results[0].gold_changed_tests[4],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[0].gold_changed_tests[5],tests/test_main.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.metrics.changed_test_recall_at_10,0.3333333333333333
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.metrics.changed_test_recall_at_20,0.6666666666666666
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.metrics.changed_test_mrr,0.5
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.gold_ranks.tests/client/test_auth.py,2
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.gold_ranks.tests/models/test_requests.py,20
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.gold_ranks.tests/models/test_responses.py,7
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.gold_ranks.tests/models/test_whatwg.py,
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.gold_ranks.tests/test_content.py,21
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.gold_ranks.tests/test_main.py,18
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[0],tests/test_utils.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[1],tests/client/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[2],tests/client/test_client.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[3],tests/client/test_async_client.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[4],tests/client/test_redirects.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[5],tests/test_multipart.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[6],tests/models/test_responses.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[7],tests/test_asgi.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[8],tests/client/test_event_hooks.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[9],tests/client/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[10],tests/test_wsgi.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[11],tests/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[12],tests/client/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[13],tests/client/test_properties.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[14],tests/test_timeouts.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[15],tests/client/test_queryparams.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[16],tests/client/test_proxies.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[17],tests/test_main.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[18],tests/models/test_url.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[19],tests/models/test_requests.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[20],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[21],tests/test_decoders.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[22],tests/conftest.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[23],tests/models/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[24],tests/test_config.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[25],tests/test_exceptions.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V2_graph_test_discovery.predicted_tests[26],tests/test_api.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.metrics.changed_test_recall_at_10,0.3333333333333333
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.metrics.changed_test_recall_at_20,0.5
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.metrics.changed_test_mrr,1.0
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.gold_ranks.tests/client/test_auth.py,1
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.gold_ranks.tests/models/test_requests.py,27
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.gold_ranks.tests/models/test_responses.py,6
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.gold_ranks.tests/models/test_whatwg.py,
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.gold_ranks.tests/test_content.py,13
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.gold_ranks.tests/test_main.py,25
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[0],tests/client/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[1],tests/client/test_client.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[2],tests/client/test_async_client.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[3],tests/test_multipart.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[4],tests/test_utils.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[5],tests/models/test_responses.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[6],tests/client/test_redirects.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[7],tests/test_asgi.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[8],tests/client/test_event_hooks.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[9],tests/client/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[10],tests/test_wsgi.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[11],tests/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[12],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[13],tests/client/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[14],tests/client/test_properties.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[15],tests/test_timeouts.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[16],tests/client/test_queryparams.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[17],tests/test_decoders.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[18],tests/conftest.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[19],tests/models/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[20],tests/test_config.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[21],tests/test_exceptions.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[22],tests/test_api.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[23],tests/client/test_proxies.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[24],tests/test_main.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[25],tests/models/test_url.py
+reports/experiments/httpx-test-test-discovery.json,results[0].V3_graph_test_discovery.predicted_tests[26],tests/models/test_requests.py
+reports/experiments/httpx-test-test-discovery.json,results[1].case_id,httpx-test-002
+reports/experiments/httpx-test-test-discovery.json,results[1].gold_changed_tests[0],tests/client/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.metrics.changed_test_recall_at_10,0.0
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.metrics.changed_test_recall_at_20,1.0
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.metrics.changed_test_mrr,0.05555555555555555
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.gold_ranks.tests/client/test_headers.py,18
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[0],tests/models/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[1],tests/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[2],tests/client/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[3],tests/client/test_properties.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[4],tests/client/test_async_client.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[5],tests/client/test_client.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[6],tests/client/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[7],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[8],tests/test_multipart.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[9],tests/models/test_responses.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[10],tests/client/test_redirects.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[11],tests/conftest.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[12],tests/models/test_requests.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[13],tests/client/test_event_hooks.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[14],tests/test_asgi.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[15],tests/models/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[16],tests/test_decoders.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[17],tests/client/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[18],tests/test_utils.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[19],tests/test_wsgi.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[20],tests/test_config.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[21],tests/client/test_proxies.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V2_graph_test_discovery.predicted_tests[22],tests/test_api.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.metrics.changed_test_recall_at_10,0.0
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.metrics.changed_test_recall_at_20,1.0
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.metrics.changed_test_mrr,0.0625
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.gold_ranks.tests/client/test_headers.py,16
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[0],tests/client/test_async_client.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[1],tests/client/test_client.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[2],tests/client/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[3],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[4],tests/test_multipart.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[5],tests/models/test_responses.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[6],tests/models/test_requests.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[7],tests/client/test_event_hooks.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[8],tests/test_asgi.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[9],tests/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[10],tests/client/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[11],tests/models/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[12],tests/client/test_properties.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[13],tests/models/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[14],tests/test_decoders.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[15],tests/client/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[16],tests/client/test_redirects.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[17],tests/conftest.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[18],tests/test_utils.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[19],tests/test_wsgi.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[20],tests/test_config.py
+reports/experiments/httpx-test-test-discovery.json,results[1].V3_graph_test_discovery.predicted_tests[21],tests/client/test_proxies.py
+reports/experiments/httpx-test-test-discovery.json,results[2].case_id,httpx-test-003
+reports/experiments/httpx-test-test-discovery.json,results[2].gold_changed_tests[0],tests/models/test_url.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.metrics.changed_test_recall_at_10,1.0
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.metrics.changed_test_recall_at_20,1.0
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.metrics.changed_test_mrr,1.0
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.gold_ranks.tests/models/test_url.py,1
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[0],tests/models/test_url.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[1],tests/test_asgi.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[2],tests/models/test_requests.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[3],tests/models/test_queryparams.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[4],tests/client/test_redirects.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[5],tests/client/test_queryparams.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[6],tests/client/test_proxies.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[7],tests/client/test_client.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[8],tests/client/test_async_client.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[9],tests/test_utils.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[10],tests/test_multipart.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[11],tests/client/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[12],tests/client/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[13],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[14],tests/test_wsgi.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[15],tests/client/test_properties.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[16],tests/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[17],tests/models/test_responses.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[18],tests/test_main.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[19],tests/test_api.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[20],tests/client/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[21],tests/test_config.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[22],tests/test_timeouts.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[23],tests/conftest.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[24],tests/client/test_event_hooks.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[25],tests/test_decoders.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[26],tests/test_exceptions.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[27],tests/models/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V2_graph_test_discovery.predicted_tests[28],tests/models/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.metrics.changed_test_recall_at_10,1.0
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.metrics.changed_test_recall_at_20,1.0
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.metrics.changed_test_mrr,1.0
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.gold_ranks.tests/models/test_url.py,1
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[0],tests/models/test_url.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[1],tests/client/test_redirects.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[2],tests/client/test_queryparams.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[3],tests/test_multipart.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[4],tests/client/test_proxies.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[5],tests/client/test_client.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[6],tests/client/test_async_client.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[7],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[8],tests/test_utils.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[9],tests/test_asgi.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[10],tests/client/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[11],tests/test_main.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[12],tests/test_api.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[13],tests/test_wsgi.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[14],tests/test_timeouts.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[15],tests/client/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[16],tests/client/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[17],tests/models/test_responses.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[18],tests/client/test_properties.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[19],tests/models/test_requests.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[20],tests/test_config.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[21],tests/conftest.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[22],tests/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[23],tests/client/test_event_hooks.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[24],tests/test_decoders.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[25],tests/test_exceptions.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[26],tests/models/test_queryparams.py
+reports/experiments/httpx-test-test-discovery.json,results[2].V3_graph_test_discovery.predicted_tests[27],tests/models/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[3].case_id,httpx-test-004
+reports/experiments/httpx-test-test-discovery.json,results[3].gold_changed_tests[0],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.metrics.changed_test_recall_at_10,1.0
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.metrics.changed_test_recall_at_20,1.0
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.metrics.changed_test_mrr,0.14285714285714285
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.gold_ranks.tests/test_content.py,7
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[0],tests/client/test_client.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[1],tests/client/test_async_client.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[2],tests/test_main.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[3],tests/test_api.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[4],tests/client/test_redirects.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[5],tests/test_multipart.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[6],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[7],tests/test_wsgi.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[8],tests/test_asgi.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[9],tests/test_utils.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[10],tests/test_timeouts.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[11],tests/client/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[12],tests/models/test_requests.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[13],tests/client/test_event_hooks.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[14],tests/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[15],tests/models/test_responses.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[16],tests/client/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[17],tests/client/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[18],tests/conftest.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[19],tests/client/test_properties.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[20],tests/client/test_queryparams.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[21],tests/client/test_proxies.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[22],tests/models/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[23],tests/test_config.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[24],tests/test_decoders.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V2_graph_test_discovery.predicted_tests[25],tests/test_exceptions.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.metrics.changed_test_recall_at_10,1.0
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.metrics.changed_test_recall_at_20,1.0
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.metrics.changed_test_mrr,0.14285714285714285
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.gold_ranks.tests/test_content.py,7
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[0],tests/test_multipart.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[1],tests/client/test_client.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[2],tests/test_main.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[3],tests/client/test_async_client.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[4],tests/test_wsgi.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[5],tests/test_asgi.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[6],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[7],tests/test_utils.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[8],tests/test_timeouts.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[9],tests/models/test_requests.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[10],tests/client/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[11],tests/client/test_redirects.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[12],tests/client/test_event_hooks.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[13],tests/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[14],tests/models/test_responses.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[15],tests/client/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[16],tests/client/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[17],tests/conftest.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[18],tests/client/test_properties.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[19],tests/client/test_queryparams.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[20],tests/client/test_proxies.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[21],tests/models/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[22],tests/test_config.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[23],tests/test_decoders.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[24],tests/test_exceptions.py
+reports/experiments/httpx-test-test-discovery.json,results[3].V3_graph_test_discovery.predicted_tests[25],tests/test_api.py
+reports/experiments/httpx-test-test-discovery.json,results[4].case_id,httpx-test-005
+reports/experiments/httpx-test-test-discovery.json,results[4].gold_changed_tests[0],tests/test_config.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.metrics.changed_test_recall_at_10,1.0
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.metrics.changed_test_recall_at_20,1.0
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.metrics.changed_test_mrr,0.1
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.gold_ranks.tests/test_config.py,10
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[0],tests/client/test_async_client.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[1],tests/client/test_client.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[2],tests/client/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[3],tests/client/test_event_hooks.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[4],tests/test_asgi.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[5],tests/client/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[6],tests/test_main.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[7],tests/client/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[8],tests/test_api.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[9],tests/test_config.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[10],tests/test_exported_members.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[11],tests/test_multipart.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[12],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[13],tests/models/test_responses.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[14],tests/client/test_redirects.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[15],tests/test_status_codes.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[16],tests/client/test_proxies.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[17],tests/models/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[18],tests/conftest.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[19],tests/test_utils.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[20],tests/models/test_queryparams.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[21],tests/test_timeouts.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[22],tests/test_wsgi.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[23],tests/client/test_properties.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[24],tests/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[25],tests/client/test_queryparams.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V2_graph_test_discovery.predicted_tests[26],tests/models/test_url.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.metrics.changed_test_recall_at_10,0.0
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.metrics.changed_test_recall_at_20,0.0
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.metrics.changed_test_mrr,0.043478260869565216
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.gold_ranks.tests/test_config.py,23
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[0],tests/client/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[1],tests/client/test_async_client.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[2],tests/client/test_client.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[3],tests/test_multipart.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[4],tests/client/test_redirects.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[5],tests/client/test_proxies.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[6],tests/test_asgi.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[7],tests/client/test_event_hooks.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[8],tests/client/test_headers.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[9],tests/client/test_cookies.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[10],tests/test_timeouts.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[11],tests/test_main.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[12],tests/models/test_responses.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[13],tests/test_wsgi.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[14],tests/client/test_properties.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[15],tests/test_auth.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[16],tests/client/test_queryparams.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[17],tests/test_utils.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[18],tests/models/test_url.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[19],tests/test_content.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[20],tests/test_status_codes.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[21],tests/test_api.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[22],tests/test_config.py
+reports/experiments/httpx-test-test-discovery.json,results[4].V3_graph_test_discovery.predicted_tests[23],tests/test_exported_members.py
+reports/experiments/httpx-test-test-discovery.json,macro.V2_graph_test_discovery.changed_test_recall_at_10,0.6666666666666666
+reports/experiments/httpx-test-test-discovery.json,macro.V2_graph_test_discovery.changed_test_recall_at_20,0.9333333333333333
+reports/experiments/httpx-test-test-discovery.json,macro.V2_graph_test_discovery.changed_test_mrr,0.35968253968253966
+reports/experiments/httpx-test-test-discovery.json,macro.V3_graph_test_discovery.changed_test_recall_at_10,0.4666666666666667
+reports/experiments/httpx-test-test-discovery.json,macro.V3_graph_test_discovery.changed_test_recall_at_20,0.7
+reports/experiments/httpx-test-test-discovery.json,macro.V3_graph_test_discovery.changed_test_mrr,0.4497670807453416
+reports/experiments/httpx-test-v3s-selective-reranker.json,case_count,5
+reports/experiments/httpx-test-v3s-selective-reranker.json,design.base,V2 Hybrid
+reports/experiments/httpx-test-v3s-selective-reranker.json,design.file_ranking,V2 locked
+reports/experiments/httpx-test-v3s-selective-reranker.json,design.file_limit,5
+reports/experiments/httpx-test-v3s-selective-reranker.json,design.candidate_limit,12
+reports/experiments/httpx-test-v3s-selective-reranker.json,design.reranker,BAAI/bge-reranker-v2-m3
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].case_id,httpx-test-001
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].candidate_files[0],tests/client/test_redirects.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].candidate_files[1],tests/models/test_url.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].candidate_files[2],tests/client/test_headers.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].candidate_files[3],httpx/_content.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].candidate_files[4],httpx/_client.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].candidate_count,11
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V2.file_metrics.file_recall_at_5,0.14285714285714285
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V2.file_metrics.file_recall_at_10,0.2857142857142857
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V2.file_metrics.file_mrr,0.25
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V2.file_metrics.file_ndcg_at_10,0.21000823726012655
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V2.symbol_metrics.symbol_recall_at_5,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V2.symbol_metrics.symbol_recall_at_10,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V2.symbol_metrics.symbol_recall_at_20,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V2.retrieval_latency_ms,42.459
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.file_metrics.file_recall_at_5,0.14285714285714285
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.file_metrics.file_recall_at_10,0.2857142857142857
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.file_metrics.file_mrr,0.25
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.file_metrics.file_ndcg_at_10,0.21000823726012655
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.symbol_metrics.symbol_recall_at_5,0.1111111111111111
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.symbol_metrics.symbol_recall_at_10,0.1111111111111111
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.symbol_metrics.symbol_recall_at_20,0.1111111111111111
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.reranker_stage_latency_ms,2218.535
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.end_to_end_latency_ms,2260.994
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.top_symbols[0],httpx/_client.py::Client
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.top_symbols[1],tests/client/test_redirects.py::test_body_redirect
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.top_symbols[2],tests/client/test_redirects.py::test_no_body_redirect
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.top_symbols[3],tests/client/test_headers.py::test_header_repeated_items
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.top_symbols[4],httpx/_content.py::encode_json
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.top_symbols[5],httpx/_content.py::encode_request
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.top_symbols[6],httpx/_client.py::BaseClient._redirect_headers
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.top_symbols[7],tests/models/test_url.py::test_url_query_encoding
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.top_symbols[8],httpx/_client.py::Client._send_single_request
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[0].V3S.top_symbols[9],tests/models/test_url.py::test_url_with_empty_query
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].case_id,httpx-test-002
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].candidate_files[0],httpx/_utils.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].candidate_files[1],httpx/_models.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].candidate_files[2],tests/test_exceptions.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].candidate_files[3],httpx/_exceptions.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].candidate_files[4],tests/models/test_responses.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].candidate_count,12
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V2.file_metrics.file_recall_at_5,0.5
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V2.file_metrics.file_recall_at_10,0.5
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V2.file_metrics.file_mrr,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V2.file_metrics.file_ndcg_at_10,0.6131471927654584
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V2.symbol_metrics.symbol_recall_at_5,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V2.symbol_metrics.symbol_recall_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V2.symbol_metrics.symbol_recall_at_20,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V2.retrieval_latency_ms,35.641
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.file_metrics.file_recall_at_5,0.5
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.file_metrics.file_recall_at_10,0.5
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.file_metrics.file_mrr,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.file_metrics.file_ndcg_at_10,0.6131471927654584
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.symbol_metrics.symbol_recall_at_5,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.symbol_metrics.symbol_recall_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.symbol_metrics.symbol_recall_at_20,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.reranker_stage_latency_ms,579.122
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.end_to_end_latency_ms,614.763
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.top_symbols[0],httpx/_models.py::Headers
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.top_symbols[1],httpx/_models.py::Cookies
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.top_symbols[2],httpx/_exceptions.py::HTTPError.__init__
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.top_symbols[3],httpx/_utils.py::normalize_header_value
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.top_symbols[4],httpx/_utils.py::normalize_header_key
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.top_symbols[5],tests/models/test_responses.py::test_raise_for_status
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.top_symbols[6],tests/test_exceptions.py::test_httpcore_all_exceptions_mapped
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.top_symbols[7],httpx/_exceptions.py::InvalidURL.__init__
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.top_symbols[8],tests/models/test_responses.py::test_value_error_without_request
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[1].V3S.top_symbols[9],httpx/_exceptions.py::StreamConsumed.__init__
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].case_id,httpx-test-003
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].candidate_files[0],httpx/_urls.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].candidate_files[1],httpx/_client.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].candidate_files[2],tests/models/test_url.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].candidate_files[3],httpx/_urlparse.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].candidate_count,12
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V2.file_metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V2.file_metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V2.file_metrics.file_mrr,0.3333333333333333
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V2.file_metrics.file_ndcg_at_10,0.5706417189553201
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V2.symbol_metrics.symbol_recall_at_5,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V2.symbol_metrics.symbol_recall_at_10,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V2.symbol_metrics.symbol_recall_at_20,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V2.retrieval_latency_ms,26.312
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.file_metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.file_metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.file_metrics.file_mrr,0.3333333333333333
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.file_metrics.file_ndcg_at_10,0.5706417189553201
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.symbol_metrics.symbol_recall_at_5,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.symbol_metrics.symbol_recall_at_10,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.symbol_metrics.symbol_recall_at_20,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.reranker_stage_latency_ms,1226.312
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.end_to_end_latency_ms,1252.624
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.top_symbols[0],httpx/_urls.py::URL
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.top_symbols[1],httpx/_urls.py::URL.__init__
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.top_symbols[2],httpx/_urlparse.py::urlparse
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.top_symbols[3],httpx/_client.py::BaseClient.params
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.top_symbols[4],httpx/_urls.py::URL.query
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.top_symbols[5],tests/models/test_url.py::test_url_add_param_manipulation
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.top_symbols[6],tests/models/test_url.py::test_url_set_param_manipulation
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.top_symbols[7],tests/models/test_url.py::test_url_remove_param_manipulation
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.top_symbols[8],tests/models/test_url.py::test_url_merge_params_manipulation
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[2].V3S.top_symbols[9],httpx/_urls.py::URL.raw_path
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].case_id,httpx-test-004
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].candidate_files[0],httpx/_exceptions.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].candidate_files[1],tests/models/test_requests.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].candidate_files[2],httpx/_content.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].candidate_files[3],tests/test_content.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].candidate_files[4],httpx/_client.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].candidate_count,12
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V2.file_metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V2.file_metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V2.file_metrics.file_mrr,0.3333333333333333
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V2.file_metrics.file_ndcg_at_10,0.5706417189553201
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V2.symbol_metrics.symbol_recall_at_5,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V2.symbol_metrics.symbol_recall_at_10,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V2.symbol_metrics.symbol_recall_at_20,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V2.retrieval_latency_ms,22.238
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.file_metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.file_metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.file_metrics.file_mrr,0.3333333333333333
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.file_metrics.file_ndcg_at_10,0.5706417189553201
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.symbol_metrics.symbol_recall_at_5,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.symbol_metrics.symbol_recall_at_10,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.symbol_metrics.symbol_recall_at_20,0.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.reranker_stage_latency_ms,207.689
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.end_to_end_latency_ms,229.927
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.top_symbols[0],tests/test_content.py::test_bytes_content
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.top_symbols[1],tests/test_content.py::test_iterator_content
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.top_symbols[2],tests/test_content.py::test_aiterator_content
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.top_symbols[3],httpx/_content.py::encode_request
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.top_symbols[4],httpx/_client.py::Client.put
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.top_symbols[5],tests/models/test_requests.py::test_ignore_transfer_encoding_header_if_content_length_exists
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.top_symbols[6],httpx/_client.py::Client.post
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.top_symbols[7],httpx/_client.py::Client.__init__
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.top_symbols[8],tests/models/test_requests.py::test_request_async_streaming_content_picklable
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[3].V3S.top_symbols[9],httpx/_exceptions.py::UnsupportedProtocol
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].case_id,httpx-test-005
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].candidate_files[0],httpx/_config.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].candidate_files[1],tests/test_config.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].candidate_files[2],tests/models/test_responses.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].candidate_files[3],httpx/_transports/default.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].candidate_files[4],httpx/_status_codes.py
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].candidate_count,11
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V2.file_metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V2.file_metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V2.file_metrics.file_mrr,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V2.file_metrics.file_ndcg_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V2.symbol_metrics.symbol_recall_at_5,0.75
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V2.symbol_metrics.symbol_recall_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V2.symbol_metrics.symbol_recall_at_20,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V2.retrieval_latency_ms,28.004
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.file_metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.file_metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.file_metrics.file_mrr,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.file_metrics.file_ndcg_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.symbol_metrics.symbol_recall_at_5,0.25
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.symbol_metrics.symbol_recall_at_10,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.symbol_metrics.symbol_recall_at_20,1.0
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.reranker_stage_latency_ms,522.059
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.end_to_end_latency_ms,550.062
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.top_symbols[0],httpx/_transports/default.py::HTTPTransport.__init__
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.top_symbols[1],httpx/_transports/default.py::AsyncHTTPTransport.__init__
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.top_symbols[2],httpx/_transports/default.py::HTTPTransport
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.top_symbols[3],httpx/_status_codes.py::codes
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.top_symbols[4],httpx/_config.py::Version.__init__
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.top_symbols[5],tests/models/test_responses.py::test_raise_for_status
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.top_symbols[6],httpx/_config.py::Version
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.top_symbols[7],tests/test_config.py::test_invalid_version
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.top_symbols[8],httpx/_config.py::Version.__repr__
+reports/experiments/httpx-test-v3s-selective-reranker.json,results[4].V3S.top_symbols[9],httpx/_config.py::Version.__contains__
+reports/experiments/httpx-test-v3s-selective-reranker.json,macro.V2.symbol_recall_at_5,0.35
+reports/experiments/httpx-test-v3s-selective-reranker.json,macro.V2.symbol_recall_at_10,0.4
+reports/experiments/httpx-test-v3s-selective-reranker.json,macro.V2.symbol_recall_at_20,0.4
+reports/experiments/httpx-test-v3s-selective-reranker.json,macro.V2.file_recall_at_10,0.7571428571428571
+reports/experiments/httpx-test-v3s-selective-reranker.json,macro.V2.retrieval_latency_ms,30.9308
+reports/experiments/httpx-test-v3s-selective-reranker.json,macro.V3S.symbol_recall_at_5,0.2722222222222222
+reports/experiments/httpx-test-v3s-selective-reranker.json,macro.V3S.symbol_recall_at_10,0.4222222222222222
+reports/experiments/httpx-test-v3s-selective-reranker.json,macro.V3S.symbol_recall_at_20,0.4222222222222222
+reports/experiments/httpx-test-v3s-selective-reranker.json,macro.V3S.file_recall_at_10,0.7571428571428571
+reports/experiments/httpx-test-v3s-selective-reranker.json,macro.V3S.reranker_stage_latency_ms,950.7434
+reports/experiments/httpx-test-v3s-selective-reranker.json,macro.V3S.end_to_end_latency_ms,981.6740000000001
+reports/experiments/httpx-test-v4p-protected-graph.json,case_count,5
+reports/experiments/httpx-test-v4p-protected-graph.json,design,V2 protected top-10 + bounded deterministic 1-hop graph augmentation
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].case_id,httpx-test-001
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V2.metrics.file_recall_at_5,0.14285714285714285
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V2.metrics.file_recall_at_10,0.2857142857142857
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V2.metrics.file_recall_at_20,0.7142857142857143
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V2.metrics.symbol_recall_at_5,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V2.metrics.symbol_recall_at_10,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V2.metrics.symbol_recall_at_20,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V2.metrics.file_mrr,0.25
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V2.metrics.file_ndcg_at_10,0.21000823726012655
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V2.metrics.test_file_recall_at_10,0.6666666666666666
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V2.latency_ms,50.116
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.metrics.file_recall_at_5,0.14285714285714285
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.metrics.file_recall_at_10,0.2857142857142857
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.metrics.file_recall_at_20,0.7142857142857143
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.metrics.symbol_recall_at_5,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.metrics.symbol_recall_at_10,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.metrics.symbol_recall_at_20,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.metrics.file_mrr,0.25
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.metrics.file_ndcg_at_10,0.21000823726012655
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.metrics.test_file_recall_at_10,0.6666666666666666
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.graph_stage_latency_ms,0.202
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.end_to_end_latency_ms,50.318
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.protected_prefix_size,16
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.graph_candidates,25
+reports/experiments/httpx-test-v4p-protected-graph.json,results[0].V4P.graph_added_files,6
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].case_id,httpx-test-002
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V2.metrics.file_recall_at_5,0.5
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V2.metrics.file_recall_at_10,0.5
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V2.metrics.file_recall_at_20,0.5
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V2.metrics.symbol_recall_at_5,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V2.metrics.symbol_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V2.metrics.symbol_recall_at_20,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V2.metrics.file_mrr,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V2.metrics.file_ndcg_at_10,0.6131471927654584
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V2.metrics.test_file_recall_at_10,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V2.latency_ms,30.946
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.metrics.file_recall_at_5,0.5
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.metrics.file_recall_at_10,0.5
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.metrics.file_recall_at_20,0.5
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.metrics.symbol_recall_at_5,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.metrics.symbol_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.metrics.symbol_recall_at_20,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.metrics.file_mrr,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.metrics.file_ndcg_at_10,0.6131471927654584
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.metrics.test_file_recall_at_10,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.graph_stage_latency_ms,0.266
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.end_to_end_latency_ms,31.212
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.protected_prefix_size,19
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.graph_candidates,25
+reports/experiments/httpx-test-v4p-protected-graph.json,results[1].V4P.graph_added_files,8
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].case_id,httpx-test-003
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V2.metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V2.metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V2.metrics.file_recall_at_20,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V2.metrics.symbol_recall_at_5,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V2.metrics.symbol_recall_at_10,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V2.metrics.symbol_recall_at_20,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V2.metrics.file_mrr,0.3333333333333333
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V2.metrics.file_ndcg_at_10,0.5706417189553201
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V2.metrics.test_file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V2.latency_ms,25.628
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.metrics.file_recall_at_20,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.metrics.symbol_recall_at_5,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.metrics.symbol_recall_at_10,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.metrics.symbol_recall_at_20,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.metrics.file_mrr,0.3333333333333333
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.metrics.file_ndcg_at_10,0.5706417189553201
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.metrics.test_file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.graph_stage_latency_ms,0.231
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.end_to_end_latency_ms,25.859
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.protected_prefix_size,30
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.graph_candidates,25
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.graph_added_files,7
+reports/experiments/httpx-test-v4p-protected-graph.json,results[2].V4P.gold_graph_files[0],tests/models/test_url.py
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].case_id,httpx-test-004
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V2.metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V2.metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V2.metrics.file_recall_at_20,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V2.metrics.symbol_recall_at_5,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V2.metrics.symbol_recall_at_10,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V2.metrics.symbol_recall_at_20,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V2.metrics.file_mrr,0.3333333333333333
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V2.metrics.file_ndcg_at_10,0.5706417189553201
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V2.metrics.test_file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V2.latency_ms,27.108
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.metrics.file_recall_at_20,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.metrics.symbol_recall_at_5,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.metrics.symbol_recall_at_10,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.metrics.symbol_recall_at_20,0.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.metrics.file_mrr,0.3333333333333333
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.metrics.file_ndcg_at_10,0.5706417189553201
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.metrics.test_file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.graph_stage_latency_ms,0.338
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.end_to_end_latency_ms,27.446
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.protected_prefix_size,15
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.graph_candidates,25
+reports/experiments/httpx-test-v4p-protected-graph.json,results[3].V4P.graph_added_files,9
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].case_id,httpx-test-005
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V2.metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V2.metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V2.metrics.file_recall_at_20,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V2.metrics.symbol_recall_at_5,0.75
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V2.metrics.symbol_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V2.metrics.symbol_recall_at_20,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V2.metrics.file_mrr,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V2.metrics.file_ndcg_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V2.metrics.test_file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V2.latency_ms,45.102
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.metrics.file_recall_at_5,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.metrics.file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.metrics.file_recall_at_20,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.metrics.symbol_recall_at_5,0.75
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.metrics.symbol_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.metrics.symbol_recall_at_20,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.metrics.file_mrr,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.metrics.file_ndcg_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.metrics.test_file_recall_at_10,1.0
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.graph_stage_latency_ms,0.267
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.end_to_end_latency_ms,45.369
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.protected_prefix_size,18
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.graph_candidates,25
+reports/experiments/httpx-test-v4p-protected-graph.json,results[4].V4P.graph_added_files,12
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V2.file_recall_at_5,0.7285714285714285
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V2.file_recall_at_10,0.7571428571428571
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V2.file_recall_at_20,0.8428571428571429
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V2.symbol_recall_at_5,0.35
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V2.symbol_recall_at_10,0.4
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V2.symbol_recall_at_20,0.4
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V2.file_mrr,0.5833333333333334
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V2.file_ndcg_at_10,0.592887773587245
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V2.test_file_recall_at_10,0.7333333333333333
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V4P.file_recall_at_5,0.7285714285714285
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V4P.file_recall_at_10,0.7571428571428571
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V4P.file_recall_at_20,0.8428571428571429
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V4P.symbol_recall_at_5,0.35
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V4P.symbol_recall_at_10,0.4
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V4P.symbol_recall_at_20,0.4
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V4P.file_mrr,0.5833333333333334
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V4P.file_ndcg_at_10,0.592887773587245
+reports/experiments/httpx-test-v4p-protected-graph.json,macro.V4P.test_file_recall_at_10,0.7333333333333333
+reports/experiments/safe_patch_fixture.json,applied.ok,True
+reports/experiments/safe_patch_fixture.json,applied.stdout,
+reports/experiments/safe_patch_fixture.json,applied.stderr,
+reports/experiments/safe_patch_fixture.json,tests.ok,True
+reports/experiments/safe_patch_fixture.json,tests.returncode,0
+reports/experiments/safe_patch_fixture.json,tests.stdout,".                                                                        [100%]
+=============================== warnings summary ===============================
+../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:451
+  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:451: PytestCacheWarning: could not create cache path /workspace/.pytest_cache/v/cache/nodeids: [Errno 13] Permission denied: '/workspace/.pytest_cache'
+    config.cache.set(""cache/nodeids"", sorted(self.cached_nodeids))
+
+../usr/local/lib/python3.12/site-packages/_pytest/stepwise.py:56
+  /usr/local/lib/python3.12/site-packages/_pytest/stepwise.py:56: PytestCacheWarning: could not create cache path /workspace/.pytest_cache/v/cache/stepwise: [Errno 13] Permission denied: '/workspace/.pytest_cache'
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 2 warnings in 0.00s
+"
+reports/experiments/safe_patch_fixture.json,tests.stderr,
+reports/experiments/safe_patch_fixture.json,tests.command[0],python
+reports/experiments/safe_patch_fixture.json,tests.command[1],-m
+reports/experiments/safe_patch_fixture.json,tests.command[2],pytest
+reports/experiments/safe_patch_fixture.json,tests.command[3],-q
+reports/experiments/safe_patch_fixture.json,tests.command[4],-o
+reports/experiments/safe_patch_fixture.json,tests.command[5],filterwarnings=
+reports/experiments/safe_patch_fixture.json,tests.sandbox.network,none
+reports/experiments/safe_patch_fixture.json,tests.sandbox.read_only_root,True
+reports/experiments/safe_patch_fixture.json,tests.sandbox.capabilities_dropped,True
+reports/experiments/safe_patch_fixture.json,diff,"diff --git a/src/demo/cache.py b/src/demo/cache.py
+index 1c18660..10da22b 100644
+--- a/src/demo/cache.py
++++ b/src/demo/cache.py
+@@ -1,4 +1,4 @@
+ class Cache:
+-    def __init__(self, timeout=30): self.timeout=timeout; self.values={}
++    def __init__(self, timeout=60): self.timeout=timeout; self.values={}
+     def get(self,key): return self.values.get(key)
+     def set(self,key,value): self.values[key]=value
+"
+reports/experiments/safe_patch_fixture.json,verification.passed,True
+reports/experiments/safe_patch_fixture.json,verification.checks.non_empty,True
+reports/experiments/safe_patch_fixture.json,verification.checks.no_obvious_test_suppression,True
+reports/experiments/safe_patch_fixture.json,verification.checks.tests_pass,True
+reports/experiments/safe_patch_fixture.json,original_unchanged,True
+reports/experiments/safe_patch_fixture.json,workspace,workspaces/fixture-safe-patch
+reports/experiments/v5-httpx-test-005.json,task_id,04b5cadc-4ae2-496e-b3c4-d7ec140b40db
+reports/experiments/v5-httpx-test-005.json,agent_version,V5
+reports/experiments/v5-httpx-test-005.json,mode,frozen_retrieval_local_llm
+reports/experiments/v5-httpx-test-005.json,task,Version configuration should raise a clear error when required version arguments are missing.
+reports/experiments/v5-httpx-test-005.json,repository,/home/atripathi/projects/repoatlas/data/snapshots/httpx-test-005
+reports/experiments/v5-httpx-test-005.json,base_commit,c9f9cb96d2c4dd074ed12e5fff451e6a5e89da89
+reports/experiments/v5-httpx-test-005.json,retrieval.primary,V2_BM25_BGE_M3_RRF
+reports/experiments/v5-httpx-test-005.json,retrieval.graph,V4P_PROTECTED_CONTEXT
+reports/experiments/v5-httpx-test-005.json,retrieval.test_discovery,V2_REVERSE_TESTS
+reports/experiments/v5-httpx-test-005.json,retrieval.v3s_default,False
+reports/experiments/v5-httpx-test-005.json,retrieval.direct_hits,30
+reports/experiments/v5-httpx-test-005.json,retrieval.protected_prefix_size,18
+reports/experiments/v5-httpx-test-005.json,retrieval.graph_candidates,25
+reports/experiments/v5-httpx-test-005.json,retrieval.related_tests,20
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[0],httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[1],tests/test_config.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[2],tests/models/test_responses.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[3],httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[4],httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[5],httpx/_client.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[6],httpx/_exceptions.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[7],httpx/_main.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[8],tests/client/test_async_client.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[9],tests/client/test_client.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[10],tests/client/test_auth.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[11],tests/client/test_cookies.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[12],tests/client/test_event_hooks.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[13],tests/client/test_headers.py
+reports/experiments/v5-httpx-test-005.json,likely_affected_files[14],tests/test_api.py
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[0],httpx/_config.py::Version
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[1],httpx/_config.py::Version.__init__
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[2],tests/test_config.py::test_version
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[3],httpx/_config.py::Version.__contains__
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[4],tests/models/test_responses.py::test_raise_for_status
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[5],tests/test_config.py::test_invalid_version
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[6],httpx/_transports/default.py::HTTPTransport.__init__
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[7],httpx/_transports/default.py::AsyncHTTPTransport.__init__
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[8],httpx/_status_codes.py::codes
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[9],httpx/_config.py::Version.__repr__
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[10],httpx/_client.py::Client._init_transport
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[11],httpx/_client.py::Client.__init__
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[12],httpx/_client.py::AsyncClient.__init__
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[13],httpx/_transports/default.py::HTTPTransport
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[14],httpx/_exceptions.py::HTTPStatusError
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[15],httpx/_main.py::format_response_headers
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[16],tests/client/test_async_client.py::test_http2_parameter_deprecated
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[17],tests/client/test_client.py::test_http2_parameter_deprecated
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[18],tests/client/test_auth.py::test_netrc_auth_nopassword
+reports/experiments/v5-httpx-test-005.json,likely_primary_symbols[19],tests/client/test_auth.py::test_netrc_auth_nopassword_parse_error
+reports/experiments/v5-httpx-test-005.json,related_tests[0],tests/client/test_async_client.py
+reports/experiments/v5-httpx-test-005.json,related_tests[1],tests/client/test_client.py
+reports/experiments/v5-httpx-test-005.json,related_tests[2],tests/client/test_auth.py
+reports/experiments/v5-httpx-test-005.json,related_tests[3],tests/client/test_event_hooks.py
+reports/experiments/v5-httpx-test-005.json,related_tests[4],tests/test_asgi.py
+reports/experiments/v5-httpx-test-005.json,related_tests[5],tests/client/test_headers.py
+reports/experiments/v5-httpx-test-005.json,related_tests[6],tests/test_main.py
+reports/experiments/v5-httpx-test-005.json,related_tests[7],tests/client/test_cookies.py
+reports/experiments/v5-httpx-test-005.json,related_tests[8],tests/test_api.py
+reports/experiments/v5-httpx-test-005.json,related_tests[9],tests/test_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[0].id,D1
+reports/experiments/v5-httpx-test-005.json,evidence.direct[0].file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[0].symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.direct[0].fusion_score,0.032522
+reports/experiments/v5-httpx-test-005.json,evidence.direct[0].evidence,"['[SYM: Version]', '[SRC: httpx/_config.py:L366-L377]']"
+reports/experiments/v5-httpx-test-005.json,evidence.direct[1].id,D2
+reports/experiments/v5-httpx-test-005.json,evidence.direct[1].file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[1].symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.direct[1].fusion_score,0.032522
+reports/experiments/v5-httpx-test-005.json,evidence.direct[1].evidence,"['[SYM: Version.__init__]', '[SRC: httpx/_config.py:L367-L370]']"
+reports/experiments/v5-httpx-test-005.json,evidence.direct[2].id,D3
+reports/experiments/v5-httpx-test-005.json,evidence.direct[2].file,tests/test_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[2].symbol,test_version
+reports/experiments/v5-httpx-test-005.json,evidence.direct[2].fusion_score,0.030077
+reports/experiments/v5-httpx-test-005.json,evidence.direct[2].evidence,"['[SYM: test_version]', '[SRC: tests/test_config.py:L226-L230]']"
+reports/experiments/v5-httpx-test-005.json,evidence.direct[3].id,D4
+reports/experiments/v5-httpx-test-005.json,evidence.direct[3].file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[3].symbol,Version.__contains__
+reports/experiments/v5-httpx-test-005.json,evidence.direct[3].fusion_score,0.029274
+reports/experiments/v5-httpx-test-005.json,evidence.direct[3].evidence,"['[SYM: Version.__contains__]', '[SRC: httpx/_config.py:L372-L373]']"
+reports/experiments/v5-httpx-test-005.json,evidence.direct[4].id,D5
+reports/experiments/v5-httpx-test-005.json,evidence.direct[4].file,tests/models/test_responses.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[4].symbol,test_raise_for_status
+reports/experiments/v5-httpx-test-005.json,evidence.direct[4].fusion_score,0.028778
+reports/experiments/v5-httpx-test-005.json,evidence.direct[4].evidence,"['[SYM: test_raise_for_status]', '[SRC: tests/models/test_responses.py:L91-L146]']"
+reports/experiments/v5-httpx-test-005.json,evidence.direct[5].id,D6
+reports/experiments/v5-httpx-test-005.json,evidence.direct[5].file,tests/test_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[5].symbol,test_invalid_version
+reports/experiments/v5-httpx-test-005.json,evidence.direct[5].fusion_score,0.027921
+reports/experiments/v5-httpx-test-005.json,evidence.direct[5].evidence,"['[SYM: test_invalid_version]', '[SRC: tests/test_config.py:L233-L235]']"
+reports/experiments/v5-httpx-test-005.json,evidence.direct[6].id,D7
+reports/experiments/v5-httpx-test-005.json,evidence.direct[6].file,httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[6].symbol,HTTPTransport.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.direct[6].fusion_score,0.027799
+reports/experiments/v5-httpx-test-005.json,evidence.direct[6].evidence,"['[SYM: HTTPTransport.__init__]', '[SRC: httpx/_transports/default.py:L129-L205]']"
+reports/experiments/v5-httpx-test-005.json,evidence.direct[7].id,D8
+reports/experiments/v5-httpx-test-005.json,evidence.direct[7].file,httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[7].symbol,AsyncHTTPTransport.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.direct[7].fusion_score,0.027397
+reports/experiments/v5-httpx-test-005.json,evidence.direct[7].evidence,"['[SYM: AsyncHTTPTransport.__init__]', '[SRC: httpx/_transports/default.py:L269-L344]']"
+reports/experiments/v5-httpx-test-005.json,evidence.direct[8].id,D9
+reports/experiments/v5-httpx-test-005.json,evidence.direct[8].file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[8].symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.direct[8].fusion_score,0.027347
+reports/experiments/v5-httpx-test-005.json,evidence.direct[8].evidence,"['[SYM: codes]', '[SRC: httpx/_status_codes.py:L4-L153]']"
+reports/experiments/v5-httpx-test-005.json,evidence.direct[9].id,D10
+reports/experiments/v5-httpx-test-005.json,evidence.direct[9].file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[9].symbol,Version.__repr__
+reports/experiments/v5-httpx-test-005.json,evidence.direct[9].fusion_score,0.026974
+reports/experiments/v5-httpx-test-005.json,evidence.direct[9].evidence,"['[SYM: Version.__repr__]', '[SRC: httpx/_config.py:L375-L377]']"
+reports/experiments/v5-httpx-test-005.json,evidence.direct[10].id,D11
+reports/experiments/v5-httpx-test-005.json,evidence.direct[10].file,httpx/_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[10].symbol,Client._init_transport
+reports/experiments/v5-httpx-test-005.json,evidence.direct[10].fusion_score,0.026743
+reports/experiments/v5-httpx-test-005.json,evidence.direct[10].evidence,"['[SYM: Client._init_transport]', '[SRC: httpx/_client.py:L725-L747]']"
+reports/experiments/v5-httpx-test-005.json,evidence.direct[11].id,D12
+reports/experiments/v5-httpx-test-005.json,evidence.direct[11].file,httpx/_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.direct[11].symbol,Client.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.direct[11].fusion_score,0.026491
+reports/experiments/v5-httpx-test-005.json,evidence.direct[11].evidence,"['[SYM: Client.__init__]', '[SRC: httpx/_client.py:L626-L723]']"
+reports/experiments/v5-httpx-test-005.json,evidence.graph[0].id,G1
+reports/experiments/v5-httpx-test-005.json,evidence.graph[0].file,tests/client/test_auth.py
+reports/experiments/v5-httpx-test-005.json,evidence.graph[0].symbol,test_netrc_auth_nopassword
+reports/experiments/v5-httpx-test-005.json,evidence.graph[0].score,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[0].source,sym:httpx/_config.py:Version
+reports/experiments/v5-httpx-test-005.json,evidence.graph[0].relationship,TESTS
+reports/experiments/v5-httpx-test-005.json,evidence.graph[0].hop,1
+reports/experiments/v5-httpx-test-005.json,evidence.graph[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[1].id,G2
+reports/experiments/v5-httpx-test-005.json,evidence.graph[1].file,tests/client/test_auth.py
+reports/experiments/v5-httpx-test-005.json,evidence.graph[1].symbol,test_netrc_auth_nopassword_parse_error
+reports/experiments/v5-httpx-test-005.json,evidence.graph[1].score,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[1].source,sym:httpx/_config.py:Version
+reports/experiments/v5-httpx-test-005.json,evidence.graph[1].relationship,TESTS
+reports/experiments/v5-httpx-test-005.json,evidence.graph[1].hop,1
+reports/experiments/v5-httpx-test-005.json,evidence.graph[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[2].id,G3
+reports/experiments/v5-httpx-test-005.json,evidence.graph[2].file,tests/client/test_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.graph[2].symbol,test_raw_client_header
+reports/experiments/v5-httpx-test-005.json,evidence.graph[2].score,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[2].source,sym:httpx/_config.py:Version
+reports/experiments/v5-httpx-test-005.json,evidence.graph[2].relationship,TESTS
+reports/experiments/v5-httpx-test-005.json,evidence.graph[2].hop,1
+reports/experiments/v5-httpx-test-005.json,evidence.graph[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[3].id,G4
+reports/experiments/v5-httpx-test-005.json,evidence.graph[3].file,tests/client/test_cookies.py
+reports/experiments/v5-httpx-test-005.json,evidence.graph[3].symbol,test_set_cookie_with_cookiejar
+reports/experiments/v5-httpx-test-005.json,evidence.graph[3].score,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[3].source,sym:httpx/_config.py:Version
+reports/experiments/v5-httpx-test-005.json,evidence.graph[3].relationship,TESTS
+reports/experiments/v5-httpx-test-005.json,evidence.graph[3].hop,1
+reports/experiments/v5-httpx-test-005.json,evidence.graph[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[4].id,G5
+reports/experiments/v5-httpx-test-005.json,evidence.graph[4].file,tests/client/test_cookies.py
+reports/experiments/v5-httpx-test-005.json,evidence.graph[4].symbol,test_setting_client_cookies_to_cookiejar
+reports/experiments/v5-httpx-test-005.json,evidence.graph[4].score,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[4].source,sym:httpx/_config.py:Version
+reports/experiments/v5-httpx-test-005.json,evidence.graph[4].relationship,TESTS
+reports/experiments/v5-httpx-test-005.json,evidence.graph[4].hop,1
+reports/experiments/v5-httpx-test-005.json,evidence.graph[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[5].id,G6
+reports/experiments/v5-httpx-test-005.json,evidence.graph[5].file,tests/client/test_event_hooks.py
+reports/experiments/v5-httpx-test-005.json,evidence.graph[5].symbol,test_async_event_hooks
+reports/experiments/v5-httpx-test-005.json,evidence.graph[5].score,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[5].source,sym:httpx/_config.py:Version
+reports/experiments/v5-httpx-test-005.json,evidence.graph[5].relationship,TESTS
+reports/experiments/v5-httpx-test-005.json,evidence.graph[5].hop,1
+reports/experiments/v5-httpx-test-005.json,evidence.graph[5].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[6].id,G7
+reports/experiments/v5-httpx-test-005.json,evidence.graph[6].file,tests/client/test_event_hooks.py
+reports/experiments/v5-httpx-test-005.json,evidence.graph[6].symbol,test_async_event_hooks_with_redirect
+reports/experiments/v5-httpx-test-005.json,evidence.graph[6].score,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[6].source,sym:httpx/_config.py:Version
+reports/experiments/v5-httpx-test-005.json,evidence.graph[6].relationship,TESTS
+reports/experiments/v5-httpx-test-005.json,evidence.graph[6].hop,1
+reports/experiments/v5-httpx-test-005.json,evidence.graph[6].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[7].id,G8
+reports/experiments/v5-httpx-test-005.json,evidence.graph[7].file,tests/client/test_event_hooks.py
+reports/experiments/v5-httpx-test-005.json,evidence.graph[7].symbol,test_event_hooks
+reports/experiments/v5-httpx-test-005.json,evidence.graph[7].score,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[7].source,sym:httpx/_config.py:Version
+reports/experiments/v5-httpx-test-005.json,evidence.graph[7].relationship,TESTS
+reports/experiments/v5-httpx-test-005.json,evidence.graph[7].hop,1
+reports/experiments/v5-httpx-test-005.json,evidence.graph[7].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[8].id,G9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[8].file,tests/client/test_event_hooks.py
+reports/experiments/v5-httpx-test-005.json,evidence.graph[8].symbol,test_event_hooks_with_redirect
+reports/experiments/v5-httpx-test-005.json,evidence.graph[8].score,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[8].source,sym:httpx/_config.py:Version
+reports/experiments/v5-httpx-test-005.json,evidence.graph[8].relationship,TESTS
+reports/experiments/v5-httpx-test-005.json,evidence.graph[8].hop,1
+reports/experiments/v5-httpx-test-005.json,evidence.graph[8].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[9].id,G10
+reports/experiments/v5-httpx-test-005.json,evidence.graph[9].file,tests/client/test_headers.py
+reports/experiments/v5-httpx-test-005.json,evidence.graph[9].symbol,test_client_header
+reports/experiments/v5-httpx-test-005.json,evidence.graph[9].score,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.graph[9].source,sym:httpx/_config.py:Version
+reports/experiments/v5-httpx-test-005.json,evidence.graph[9].relationship,TESTS
+reports/experiments/v5-httpx-test-005.json,evidence.graph[9].hop,1
+reports/experiments/v5-httpx-test-005.json,evidence.graph[9].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].id,T1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].file,tests/client/test_async_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].best_source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].supporting_sources,11
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].supporting_edges,86
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[0].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[0].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[0].test_symbol,test_get
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[1].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[1].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[1].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[1].test_symbol,test_server_extensions
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[2].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[2].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[2].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[2].test_symbol,test_http2_parameter_deprecated
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[3].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[3].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[3].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[3].test_symbol,test_context_managed_transport
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[4].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[4].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[4].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[4].test_symbol,test_context_managed_transport.Transport
+reports/experiments/v5-httpx-test-005.json,evidence.tests[0].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].id,T2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].file,tests/client/test_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].best_source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].supporting_sources,10
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].supporting_edges,72
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[0].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[0].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[0].test_symbol,test_get
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[1].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[1].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[1].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[1].test_symbol,test_server_extensions
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[2].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[2].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[2].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[2].test_symbol,test_raw_client_header
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[3].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[3].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[3].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[3].test_symbol,test_http2_parameter_deprecated
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[4].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[4].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[4].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[4].test_symbol,test_context_managed_transport
+reports/experiments/v5-httpx-test-005.json,evidence.tests[1].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].id,T3
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].file,tests/client/test_auth.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].best_source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].supporting_sources,8
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].supporting_edges,112
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[0].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[0].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[0].test_symbol,test_netrc_auth_nopassword
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[1].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[1].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[1].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[1].test_symbol,test_netrc_auth_nopassword_parse_error
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[2].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[2].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[2].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[2].test_symbol,App
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[3].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[3].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[3].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[3].test_symbol,App.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[4].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[4].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[4].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[4].test_symbol,DigestApp
+reports/experiments/v5-httpx-test-005.json,evidence.tests[2].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].id,T4
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].file,tests/client/test_event_hooks.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].best_source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].supporting_sources,5
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].supporting_edges,19
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[0].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[0].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[0].test_symbol,test_event_hooks
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[1].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[1].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[1].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[1].test_symbol,test_async_event_hooks
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[2].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[2].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[2].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[2].test_symbol,test_event_hooks_with_redirect
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[3].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[3].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[3].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[3].test_symbol,test_async_event_hooks_with_redirect
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[4].source_rank,15
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[4].source_file,httpx/_exceptions.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[4].source_symbol,HTTPStatusError
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[4].test_symbol,test_event_hooks_raising_exception
+reports/experiments/v5-httpx-test-005.json,evidence.tests[3].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].id,T5
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].file,tests/test_asgi.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].best_source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].supporting_sources,3
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].supporting_edges,21
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[0].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[0].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[0].test_symbol,test_asgi_headers
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[1].source_rank,27
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[1].source_file,httpx/_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[1].source_symbol,Client
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[1].test_symbol,test_asgi
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[2].source_rank,27
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[2].source_file,httpx/_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[2].source_symbol,Client
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[2].test_symbol,test_asgi_urlencoded_path
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[3].source_rank,27
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[3].source_file,httpx/_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[3].source_symbol,Client
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[3].test_symbol,test_asgi_raw_path
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[4].source_rank,27
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[4].source_file,httpx/_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[4].source_symbol,Client
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[4].test_symbol,test_asgi_raw_path_should_not_include_querystring_portion
+reports/experiments/v5-httpx-test-005.json,evidence.tests[4].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].id,T6
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].file,tests/client/test_headers.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].best_source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].supporting_sources,3
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].supporting_edges,15
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[0].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[0].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[0].test_symbol,test_client_header
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[1].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[1].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[1].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[1].test_symbol,test_header_merge_conflicting_headers
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[2].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[2].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[2].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[2].test_symbol,test_header_update
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[3].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[3].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[3].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[3].test_symbol,test_host_with_auth_and_port_in_url
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[4].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[4].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[4].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[4].test_symbol,test_host_with_non_default_port_in_url
+reports/experiments/v5-httpx-test-005.json,evidence.tests[5].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].id,T7
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].file,tests/test_main.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].best_source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].supporting_sources,3
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].supporting_edges,14
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[0].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[0].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[0].test_symbol,test_verbose
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[1].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[1].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[1].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[1].test_symbol,test_auth
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[2].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[2].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[2].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[2].test_symbol,test_help
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[3].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[3].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[3].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[3].test_symbol,test_get
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[4].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[4].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[4].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[4].test_symbol,test_json
+reports/experiments/v5-httpx-test-005.json,evidence.tests[6].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].id,T8
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].file,tests/client/test_cookies.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].best_source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].supporting_sources,3
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].supporting_edges,11
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[0].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[0].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[0].test_symbol,test_set_cookie_with_cookiejar
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[1].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[1].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[1].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[1].test_symbol,test_setting_client_cookies_to_cookiejar
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[2].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[2].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[2].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[2].test_symbol,test_set_cookie_with_cookiejar
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[3].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[3].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[3].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[3].test_symbol,test_setting_client_cookies_to_cookiejar
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[4].source_rank,27
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[4].source_file,httpx/_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[4].source_symbol,Client
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[4].test_symbol,test_set_cookie
+reports/experiments/v5-httpx-test-005.json,evidence.tests[7].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].id,T9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].file,tests/test_api.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].best_source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].supporting_sources,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].supporting_edges,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].evidence[0].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].evidence[0].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].evidence[0].test_symbol,test_get
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].evidence[1].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].evidence[1].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].evidence[1].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].evidence[1].test_symbol,test_stream
+reports/experiments/v5-httpx-test-005.json,evidence.tests[8].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].id,T10
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].file,tests/test_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].best_source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].supporting_sources,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].supporting_edges,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].evidence[0].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].evidence[0].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].evidence[0].test_symbol,test_version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].evidence[1].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].evidence[1].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].evidence[1].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].evidence[1].test_symbol,test_invalid_version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[9].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[10].id,T11
+reports/experiments/v5-httpx-test-005.json,evidence.tests[10].file,tests/test_exported_members.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[10].best_source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[10].supporting_sources,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[10].supporting_edges,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[10].evidence[0].source_rank,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[10].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[10].evidence[0].source_symbol,Version
+reports/experiments/v5-httpx-test-005.json,evidence.tests[10].evidence[0].test_symbol,test_all_imports_are_exported
+reports/experiments/v5-httpx-test-005.json,evidence.tests[10].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].id,T12
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].file,tests/test_multipart.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].best_source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].supporting_sources,6
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].supporting_edges,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[0].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[0].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[0].test_symbol,test_multipart_encode_non_seekable_filelike
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[1].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[1].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[1].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[1].test_symbol,test_multipart_encode_non_seekable_filelike.IteratorIO
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[2].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[2].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[2].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[2].test_symbol,test_multipart_encode_non_seekable_filelike.IteratorIO.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[3].source_rank,7
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[3].source_file,httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[3].source_symbol,HTTPTransport.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[3].test_symbol,test_multipart_encode_non_seekable_filelike
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[4].source_rank,7
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[4].source_file,httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[4].source_symbol,HTTPTransport.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[4].test_symbol,test_multipart_encode_non_seekable_filelike.IteratorIO
+reports/experiments/v5-httpx-test-005.json,evidence.tests[11].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].id,T13
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].file,tests/test_content.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].best_source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].supporting_sources,5
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].supporting_edges,15
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[0].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[0].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[0].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[0].test_symbol,test_async_bytesio_content
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[1].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[1].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[1].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[1].test_symbol,test_async_bytesio_content.AsyncBytesIO
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[2].source_rank,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[2].source_file,httpx/_config.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[2].source_symbol,Version.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[2].test_symbol,test_async_bytesio_content.AsyncBytesIO.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[3].source_rank,7
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[3].source_file,httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[3].source_symbol,HTTPTransport.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[3].test_symbol,test_async_bytesio_content
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[4].source_rank,7
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[4].source_file,httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[4].source_symbol,HTTPTransport.__init__
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[4].test_symbol,test_async_bytesio_content.AsyncBytesIO
+reports/experiments/v5-httpx-test-005.json,evidence.tests[12].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].id,T14
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].file,tests/models/test_responses.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].best_source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].supporting_sources,5
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].supporting_edges,6
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[0].source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[0].source_file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[0].source_symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[0].test_symbol,test_raise_for_status
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[1].source_rank,15
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[1].source_file,httpx/_exceptions.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[1].source_symbol,HTTPStatusError
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[1].test_symbol,test_raise_for_status
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[2].source_rank,24
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[2].source_file,httpx/_urls.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[2].source_symbol,QueryParams.update
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[2].test_symbol,test_iter_raw_increments_updates_counter
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[3].source_rank,24
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[3].source_file,httpx/_urls.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[3].source_symbol,QueryParams.update
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[3].test_symbol,test_aiter_raw_increments_updates_counter
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[4].source_rank,26
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[4].source_file,httpx/_models.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[4].source_symbol,Response.raise_for_status
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[4].test_symbol,test_raise_for_status
+reports/experiments/v5-httpx-test-005.json,evidence.tests[13].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].id,T15
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].file,tests/client/test_redirects.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].best_source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].supporting_sources,4
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].supporting_edges,53
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[0].source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[0].source_file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[0].source_symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[0].test_symbol,redirects
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[1].source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[1].source_file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[1].source_symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[1].test_symbol,test_redirect_301
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[2].source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[2].source_file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[2].source_symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[2].test_symbol,test_redirect_302
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[3].source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[3].source_file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[3].source_symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[3].test_symbol,test_redirect_303
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[4].source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[4].source_file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[4].source_symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[4].test_symbol,test_next_request
+reports/experiments/v5-httpx-test-005.json,evidence.tests[14].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].id,T16
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].file,tests/test_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].best_source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].supporting_sources,1
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].supporting_edges,6
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[0].source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[0].source_file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[0].source_symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[0].test_symbol,test_status_code_value_lookup
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[1].source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[1].source_file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[1].source_symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[1].test_symbol,test_status_code_as_int
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[2].source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[2].source_file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[2].source_symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[2].test_symbol,test_status_code_phrase_lookup
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[3].source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[3].source_file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[3].source_symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[3].test_symbol,test_lowercase_status_code
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[4].source_rank,9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[4].source_file,httpx/_status_codes.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[4].source_symbol,codes
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[4].test_symbol,test_reason_phrase_for_status_code
+reports/experiments/v5-httpx-test-005.json,evidence.tests[15].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].id,T17
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].file,tests/client/test_proxies.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].best_source_rank,14
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].supporting_sources,3
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].supporting_edges,21
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[0].source_rank,14
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[0].source_file,httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[0].source_symbol,HTTPTransport
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[0].test_symbol,test_proxy_with_mounts
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[1].source_rank,14
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[1].source_file,httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[1].source_symbol,HTTPTransport
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[1].test_symbol,test_proxies_parameter
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[2].source_rank,14
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[2].source_file,httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[2].source_symbol,HTTPTransport
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[2].test_symbol,test_socks_proxy_deprecated
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[3].source_rank,14
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[3].source_file,httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[3].source_symbol,HTTPTransport
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[3].test_symbol,test_socks_proxy
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[4].source_rank,14
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[4].source_file,httpx/_transports/default.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[4].source_symbol,HTTPTransport
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[4].test_symbol,test_transport_for_request
+reports/experiments/v5-httpx-test-005.json,evidence.tests[16].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].id,T18
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].file,tests/models/test_cookies.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].best_source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].supporting_sources,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].supporting_edges,6
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[0].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[0].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[0].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[0].test_symbol,test_cookies_update
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[1].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[1].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[1].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[1].test_symbol,test_cookies_with_domain
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[2].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[2].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[2].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[2].test_symbol,test_cookies_with_domain_and_path
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[3].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[3].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[3].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[3].test_symbol,test_multiple_set_cookie
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[4].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[4].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[4].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[4].test_symbol,test_cookies_repr
+reports/experiments/v5-httpx-test-005.json,evidence.tests[17].evidence[4].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].id,T19
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].file,tests/conftest.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].best_source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].supporting_sources,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].supporting_edges,3
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[0].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[0].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[0].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[0].test_symbol,TestServer
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[1].source_rank,22
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[1].source_file,httpx/__init__.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[1].source_symbol,main
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[1].test_symbol,TestServer.install_signal_handlers
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[2].source_rank,24
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[2].source_file,httpx/_urls.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[2].source_symbol,QueryParams.update
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[2].test_symbol,clean_environ
+reports/experiments/v5-httpx-test-005.json,evidence.tests[18].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].id,T20
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].file,tests/test_utils.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].best_source_rank,24
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].supporting_sources,2
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].supporting_edges,4
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[0].source_rank,24
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[0].source_file,httpx/_urls.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[0].source_symbol,QueryParams.update
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[0].test_symbol,test_get_environment_proxies
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[0].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[1].source_rank,27
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[1].source_file,httpx/_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[1].source_symbol,Client
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[1].test_symbol,test_logging_request
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[1].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[2].source_rank,27
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[2].source_file,httpx/_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[2].source_symbol,Client
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[2].test_symbol,test_logging_redirect_chain
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[2].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[3].source_rank,27
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[3].source_file,httpx/_client.py
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[3].source_symbol,Client
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[3].test_symbol,test_logging_ssl
+reports/experiments/v5-httpx-test-005.json,evidence.tests[19].evidence[3].confidence,0.9
+reports/experiments/v5-httpx-test-005.json,llm.provider,TransformersCoderProvider
+reports/experiments/v5-httpx-test-005.json,llm.role,evidence synthesis only
+reports/experiments/v5-httpx-test-005.json,investigation_report,"# Issue Understanding
+The task is to ensure that when required version arguments are missing, the software raises a clear error. This is particularly relevant for the `Version` class in the `httpx/_config.py` module, as it is likely involved in handling version-related configurations.
+
+# Likely Change Locations
+- `httpx/_config.py` - The `Version` class and its `__init__` method are likely the primary locations where version arguments are processed.
+- `tests/test_config.py` - This file contains test cases for the `Version` class, including `test_version` and `test_invalid_version`, which may help identify how version arguments are validated.
+
+# Repository Evidence
+- **`Version` class** in `httpx/_config.py` is defined and includes an `__init__` method [D1], [D2].
+- **`test_version`** and **`test_invalid_version`** in `tests/test_config.py` are test cases that likely validate the behavior of the `Version` class when version arguments are missing or invalid [D3], [D6].
+- **`Version.__init__`** is referenced in multiple test cases, suggesting it is the main method for initializing the class [T3], [T10].
+
+# Suggested Verification
+- Inspect the `Version.__init__` method in `httpx/_config.py` to determine if it validates required version arguments and raises an error when they are missing.
+- Review the test cases `test_version` and `test_invalid_version` in `tests/test_config.py` to understand the expected behavior and validation logic.
+
+# Risks / Uncertainty
+- The exact implementation of `Version.__init__` is not provided, so the behavior of the class when required arguments are missing is not fully known.
+- The test cases may not explicitly cover the error-raising behavior for missing arguments, so further investigation is needed.
+
+# Recommended Next Action
+- Examine the `Version.__init__` method in `httpx/_config.py` to determine if it validates required version arguments and raises an error when they are missing.
+- Review the test cases `test_version` and `test_invalid_version` in `tests/test_config.py` to understand the expected behavior and validation logic."
+reports/experiments/v6-httpx-test-005.json,agent_version,V6
+reports/experiments/v6-httpx-test-005.json,task_id,v6-1b46b0aa2b46
+reports/experiments/v6-httpx-test-005.json,task,Version configuration should raise a clear error when required version arguments are missing.
+reports/experiments/v6-httpx-test-005.json,base_commit,c9f9cb96d2c4dd074ed12e5fff451e6a5e89da89
+reports/experiments/v6-httpx-test-005.json,write_gate.environment_variable,ENABLE_WRITE_TOOLS
+reports/experiments/v6-httpx-test-005.json,write_gate.explicitly_enabled,True
+reports/experiments/v6-httpx-test-005.json,retrieval.primary,V2_BM25_BGE_M3_RRF
+reports/experiments/v6-httpx-test-005.json,retrieval.candidate_count,12
+reports/experiments/v6-httpx-test-005.json,selected_tests[0],tests/test_config.py
+reports/experiments/v6-httpx-test-005.json,workspace,/home/atripathi/projects/repoatlas/workspaces/v6-1b46b0aa2b46
+reports/experiments/v6-httpx-test-005.json,attempts,1
+reports/experiments/v6-httpx-test-005.json,apply_result.ok,True
+reports/experiments/v6-httpx-test-005.json,apply_result.strategy,evidence_line_range_edits
+reports/experiments/v6-httpx-test-005.json,apply_result.applied_edits,2
+reports/experiments/v6-httpx-test-005.json,apply_result.changed_files[0],httpx/_config.py
+reports/experiments/v6-httpx-test-005.json,apply_result.changed_files[1],tests/test_config.py
+reports/experiments/v6-httpx-test-005.json,apply_result.stderr,
+reports/experiments/v6-httpx-test-005.json,test_result.ok,True
+reports/experiments/v6-httpx-test-005.json,test_result.returncode,0
+reports/experiments/v6-httpx-test-005.json,test_result.stdout,".................................                                        [100%]
+=============================== warnings summary ===============================
+../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:451
+  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:451: PytestCacheWarning: could not create cache path /workspace/.pytest_cache/v/cache/nodeids: [Errno 13] Permission denied: '/workspace/.pytest_cache'
+    config.cache.set(""cache/nodeids"", sorted(self.cached_nodeids))
+
+../usr/local/lib/python3.12/site-packages/_pytest/stepwise.py:56
+  /usr/local/lib/python3.12/site-packages/_pytest/stepwise.py:56: PytestCacheWarning: could not create cache path /workspace/.pytest_cache/v/cache/stepwise: [Errno 13] Permission denied: '/workspace/.pytest_cache'
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+33 passed, 2 warnings in 0.37s
+"
+reports/experiments/v6-httpx-test-005.json,test_result.stderr,
+reports/experiments/v6-httpx-test-005.json,test_result.command[0],python
+reports/experiments/v6-httpx-test-005.json,test_result.command[1],-m
+reports/experiments/v6-httpx-test-005.json,test_result.command[2],pytest
+reports/experiments/v6-httpx-test-005.json,test_result.command[3],-q
+reports/experiments/v6-httpx-test-005.json,test_result.command[4],-o
+reports/experiments/v6-httpx-test-005.json,test_result.command[5],filterwarnings=
+reports/experiments/v6-httpx-test-005.json,test_result.command[6],tests/test_config.py
+reports/experiments/v6-httpx-test-005.json,test_result.sandbox.network,none
+reports/experiments/v6-httpx-test-005.json,test_result.sandbox.read_only_root,True
+reports/experiments/v6-httpx-test-005.json,test_result.sandbox.capabilities_dropped,True
+reports/experiments/v6-httpx-test-005.json,quality_results[0].ok,True
+reports/experiments/v6-httpx-test-005.json,quality_results[0].returncode,0
+reports/experiments/v6-httpx-test-005.json,quality_results[0].stdout,
+reports/experiments/v6-httpx-test-005.json,quality_results[0].stderr,
+reports/experiments/v6-httpx-test-005.json,quality_results[0].command[0],ruff
+reports/experiments/v6-httpx-test-005.json,quality_results[0].command[1],check
+reports/experiments/v6-httpx-test-005.json,quality_results[0].command[2],--no-cache
+reports/experiments/v6-httpx-test-005.json,quality_results[0].command[3],httpx/_config.py
+reports/experiments/v6-httpx-test-005.json,quality_results[0].sandbox.network,none
+reports/experiments/v6-httpx-test-005.json,quality_results[0].sandbox.read_only_root,True
+reports/experiments/v6-httpx-test-005.json,quality_results[0].sandbox.capabilities_dropped,True
+reports/experiments/v6-httpx-test-005.json,quality_results[0].tool,ruff
+reports/experiments/v6-httpx-test-005.json,quality_results[0].target,httpx/_config.py
+reports/experiments/v6-httpx-test-005.json,quality_results[1].ok,True
+reports/experiments/v6-httpx-test-005.json,quality_results[1].returncode,0
+reports/experiments/v6-httpx-test-005.json,quality_results[1].stdout,
+reports/experiments/v6-httpx-test-005.json,quality_results[1].stderr,
+reports/experiments/v6-httpx-test-005.json,quality_results[1].command[0],ruff
+reports/experiments/v6-httpx-test-005.json,quality_results[1].command[1],check
+reports/experiments/v6-httpx-test-005.json,quality_results[1].command[2],--no-cache
+reports/experiments/v6-httpx-test-005.json,quality_results[1].command[3],tests/test_config.py
+reports/experiments/v6-httpx-test-005.json,quality_results[1].sandbox.network,none
+reports/experiments/v6-httpx-test-005.json,quality_results[1].sandbox.read_only_root,True
+reports/experiments/v6-httpx-test-005.json,quality_results[1].sandbox.capabilities_dropped,True
+reports/experiments/v6-httpx-test-005.json,quality_results[1].tool,ruff
+reports/experiments/v6-httpx-test-005.json,quality_results[1].target,tests/test_config.py
+reports/experiments/v6-httpx-test-005.json,quality_results[2].ok,True
+reports/experiments/v6-httpx-test-005.json,quality_results[2].returncode,0
+reports/experiments/v6-httpx-test-005.json,quality_results[2].stdout,
+reports/experiments/v6-httpx-test-005.json,quality_results[2].stderr,
+reports/experiments/v6-httpx-test-005.json,quality_results[2].command[0],bandit
+reports/experiments/v6-httpx-test-005.json,quality_results[2].command[1],-q
+reports/experiments/v6-httpx-test-005.json,quality_results[2].command[2],-ll
+reports/experiments/v6-httpx-test-005.json,quality_results[2].command[3],-r
+reports/experiments/v6-httpx-test-005.json,quality_results[2].command[4],httpx/_config.py
+reports/experiments/v6-httpx-test-005.json,quality_results[2].sandbox.network,none
+reports/experiments/v6-httpx-test-005.json,quality_results[2].sandbox.read_only_root,True
+reports/experiments/v6-httpx-test-005.json,quality_results[2].sandbox.capabilities_dropped,True
+reports/experiments/v6-httpx-test-005.json,quality_results[2].tool,bandit
+reports/experiments/v6-httpx-test-005.json,quality_results[2].target,httpx/_config.py
+reports/experiments/v6-httpx-test-005.json,verification.passed,True
+reports/experiments/v6-httpx-test-005.json,verification.checks.non_empty,True
+reports/experiments/v6-httpx-test-005.json,verification.checks.no_obvious_test_suppression,True
+reports/experiments/v6-httpx-test-005.json,verification.checks.expected_file_scope,True
+reports/experiments/v6-httpx-test-005.json,verification.checks.tests_pass,True
+reports/experiments/v6-httpx-test-005.json,verification.checks.quality_pass,True
+reports/experiments/v6-httpx-test-005.json,patch,"diff --git a/httpx/_config.py b/httpx/_config.py
+index 7b786a9..32ffec9 100644
+--- a/httpx/_config.py
++++ b/httpx/_config.py
+@@ -365,6 +365,8 @@ class Proxy:
+ 
+ class Version:
+     def __init__(self, *versions: str) -> None:
++        if not versions:
++            raise ValueError(""At least one version must be provided."")
+         self._versions = sorted(set(versions))
+         if any([version not in [""HTTP/1.1"", ""HTTP/2""] for version in versions]):
+             raise ValueError(""Supported versions are 'HTTP/1.1' and 'HTTP/2'"")
+diff --git a/tests/test_config.py b/tests/test_config.py
+index d24c54b..82d8efd 100644
+--- a/tests/test_config.py
++++ b/tests/test_config.py
+@@ -224,6 +224,8 @@ def test_invalid_proxy_scheme():
+ 
+ 
+ def test_version():
++    with pytest.raises(ValueError):
++        httpx.Version()
+     version = httpx.Version(""HTTP/1.1"", ""HTTP/2"")
+     assert ""HTTP/1.1"" in version
+     assert ""HTTP/2"" in version
+"
+reports/experiments/v6-httpx-test-005.json,original_snapshot.before_sha256,c358f7237879e68e5dcded8967ffee811cc26001ad2d471a09b97445d523ac7e
+reports/experiments/v6-httpx-test-005.json,original_snapshot.after_sha256,c358f7237879e68e5dcded8967ffee811cc26001ad2d471a09b97445d523ac7e
+reports/experiments/v6-httpx-test-005.json,original_snapshot.unchanged,True
+reports/experiments/v6-httpx-test-005.json,safety.writes_target,isolated_workspace_only
+reports/experiments/v6-httpx-test-005.json,safety.original_repository_modified,False
+reports/experiments/v6-httpx-test-005.json,safety.max_attempts,2

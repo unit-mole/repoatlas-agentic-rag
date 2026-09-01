@@ -1,0 +1,39 @@
+{
+  "generated_utc": "2026-09-01T17:50:17.256905+00:00",
+  "git_commit": "1530f4ac9e9777d2d20b71333248cc3bcd2b816e",
+  "source_count": 8,
+  "sources": [
+    {
+      "path": "reports/experiments/full_run_manifest.json",
+      "sha256": "f64947da426ff6f098da28a283848b8888907d0b40a4ab49c47b3c1a602a2c86"
+    },
+    {
+      "path": "reports/experiments/httpx-test-preparation.json",
+      "sha256": "61c591b3f820f88b4cdef4bd317c6ed2bb18df472902327a12999005e2213520"
+    },
+    {
+      "path": "reports/experiments/httpx-test-test-discovery.json",
+      "sha256": "e878db7e7f224aa5a3d3dc0ff1474a608f7a3d4ce9c1073b6b55c763ef4872d5"
+    },
+    {
+      "path": "reports/experiments/httpx-test-v3s-selective-reranker.json",
+      "sha256": "6942594cc3be2f774bc20f4f96e1509852f1102997e3c9c9efefa84270d1c041"
+    },
+    {
+      "path": "reports/experiments/httpx-test-v4p-protected-graph.json",
+      "sha256": "f078c64eea094d5e9ddd9245f2c38dbbf4b662e4a58eae3a2fd5b0cb4a8c840f"
+    },
+    {
+      "path": "reports/experiments/safe_patch_fixture.json",
+      "sha256": "942c5638ace1a8594370ec622ad47d63ca50810c9bb13a60bf70574b0a38344a"
+    },
+    {
+      "path": "reports/experiments/v5-httpx-test-005.json",
+      "sha256": "bc9d0e9cc5b80d5c6f4c4c8f6e64171beb8e5108b413fcdd115274d09eab133e"
+    },
+    {
+      "path": "reports/experiments/v6-httpx-test-005.json",
+      "sha256": "2e478c68ab6e89a9b497d2d5beec8b84f2302a17a3abb0c51a941c6c58b334e9"
+    }
+  ]
+}

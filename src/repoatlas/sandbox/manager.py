@@ -30,13 +30,50 @@ class SandboxManager:
         self.docker = docker or DockerSandbox()
 
     def run_pytest(self, workspace: Path, targets: list[str]):
-        return self.docker.run(workspace, ["python", "-m", "pytest", "-q", *targets])
+        # Some historical repositories reference optional warning classes
+        # from dependencies that are intentionally absent from the minimal
+        # sandbox image. Override only warning-filter configuration so the
+        # focused tests themselves can execute.
+        return self.docker.run(
+            workspace,
+            [
+                "python",
+                "-m",
+                "pytest",
+                "-q",
+                "-o",
+                "filterwarnings=",
+                *targets,
+            ],
+        )
 
     def run_ruff(self, workspace: Path, target: str = "."):
-        return self.docker.run(workspace, ["ruff", "check", target])
+        # The sandbox workspace is intentionally read-only to tooling.
+        # Disable Ruff's cache instead of requesting additional writes.
+        return self.docker.run(
+            workspace,
+            [
+                "ruff",
+                "check",
+                "--no-cache",
+                target,
+            ],
+        )
 
     def run_mypy(self, workspace: Path, target: str = "."):
         return self.docker.run(workspace, ["mypy", target])
 
     def run_bandit(self, workspace: Path, target: str = "."):
-        return self.docker.run(workspace, ["bandit", "-q", "-r", target])
+        # Medium/high security findings block V6 verification.
+        # Low-severity findings remain informational so historical,
+        # pre-existing B101 assertions do not invalidate an unrelated patch.
+        return self.docker.run(
+            workspace,
+            [
+                "bandit",
+                "-q",
+                "-ll",
+                "-r",
+                target,
+            ],
+        )
