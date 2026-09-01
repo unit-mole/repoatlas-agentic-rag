@@ -12,7 +12,6 @@ from repoatlas.graph.test_discovery import (
     discover_related_tests,
 )
 
-
 SYSTEM_PROMPT = """\
 You are RepoAtlas V5, an evidence-grounded software engineering
 investigation agent.
@@ -88,17 +87,12 @@ class V5InvestigationAgent:
         self.provider = provider
 
     def _base_commit(self) -> str | None:
-        marker = (
-            self.repo
-            / ".repoatlas_base_commit"
-        )
+        marker = self.repo / ".repoatlas_base_commit"
 
         if not marker.exists():
             return None
 
-        return marker.read_text(
-            encoding="utf-8"
-        ).strip()
+        return marker.read_text(encoding="utf-8").strip()
 
     def investigate(
         self,
@@ -108,20 +102,12 @@ class V5InvestigationAgent:
         graph_limit: int = 10,
         test_limit: int = 20,
     ) -> dict[str, Any]:
-        task_id = str(
-            uuid.uuid4()
-        )
+        task_id = str(uuid.uuid4())
 
-        direct_hits = list(
-            self.runtime[
-                "hybrid"
-            ].search(task)
-        )[:direct_limit]
+        direct_hits = list(self.runtime["hybrid"].search(task))[:direct_limit]
 
         if not direct_hits:
-            raise RuntimeError(
-                "V2 returned no repository evidence."
-            )
+            raise RuntimeError("V2 returned no repository evidence.")
 
         protected = protected_graph_augmentation(
             direct_hits=direct_hits,
@@ -170,9 +156,7 @@ class V5InvestigationAgent:
         graph_evidence = []
 
         for index, item in enumerate(
-            protected.graph_candidates[
-                :graph_limit
-            ],
+            protected.graph_candidates[:graph_limit],
             start=1,
         ):
             graph_evidence.append(
@@ -192,18 +176,10 @@ class V5InvestigationAgent:
                 {
                     "id": f"T{index}",
                     "file": candidate.file_path,
-                    "best_source_rank": (
-                        candidate.best_source_rank
-                    ),
-                    "supporting_sources": (
-                        candidate.supporting_sources
-                    ),
-                    "supporting_edges": (
-                        candidate.supporting_edges
-                    ),
-                    "evidence": (
-                        candidate.evidence[:5]
-                    ),
+                    "best_source_rank": (candidate.best_source_rank),
+                    "supporting_sources": (candidate.supporting_sources),
+                    "supporting_edges": (candidate.supporting_edges),
+                    "evidence": (candidate.evidence[:5]),
                 }
             )
 
@@ -213,9 +189,7 @@ class V5InvestigationAgent:
             "base_commit": self._base_commit(),
             "direct_v2_evidence": direct_evidence,
             "graph_evidence": graph_evidence,
-            "related_test_evidence": (
-                test_evidence
-            ),
+            "related_test_evidence": (test_evidence),
         }
 
         user_prompt = (
@@ -238,66 +212,31 @@ class V5InvestigationAgent:
         return {
             "task_id": task_id,
             "agent_version": "V5",
-            "mode": (
-                "frozen_retrieval_local_llm"
-            ),
+            "mode": ("frozen_retrieval_local_llm"),
             "task": task,
-            "repository": str(
-                self.repo
-            ),
-            "base_commit": (
-                self._base_commit()
-            ),
+            "repository": str(self.repo),
+            "base_commit": (self._base_commit()),
             "retrieval": {
-                "primary": (
-                    "V2_BM25_BGE_M3_RRF"
-                ),
-                "graph": (
-                    "V4P_PROTECTED_CONTEXT"
-                ),
-                "test_discovery": (
-                    "V2_REVERSE_TESTS"
-                ),
+                "primary": ("V2_BM25_BGE_M3_RRF"),
+                "graph": ("V4P_PROTECTED_CONTEXT"),
+                "test_discovery": ("V2_REVERSE_TESTS"),
                 "v3s_default": False,
-                "direct_hits": len(
-                    direct_hits
-                ),
-                "protected_prefix_size": (
-                    protected.protected_prefix_size
-                ),
-                "graph_candidates": len(
-                    protected.graph_candidates
-                ),
-                "related_tests": len(
-                    discovered_tests
-                ),
+                "direct_hits": len(direct_hits),
+                "protected_prefix_size": (protected.protected_prefix_size),
+                "graph_candidates": len(protected.graph_candidates),
+                "related_tests": len(discovered_tests),
             },
-            "likely_affected_files": (
-                protected.files[:15]
-            ),
-            "likely_primary_symbols": (
-                protected.symbols[:20]
-            ),
-            "related_tests": [
-                item.file_path
-                for item in discovered_tests[
-                    :10
-                ]
-            ],
+            "likely_affected_files": (protected.files[:15]),
+            "likely_primary_symbols": (protected.symbols[:20]),
+            "related_tests": [item.file_path for item in discovered_tests[:10]],
             "evidence": {
                 "direct": direct_evidence,
                 "graph": graph_evidence,
                 "tests": test_evidence,
             },
             "llm": {
-                "provider": (
-                    self.provider.__class__.__name__
-                ),
-                "role": (
-                    "evidence synthesis only"
-                ),
+                "provider": (self.provider.__class__.__name__),
+                "role": ("evidence synthesis only"),
             },
-            "investigation_report": (
-                synthesis
-            ),
+            "investigation_report": (synthesis),
         }

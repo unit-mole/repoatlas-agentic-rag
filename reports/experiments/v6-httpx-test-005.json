@@ -1,0 +1,131 @@
+{
+  "agent_version": "V6",
+  "task_id": "v6-1b46b0aa2b46",
+  "task": "Version configuration should raise a clear error when required version arguments are missing.",
+  "base_commit": "c9f9cb96d2c4dd074ed12e5fff451e6a5e89da89",
+  "write_gate": {
+    "environment_variable": "ENABLE_WRITE_TOOLS",
+    "explicitly_enabled": true
+  },
+  "retrieval": {
+    "primary": "V2_BM25_BGE_M3_RRF",
+    "candidate_count": 12
+  },
+  "selected_tests": [
+    "tests/test_config.py"
+  ],
+  "workspace": "/home/atripathi/projects/repoatlas/workspaces/v6-1b46b0aa2b46",
+  "attempts": 1,
+  "apply_result": {
+    "ok": true,
+    "strategy": "evidence_line_range_edits",
+    "applied_edits": 2,
+    "changed_files": [
+      "httpx/_config.py",
+      "tests/test_config.py"
+    ],
+    "stderr": ""
+  },
+  "test_result": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": ".................................                                        [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:451\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:451: PytestCacheWarning: could not create cache path /workspace/.pytest_cache/v/cache/nodeids: [Errno 13] Permission denied: '/workspace/.pytest_cache'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/stepwise.py:56\n  /usr/local/lib/python3.12/site-packages/_pytest/stepwise.py:56: PytestCacheWarning: could not create cache path /workspace/.pytest_cache/v/cache/stepwise: [Errno 13] Permission denied: '/workspace/.pytest_cache'\n    session.config.cache.set(STEPWISE_CACHE_DIR, [])\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n33 passed, 2 warnings in 0.37s\n",
+    "stderr": "",
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "-q",
+      "-o",
+      "filterwarnings=",
+      "tests/test_config.py"
+    ],
+    "sandbox": {
+      "network": "none",
+      "read_only_root": true,
+      "capabilities_dropped": true
+    }
+  },
+  "quality_results": [
+    {
+      "ok": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "command": [
+        "ruff",
+        "check",
+        "--no-cache",
+        "httpx/_config.py"
+      ],
+      "sandbox": {
+        "network": "none",
+        "read_only_root": true,
+        "capabilities_dropped": true
+      },
+      "tool": "ruff",
+      "target": "httpx/_config.py"
+    },
+    {
+      "ok": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "command": [
+        "ruff",
+        "check",
+        "--no-cache",
+        "tests/test_config.py"
+      ],
+      "sandbox": {
+        "network": "none",
+        "read_only_root": true,
+        "capabilities_dropped": true
+      },
+      "tool": "ruff",
+      "target": "tests/test_config.py"
+    },
+    {
+      "ok": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "command": [
+        "bandit",
+        "-q",
+        "-ll",
+        "-r",
+        "httpx/_config.py"
+      ],
+      "sandbox": {
+        "network": "none",
+        "read_only_root": true,
+        "capabilities_dropped": true
+      },
+      "tool": "bandit",
+      "target": "httpx/_config.py"
+    }
+  ],
+  "verification": {
+    "passed": true,
+    "checks": {
+      "non_empty": true,
+      "no_obvious_test_suppression": true,
+      "expected_file_scope": true,
+      "tests_pass": true,
+      "quality_pass": true
+    },
+    "notes": []
+  },
+  "patch": "diff --git a/httpx/_config.py b/httpx/_config.py\nindex 7b786a9..32ffec9 100644\n--- a/httpx/_config.py\n+++ b/httpx/_config.py\n@@ -365,6 +365,8 @@ class Proxy:\n \n class Version:\n     def __init__(self, *versions: str) -> None:\n+        if not versions:\n+            raise ValueError(\"At least one version must be provided.\")\n         self._versions = sorted(set(versions))\n         if any([version not in [\"HTTP/1.1\", \"HTTP/2\"] for version in versions]):\n             raise ValueError(\"Supported versions are 'HTTP/1.1' and 'HTTP/2'\")\ndiff --git a/tests/test_config.py b/tests/test_config.py\nindex d24c54b..82d8efd 100644\n--- a/tests/test_config.py\n+++ b/tests/test_config.py\n@@ -224,6 +224,8 @@ def test_invalid_proxy_scheme():\n \n \n def test_version():\n+    with pytest.raises(ValueError):\n+        httpx.Version()\n     version = httpx.Version(\"HTTP/1.1\", \"HTTP/2\")\n     assert \"HTTP/1.1\" in version\n     assert \"HTTP/2\" in version\n",
+  "original_snapshot": {
+    "before_sha256": "c358f7237879e68e5dcded8967ffee811cc26001ad2d471a09b97445d523ac7e",
+    "after_sha256": "c358f7237879e68e5dcded8967ffee811cc26001ad2d471a09b97445d523ac7e",
+    "unchanged": true
+  },
+  "safety": {
+    "writes_target": "isolated_workspace_only",
+    "original_repository_modified": false,
+    "max_attempts": 2
+  }
+}

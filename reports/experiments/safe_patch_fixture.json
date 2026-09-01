@@ -1,0 +1,38 @@
+{
+  "applied": {
+    "ok": true,
+    "stdout": "",
+    "stderr": ""
+  },
+  "tests": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": ".                                                                        [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:451\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:451: PytestCacheWarning: could not create cache path /workspace/.pytest_cache/v/cache/nodeids: [Errno 13] Permission denied: '/workspace/.pytest_cache'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/stepwise.py:56\n  /usr/local/lib/python3.12/site-packages/_pytest/stepwise.py:56: PytestCacheWarning: could not create cache path /workspace/.pytest_cache/v/cache/stepwise: [Errno 13] Permission denied: '/workspace/.pytest_cache'\n    session.config.cache.set(STEPWISE_CACHE_DIR, [])\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n1 passed, 2 warnings in 0.01s\n",
+    "stderr": "",
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "-q",
+      "-o",
+      "filterwarnings="
+    ],
+    "sandbox": {
+      "network": "none",
+      "read_only_root": true,
+      "capabilities_dropped": true
+    }
+  },
+  "diff": "diff --git a/src/demo/cache.py b/src/demo/cache.py\nindex 1c18660..10da22b 100644\n--- a/src/demo/cache.py\n+++ b/src/demo/cache.py\n@@ -1,4 +1,4 @@\n class Cache:\n-    def __init__(self, timeout=30): self.timeout=timeout; self.values={}\n+    def __init__(self, timeout=60): self.timeout=timeout; self.values={}\n     def get(self,key): return self.values.get(key)\n     def set(self,key,value): self.values[key]=value\n",
+  "verification": {
+    "passed": true,
+    "checks": {
+      "non_empty": true,
+      "no_obvious_test_suppression": true,
+      "tests_pass": true
+    },
+    "notes": []
+  },
+  "original_unchanged": true,
+  "workspace": "workspaces/fixture-safe-patch"
+}

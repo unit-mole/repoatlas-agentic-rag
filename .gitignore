@@ -59,3 +59,5 @@ dist/
 # Runtime observability/workspaces
 phoenix_data/
 workspaces/
+src/repoatlas.egg-info/
+reports/experiments/archive/
